@@ -61,12 +61,6 @@ public class VideoGamesDatabaseManager {
         System.out.println("Enter 'quit' to quit the database.");
     }
 
-    public static void readVideoGamesCollectionFile() {
-        System.out.println("Enter the file name of the video games database:");
-        String filename = keyboardScanner.nextLine();
-        database.readVideoGameCollectionFile("./" + filename);
-    }
-
     /**
      * Prompt the user the name of the game and console for searching games, or
      * enter '*' to search all games or console. Then perform the search and
@@ -125,6 +119,12 @@ public class VideoGamesDatabaseManager {
             System.out.println("Error: Invalid option, please type 'Yes' or 'No'.");
             option = keyboardScanner.nextLine().toLowerCase();
         }
+    }
+
+    public static void readVideoGamesCollectionFile() {
+        System.out.println("Enter the file name of the video games database:");
+        String filename = keyboardScanner.nextLine();
+        database.readVideoGameCollectionFile("./" + filename);
     }
 
     /**

@@ -17,29 +17,6 @@ public class VideoGamesDatabase {
         searchResults = null;
     }
 
-    public void readVideoGameCollectionFile(String filename) {
-        videoGamesList = new GenericLinkedList<VideoGame>();
-
-        try (Scanner fileScanner = new Scanner(new File(filename))) {
-            while (fileScanner.hasNext()) {
-                String entry = fileScanner.nextLine();
-                String[] fields = entry.split(VideoGame.DELIMITER);
-
-                if (fields.length != VideoGame.NUMBER_OF_FIELDS) {
-                    continue;
-                }
-
-                String videoGameName = fields[0];
-                String videoGameConsole = fields[1];
-
-                VideoGame newVideoGame = new VideoGame(videoGameName, videoGameConsole);
-                videoGamesList.add(newVideoGame);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * Search the video game database by checking if the video games list, the
      * game's name, or the game's console name is null, and if it passes return
@@ -108,6 +85,29 @@ public class VideoGamesDatabase {
         }
 
         return true;
+    }
+
+    public void readVideoGameCollectionFile(String filename) {
+        videoGamesList = new GenericLinkedList<VideoGame>();
+
+        try (Scanner fileScanner = new Scanner(new File(filename))) {
+            while (fileScanner.hasNext()) {
+                String entry = fileScanner.nextLine();
+                String[] fields = entry.split(VideoGame.DELIMITER);
+
+                if (fields.length != VideoGame.NUMBER_OF_FIELDS) {
+                    continue;
+                }
+
+                String videoGameName = fields[0];
+                String videoGameConsole = fields[1];
+
+                VideoGame newVideoGame = new VideoGame(videoGameName, videoGameConsole);
+                videoGamesList.add(newVideoGame);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean writeVideoGamesSearchResults(String filename, boolean append) {
