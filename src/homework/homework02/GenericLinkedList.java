@@ -78,6 +78,9 @@ public class GenericLinkedList<T> {
 
         if (current == head) {
             head = head.link;
+            current = head;
+            previous = null;
+            return;
         }
 
         previous.link = current.link;
@@ -87,5 +90,19 @@ public class GenericLinkedList<T> {
     public void resetCurrent() {
         current = head;
         previous = null;
+    }
+
+    public boolean contains(T data) {
+        if (data == null) {
+            return false;
+        }
+
+        for (Node temp = head; temp != null; temp = temp.link) {
+            if (temp.data.equals(data)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
