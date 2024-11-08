@@ -30,6 +30,7 @@ public class LLQueue<T> implements QueueI<T> {
      * the queue. Else add the data at the end of the linked list queue and mark
      * it as the last element of the queue.
      */
+    @Override
     public void enqueue(T data) {
         if (data == null) {
             return;
@@ -47,6 +48,7 @@ public class LLQueue<T> implements QueueI<T> {
         tail = tail.link;
     }
 
+    @Override
     public T dequeue() {
         if (head == null) {
             return null;
@@ -57,6 +59,7 @@ public class LLQueue<T> implements QueueI<T> {
         return data;
     }
 
+    @Override
     public T peek() {
         if (head == null) {
             return null;
@@ -65,6 +68,7 @@ public class LLQueue<T> implements QueueI<T> {
         return head.data;
     }
 
+    @Override
     public void print() {
         for (Node temp = head; temp != null; temp = temp.link) {
             System.out.println(temp.data);
