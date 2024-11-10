@@ -24,11 +24,10 @@ public class Process {
     }
 
     public void setName(String name) {
-        if (name != null) {
+        if (name != null)
             this.name = name;
-        } else {
+        else
             this.name = "none";
-        }
     }
 
     public double getCompletionTime() {
@@ -36,11 +35,10 @@ public class Process {
     }
 
     public void setCompletionTime(double completionTime) {
-        if (completionTime >= 0.0) {
+        if (completionTime >= 0.0)
             this.completionTime = completionTime;
-        } else {
+        else
             this.completionTime = 0.0;
-        }
     }
 
     @Override
