@@ -108,9 +108,9 @@ public class VideoGamesDatabaseManager {
         String option = keyboardScanner.nextLine().toLowerCase();
 
         while (true) {
-            if (option.equals("no")) {
+            if (option.equals("no"))
                 break;
-            }
+
             if (option.equals("yes")) {
                 writeVideoGamesSearchResults();
                 break;
@@ -148,6 +148,7 @@ public class VideoGamesDatabaseManager {
                 append = false;
                 break;
             }
+
             if (option.equals("yes")) {
                 append = true;
                 break;

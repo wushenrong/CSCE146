@@ -95,9 +95,8 @@ public class WordHelper {
     private static String[] copyStringArray(String[] original) {
         String[] copy = new String[original.length];
 
-        for (int i = 0; i < original.length; i++) {
+        for (int i = 0; i < original.length; i++)
             copy[i] = original[i];
-        }
 
         return copy;
     }
@@ -110,9 +109,8 @@ public class WordHelper {
         int count = 0;
 
         for (int i = 0; i < word.length(); i++) {
-            if (isCharVowel(word.charAt(i))) {
+            if (isCharVowel(word.charAt(i)))
                 count++;
-            }
         }
 
         return count;
@@ -126,9 +124,8 @@ public class WordHelper {
         int count = 0;
 
         for (int i = 0; i < word.length(); i++) {
-            if (!isCharVowel(word.charAt(i))) {
+            if (!isCharVowel(word.charAt(i)))
                 count++;
-            }
         }
 
         return count;

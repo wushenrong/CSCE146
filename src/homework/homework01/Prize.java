@@ -27,11 +27,10 @@ public class Prize {
     }
 
     public void setName(String name) {
-        if (name != null) {
+        if (name != null)
             this.name = name;
-        } else {
+        else
             this.name = "none";
-        }
     }
 
     public double getPrice() {
@@ -39,11 +38,10 @@ public class Prize {
     }
 
     public void setPrice(double price) {
-        if (price >= 0.0) {
+        if (price >= 0.0)
             this.price = price;
-        } else {
+        else
             this.price = 0.0;
-        }
     }
 
     @Override
@@ -51,7 +49,39 @@ public class Prize {
         return "Prize: " + name + " Price: " + price;
     }
 
-    public boolean equals(Prize other) {
-        return other != null && name.equals(other.getName()) && price == other.getPrice();
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        long temp;
+        temp = Double.doubleToLongBits(price);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+
+        if (obj == null)
+            return false;
+
+        if (getClass() != obj.getClass())
+            return false;
+
+        Prize other = (Prize) obj;
+
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+
+        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+            return false;
+
+        return true;
     }
 }
