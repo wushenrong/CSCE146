@@ -33,11 +33,10 @@ public class Fruit implements Comparable<Fruit> {
     }
 
     public void setType(String type) {
-        if (isTypeValid(type)) {
+        if (isTypeValid(type))
             this.type = type;
-        } else {
+        else
             this.type = TYPE_APPLE;
-        }
     }
 
     public double getWeight() {
@@ -45,11 +44,10 @@ public class Fruit implements Comparable<Fruit> {
     }
 
     public void setWeight(double weight) {
-        if (weight > 0.0) {
+        if (weight > 0.0)
             this.weight = weight;
-        } else {
+        else
             this.weight = 1.0;
-        }
     }
 
     @Override
@@ -59,17 +57,14 @@ public class Fruit implements Comparable<Fruit> {
 
     @Override
     public int compareTo(Fruit other) {
-        if (other == null) {
+        if (other == null)
             return -1;
-        }
 
-        if (other.getWeight() > weight) {
+        if (other.getWeight() > weight)
             return -1;
-        }
 
-        if (other.getWeight() < weight) {
+        if (other.getWeight() < weight)
             return 1;
-        }
 
         return other.getType().compareTo(type);
     }
