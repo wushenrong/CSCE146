@@ -27,9 +27,11 @@ public class PrizeGameFrontEnd {
             case 1:
                 newGame();
                 break;
+
             case 9:
                 quit = true;
                 break;
+
             default:
                 System.out.println("Sorry that is not a valid choice.");
                 break;
@@ -69,11 +71,10 @@ public class PrizeGameFrontEnd {
         double guess = keyboardScanner.nextDouble();
         keyboardScanner.nextLine();
 
-        if (prizeGameManager.checkPriceGuess(guess)) {
+        if (prizeGameManager.checkPriceGuess(guess))
             System.out.println("Congratulations, you win!!!");
-        } else {
+        else
             System.out.println("Sorry you lose.");
-        }
 
         System.out.println("The actual price of the 5 prizes is " + totalPrizePrice);
     }

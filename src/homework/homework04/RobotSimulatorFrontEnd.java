@@ -28,9 +28,11 @@ public class RobotSimulatorFrontEnd {
                 System.out.println("Error: The Board is not initialized");
                 simulationEnded = true;
                 break;
+
             case 1:
                 System.out.println("Error: The Robot cannot be placed down on an Obstacle");
                 simulationEnded = true;
+
             default:
                 simulator.printBoard();
                 break;
@@ -44,13 +46,16 @@ public class RobotSimulatorFrontEnd {
                     System.out.println("Error: No Commands received");
                     simulationEnded = true;
                     break;
+
                 case 1:
                     System.out.println("Error: The Robot crashed into an obstacle");
                     simulationEnded = true;
                     break;
+
                 case 2:
                     simulationEnded = true;
                     break;
+
                 default:
                     simulator.printBoard();
                     break;
@@ -93,13 +98,11 @@ public class RobotSimulatorFrontEnd {
             System.out.println("\nDo you want run another simulation? Yes or No");
             String input = keyboardScanner.nextLine();
 
-            if (input.equalsIgnoreCase("Yes")) {
+            if (input.equalsIgnoreCase("Yes"))
                 return false;
-            }
 
-            if (input.equalsIgnoreCase("No")) {
+            if (input.equalsIgnoreCase("No"))
                 return true;
-            }
 
             System.out.println("Error: Invalid input.");
         }

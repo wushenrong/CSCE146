@@ -30,9 +30,8 @@ public class VideoGamesDatabase {
      * search result. Lastly return true as the search was successful.
      */
     public boolean searchVideoGames(String gameQuery, String consoleQuery) {
-        if (videoGamesList == null || gameQuery == null || consoleQuery == null) {
+        if (videoGamesList == null || gameQuery == null || consoleQuery == null)
             return false;
-        }
 
         searchResults = new GenericLinkedList<VideoGame>();
 
@@ -47,17 +46,14 @@ public class VideoGamesDatabase {
             boolean matchedGameName = false;
             boolean matchedGameConsole = false;
 
-            if (gameQuery.equals("*") || gameName.contains(gameQuery.toLowerCase())) {
+            if (gameQuery.equals("*") || gameName.contains(gameQuery.toLowerCase()))
                 matchedGameName = true;
-            }
 
-            if (consoleQuery.equals("*") || gameConsole.contains(consoleQuery.toLowerCase())) {
+            if (consoleQuery.equals("*") || gameConsole.contains(consoleQuery.toLowerCase()))
                 matchedGameConsole = true;
-            }
 
-            if (matchedGameName && matchedGameConsole) {
+            if (matchedGameName && matchedGameConsole)
                 searchResults.add(game);
-            }
 
             videoGamesList.next();
         }
@@ -73,9 +69,8 @@ public class VideoGamesDatabase {
      * return true as all of the results was printed.
      */
     public boolean printVideoGamesSearchResults() {
-        if (searchResults == null) {
+        if (searchResults == null)
             return false;
-        }
 
         searchResults.resetCurrent();
 
@@ -95,9 +90,8 @@ public class VideoGamesDatabase {
                 String entry = fileScanner.nextLine();
                 String[] fields = entry.split(VideoGame.DELIMITER);
 
-                if (fields.length != VideoGame.NUMBER_OF_FIELDS) {
+                if (fields.length != VideoGame.NUMBER_OF_FIELDS)
                     continue;
-                }
 
                 String videoGameName = fields[0];
                 String videoGameConsole = fields[1];
@@ -111,9 +105,8 @@ public class VideoGamesDatabase {
     }
 
     public boolean writeVideoGamesSearchResults(String filename, boolean append) {
-        if (searchResults == null) {
+        if (searchResults == null)
             return false;
-        }
 
         try (PrintWriter fileWriter = new PrintWriter(new FileOutputStream(filename, append))) {
             searchResults.resetCurrent();
