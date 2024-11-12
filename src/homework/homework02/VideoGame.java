@@ -27,10 +27,11 @@ public class VideoGame {
     }
 
     public void setName(String name) {
-        if (name != null)
+        if (name != null) {
             this.name = name;
-        else
+        } else {
             this.name = "unknown";
+        }
     }
 
     public String getConsole() {
@@ -38,10 +39,11 @@ public class VideoGame {
     }
 
     public void setConsole(String console) {
-        if (console != null)
+        if (console != null) {
             this.console = console;
-        else
+        } else {
             this.console = "unknown";
+        }
     }
 
     @Override
@@ -55,28 +57,35 @@ public class VideoGame {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
 
-        if (getClass() != obj.getClass())
+        if (getClass() != obj.getClass()) {
             return false;
+        }
 
         VideoGame other = (VideoGame) obj;
 
         if (name == null) {
-            if (other.name != null)
+            if (other.name != null) {
                 return false;
-        } else if (!name.equals(other.name))
+            }
+        } else if (!name.equals(other.name)) {
             return false;
+        }
 
         if (console == null) {
-            if (other.console != null)
+            if (other.console != null) {
                 return false;
-        } else if (!console.equals(other.console))
+            }
+        } else if (!console.equals(other.console)) {
             return false;
+        }
 
         return true;
     }

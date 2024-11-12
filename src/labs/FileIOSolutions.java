@@ -29,10 +29,11 @@ public class FileIOSolutions {
             while (fileScanner.hasNext()) {
                 String word = fileScanner.next();
 
-                if (word.equals("is"))
+                if (word.equals("is")) {
                     word = "was";
-                else if (word.equals("Is"))
+                } else if (word.equals("Is")) {
                     word = "Was";
+                }
 
                 System.out.println(word);
                 fileWriter.println(word);
@@ -75,8 +76,9 @@ public class FileIOSolutions {
                 String line = fileScanner.nextLine();
                 String[] splitLines = line.split(DELIMITER);
 
-                if (splitLines.length != NUMBER_OF_COLUMNS)
+                if (splitLines.length != NUMBER_OF_COLUMNS) {
                     continue;
+                }
 
                 double radius = Double.parseDouble(splitLines[1]);
                 double height = Double.parseDouble(splitLines[2]);

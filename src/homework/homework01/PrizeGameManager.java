@@ -25,15 +25,17 @@ public class PrizeGameManager {
     }
 
     public void init(int prizeSize) {
-        if (prizeSize >= 1)
+        if (prizeSize >= 1) {
             prizes = new Prize[prizeSize];
-        else
+        } else {
             prizes = new Prize[DEFAULT_PRIZE_SIZE];
+        }
     }
 
     public void addPrize(Prize prize) {
-        if (prize == null)
+        if (prize == null) {
             return;
+        }
 
         for (int i = 0; i < prizes.length; i++) {
             if (prizes[i] == null) {
@@ -75,8 +77,9 @@ public class PrizeGameManager {
         double totalPrizePrice = 0;
 
         for (Prize prize : gamePrizes) {
-            if (prize != null)
+            if (prize != null) {
                 totalPrizePrice += prize.getPrice();
+            }
         }
 
         return totalPrizePrice;
@@ -92,15 +95,17 @@ public class PrizeGameManager {
     public boolean checkPriceGuess(double guess) {
         double totalPrizePrice = getTotalPrizePrice();
 
-        if (guess < totalPrizePrice - PRICE_TOLERANCE || guess > totalPrizePrice)
+        if (guess < totalPrizePrice - PRICE_TOLERANCE || guess > totalPrizePrice) {
             return false;
+        }
 
         return true;
     }
 
     public void printGamePrizes() {
-        for (Prize prize : gamePrizes)
+        for (Prize prize : gamePrizes) {
             System.out.println(prize.getName());
+        }
     }
 
     /**
@@ -133,8 +138,9 @@ public class PrizeGameManager {
                 String line = fileScanner.nextLine();
                 String[] splitLines = line.split(Prize.DELIMITER);
 
-                if (splitLines.length != Prize.NUMBER_OF_FIELDS)
+                if (splitLines.length != Prize.NUMBER_OF_FIELDS) {
                     continue;
+                }
 
                 String prizeName = splitLines[0];
                 Double prizePrice = Double.parseDouble(splitLines[1]);
@@ -154,8 +160,9 @@ public class PrizeGameManager {
      */
     private boolean isGamePrizeSelected(Prize gamePrize) {
         for (Prize prize : gamePrizes) {
-            if (prize != null && prize.equals(gamePrize))
+            if (prize != null && prize.equals(gamePrize)) {
                 return true;
+            }
         }
 
         return false;

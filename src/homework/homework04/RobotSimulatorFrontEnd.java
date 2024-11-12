@@ -98,11 +98,13 @@ public class RobotSimulatorFrontEnd {
             System.out.println("\nDo you want run another simulation? Yes or No");
             String input = keyboardScanner.nextLine();
 
-            if (input.equalsIgnoreCase("Yes"))
+            if (input.equalsIgnoreCase("Yes")) {
                 return false;
+            }
 
-            if (input.equalsIgnoreCase("No"))
+            if (input.equalsIgnoreCase("No")) {
                 return true;
+            }
 
             System.out.println("Error: Invalid input.");
         }

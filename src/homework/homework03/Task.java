@@ -29,10 +29,11 @@ public class Task {
     }
 
     public void setPriority(int priority) {
-        if (priority >= 0 && priority < NUMBER_OF_PRIORITIES)
+        if (priority >= 0 && priority < NUMBER_OF_PRIORITIES) {
             this.priority = priority;
-        else
+        } else {
             this.priority = 4;
+        }
     }
 
     public String getAction() {
@@ -40,10 +41,11 @@ public class Task {
     }
 
     public void setAction(String action) {
-        if (action != null)
+        if (action != null) {
             this.action = action;
-        else
+        } else {
             this.action = "none";
+        }
     }
 
     @Override
@@ -57,25 +59,31 @@ public class Task {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
 
-        if (getClass() != obj.getClass())
+        if (getClass() != obj.getClass()) {
             return false;
+        }
 
         Task other = (Task) obj;
 
-        if (priority != other.priority)
+        if (priority != other.priority) {
             return false;
+        }
 
         if (action == null) {
-            if (other.action != null)
+            if (other.action != null) {
                 return false;
-        } else if (!action.equals(other.action))
+            }
+        } else if (!action.equals(other.action)) {
             return false;
+        }
 
         return true;
     }

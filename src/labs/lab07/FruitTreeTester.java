@@ -36,8 +36,9 @@ public class FruitTreeTester {
                 String line = fileScanner.nextLine();
                 String[] fields = line.split(Fruit.DELIMITER);
 
-                if (fields.length != Fruit.NUMBER_OF_FIELDS)
+                if (fields.length != Fruit.NUMBER_OF_FIELDS) {
                     continue;
+                }
 
                 String fruitType = fields[0];
                 double fruitWeight = Double.parseDouble(fields[1]);

@@ -45,15 +45,17 @@ public class GroceryList {
     }
 
     public GroceryItem getCurrent() {
-        if (current != null)
+        if (current != null) {
             return current.data;
+        }
 
         return null;
     }
 
     public void setCurrent(GroceryItem data) {
-        if (current != null && data != null)
+        if (current != null && data != null) {
             current.data = data;
+        }
     }
 
     /**
@@ -64,8 +66,9 @@ public class GroceryList {
      * node with the item to the node at the end of the list.
      */
     public void addItem(GroceryItem data) {
-        if (data == null)
+        if (data == null) {
             return;
+        }
 
         if (head != null && head.data == null) {
             head.data = data;
@@ -74,8 +77,9 @@ public class GroceryList {
 
         ListNode temp = head;
 
-        while (temp.link != null)
+        while (temp.link != null) {
             temp = temp.link;
+        }
 
         temp.link = new ListNode(data, null);
     }
@@ -88,8 +92,9 @@ public class GroceryList {
      * current node before referencing this node to the current node's link.
      */
     public void addItemAfterCurrent(GroceryItem data) {
-        if (head == null || head.data == null || current == null || data == null)
+        if (head == null || head.data == null || current == null || data == null) {
             return;
+        }
 
         current.link = new ListNode(data, current.link);
     }
@@ -103,8 +108,9 @@ public class GroceryList {
      * node. If the current node is null then do nothing.
      */
     public void removeCurrent() {
-        if (current == null)
+        if (current == null) {
             return;
+        }
 
         if (current == head) {
             head = head.link;
@@ -117,8 +123,9 @@ public class GroceryList {
     }
 
     public void showList() {
-        for (ListNode temp = head; temp != null; temp = temp.link)
+        for (ListNode temp = head; temp != null; temp = temp.link) {
             System.out.println(temp.data);
+        }
     }
 
     /**
@@ -131,8 +138,9 @@ public class GroceryList {
      */
     public boolean contains(GroceryItem data) {
         for (ListNode temp = head; temp != null; temp = temp.link) {
-            if (temp.data.equals(data))
+            if (temp.data.equals(data)) {
                 return true;
+            }
         }
 
         return false;
@@ -141,8 +149,9 @@ public class GroceryList {
     public double totalCost() {
         double totalCost = 0.0;
 
-        for (ListNode temp = head; temp != null; temp = temp.link)
+        for (ListNode temp = head; temp != null; temp = temp.link) {
             totalCost += temp.data.getValue();
+        }
 
         return totalCost;
     }

@@ -24,10 +24,11 @@ public class GroceryItem {
     }
 
     public void setName(String name) {
-        if (name != null)
+        if (name != null) {
             this.name = name;
-        else
+        } else {
             this.name = "none";
+        }
     }
 
     public double getValue() {
@@ -35,10 +36,11 @@ public class GroceryItem {
     }
 
     public void setValue(double value) {
-        if (value >= 0.0)
+        if (value >= 0.0) {
             this.value = value;
-        else
+        } else {
             this.value = 0.0;
+        }
     }
 
     @Override
@@ -54,25 +56,31 @@ public class GroceryItem {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
 
-        if (getClass() != obj.getClass())
+        if (getClass() != obj.getClass()) {
             return false;
+        }
 
         GroceryItem other = (GroceryItem) obj;
 
         if (name == null) {
-            if (other.name != null)
+            if (other.name != null) {
                 return false;
-        } else if (!name.equals(other.name))
+            }
+        } else if (!name.equals(other.name)) {
             return false;
+        }
 
-        if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
+        if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value)) {
             return false;
+        }
 
         return true;
     }

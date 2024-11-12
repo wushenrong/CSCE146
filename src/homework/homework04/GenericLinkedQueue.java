@@ -25,8 +25,9 @@ public class GenericLinkedQueue<T> {
     }
 
     public void enqueue(T data) {
-        if (data == null)
+        if (data == null) {
             return;
+        }
 
         Node temp = new Node(data, null);
 
@@ -41,8 +42,9 @@ public class GenericLinkedQueue<T> {
     }
 
     public T dequeue() {
-        if (head == null)
+        if (head == null) {
             return null;
+        }
 
         T data = head.data;
         head = head.link;
@@ -50,14 +52,16 @@ public class GenericLinkedQueue<T> {
     }
 
     public T peek() {
-        if (head == null)
+        if (head == null) {
             return null;
+        }
 
         return head.data;
     }
 
     public void print() {
-        for (Node temp = head.link; temp != null; temp = temp.link)
+        for (Node temp = head.link; temp != null; temp = temp.link) {
             System.out.println(temp.data);
+        }
     }
 }

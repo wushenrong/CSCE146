@@ -22,8 +22,9 @@ public class TaskOrganizer {
     public void init() {
         organizedTasks = new GenericLinkedList[Task.NUMBER_OF_PRIORITIES];
 
-        for (int priority = 0; priority < organizedTasks.length; priority++)
+        for (int priority = 0; priority < organizedTasks.length; priority++) {
             organizedTasks[priority] = new GenericLinkedList<Task>();
+        }
     }
 
     /**
@@ -32,8 +33,9 @@ public class TaskOrganizer {
      * skip the task. Then add the task to the task list.
      */
     public void addTask(Task data) {
-        if (data == null)
+        if (data == null) {
             return;
+        }
 
         int taskPriority = data.getPriority();
 
@@ -100,8 +102,9 @@ public class TaskOrganizer {
                 String entry = fileScanner.nextLine();
                 String[] fields = entry.split(Task.DELIMITER);
 
-                if (fields.length != Task.NUMBER_OF_FIELDS)
+                if (fields.length != Task.NUMBER_OF_FIELDS) {
                     continue;
+                }
 
                 int taskPriority = Integer.parseInt(fields[0]);
                 String taskAction = fields[1];

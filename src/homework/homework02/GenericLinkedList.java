@@ -27,8 +27,9 @@ public class GenericLinkedList<T> {
     }
 
     public void add(T data) {
-        if (data == null)
+        if (data == null) {
             return;
+        }
 
         if (head == null) {
             head = new Node(data, null);
@@ -38,8 +39,9 @@ public class GenericLinkedList<T> {
 
         Node temp = head;
 
-        while (temp.link != null)
+        while (temp.link != null) {
             temp = temp.link;
+        }
 
         temp.link = new Node(data, null);
     }
@@ -56,20 +58,23 @@ public class GenericLinkedList<T> {
     }
 
     public T getCurrent() {
-        if (current == null)
+        if (current == null) {
             return null;
+        }
 
         return current.data;
     }
 
     public void setCurrent(T data) {
-        if (current != null && data != null)
+        if (current != null && data != null) {
             current.data = data;
+        }
     }
 
     public void removeCurrent() {
-        if (current == null)
+        if (current == null) {
             return;
+        }
 
         if (current == head) {
             head = head.link;
@@ -88,12 +93,14 @@ public class GenericLinkedList<T> {
     }
 
     public boolean contains(T data) {
-        if (data == null)
+        if (data == null) {
             return false;
+        }
 
         for (Node temp = head; temp != null; temp = temp.link) {
-            if (temp.data.equals(data))
+            if (temp.data.equals(data)) {
                 return true;
+            }
         }
 
         return false;

@@ -41,11 +41,13 @@ public class RobotSimulator {
     public int startSimulation() {
         commandCounter = 0;
 
-        if (board == null)
+        if (board == null) {
             return -1;
+        }
 
-        if (isPositionObstacle(robotXPosition, robotYPosition))
+        if (isPositionObstacle(robotXPosition, robotYPosition)) {
             return 1;
+        }
 
         robotXPosition = START_POSITION;
         robotYPosition = START_POSITION;
@@ -64,14 +66,16 @@ public class RobotSimulator {
      * board to move the robot and return 0.
      */
     public int runNextCommand() {
-        if (commandsToRun == null)
+        if (commandsToRun == null) {
             return -1;
+        }
 
         String command = commandsToRun.dequeue();
         commandCounter++;
 
-        if (command == null)
+        if (command == null) {
             return 2;
+        }
 
         System.out.println("Command " + commandCounter + ": " + command);
 
@@ -99,11 +103,13 @@ public class RobotSimulator {
             return 3;
         }
 
-        if (!isPositionValid(robotXPosition) || !isPositionValid(robotYPosition))
+        if (!isPositionValid(robotXPosition) || !isPositionValid(robotYPosition)) {
             return 1;
+        }
 
-        if (isPositionObstacle(robotXPosition, robotYPosition))
+        if (isPositionObstacle(robotXPosition, robotYPosition)) {
             return 1;
+        }
 
         board[robotYPosition][robotXPosition] = ROBOT;
         board[previousYPosition][previousXPosition] = EMPTY;
@@ -126,8 +132,9 @@ public class RobotSimulator {
 
     public void printBoard() {
         for (int row = 0; row < board.length; row++) {
-            for (int column = 0; column < board[row].length; column++)
+            for (int column = 0; column < board[row].length; column++) {
                 System.out.print(board[row][column]);
+            }
 
             System.out.println();
         }
@@ -150,8 +157,9 @@ public class RobotSimulator {
             while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine();
 
-                for (int column = 0; column < line.length(); column++)
+                for (int column = 0; column < line.length(); column++) {
                     board[row][column] = line.charAt(column);
+                }
 
                 row++;
             }
@@ -164,8 +172,9 @@ public class RobotSimulator {
         commandsToRun = new GenericLinkedQueue<String>();
 
         try (Scanner fileScanner = new Scanner(new File(filename))) {
-            while (fileScanner.hasNextLine())
+            while (fileScanner.hasNextLine()) {
                 commandsToRun.enqueue(fileScanner.nextLine());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

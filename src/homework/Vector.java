@@ -75,8 +75,9 @@ public class Vector {
             } else if (input.equalsIgnoreCase("Q")) {
                 System.out.println("Goodbye");
                 break;
-            } else
+            } else {
                 System.out.println("Error: Invalid selection. Please try again");
+            }
 
             System.out.println();
         }
@@ -122,8 +123,9 @@ public class Vector {
     public static double[] addVectors(double[] vector1, double[] vector2) {
         double[] output = new double[vector1.length];
 
-        for (int i = 0; i < output.length; i++)
+        for (int i = 0; i < output.length; i++) {
             output[i] = vector1[i] + vector2[i];
+        }
 
         return output;
     }
@@ -135,8 +137,9 @@ public class Vector {
     public static double[] subtractVectors(double[] vector1, double[] vector2) {
         double[] outputVector = new double[vector1.length];
 
-        for (int i = 0; i < outputVector.length; i++)
+        for (int i = 0; i < outputVector.length; i++) {
             outputVector[i] = vector1[i] - vector2[i];
+        }
 
         return outputVector;
     }
@@ -148,8 +151,9 @@ public class Vector {
     public static double findVectorMagnitude(double[] vector) {
         double magnitude = 0.0;
 
-        for (double component : vector)
+        for (double component : vector) {
             magnitude += component * component;
+        }
 
         return Math.sqrt(magnitude);
     }
@@ -164,8 +168,9 @@ public class Vector {
         for (int i = 0; i < vector.length; i++) {
             output.append(vector[i]);
 
-            if (i < vector.length - 1)
+            if (i < vector.length - 1) {
                 output.append(", ");
+            }
         }
 
         return output.append(">").toString();

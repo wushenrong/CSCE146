@@ -32,8 +32,9 @@ public class LLQueue<T> implements QueueI<T> {
      */
     @Override
     public void enqueue(T data) {
-        if (data == null)
+        if (data == null) {
             return;
+        }
 
         Node temp = new Node(data, null);
 
@@ -49,8 +50,9 @@ public class LLQueue<T> implements QueueI<T> {
 
     @Override
     public T dequeue() {
-        if (head == null)
+        if (head == null) {
             return null;
+        }
 
         T data = head.data;
         head = head.link;
@@ -59,15 +61,17 @@ public class LLQueue<T> implements QueueI<T> {
 
     @Override
     public T peek() {
-        if (head == null)
+        if (head == null) {
             return null;
+        }
 
         return head.data;
     }
 
     @Override
     public void print() {
-        for (Node temp = head; temp != null; temp = temp.link)
+        for (Node temp = head; temp != null; temp = temp.link) {
             System.out.println(temp.data);
+        }
     }
 }

@@ -32,8 +32,9 @@ public class DoubleDoubleLL {
     }
 
     public void add(Double data) {
-        if (data == null)
+        if (data == null) {
             return;
+        }
 
         if (head == null) {
             head = new DoubleNode(data, null, null);
@@ -43,15 +44,17 @@ public class DoubleDoubleLL {
 
         DoubleNode temp = head;
 
-        while (temp.nextLink != null)
+        while (temp.nextLink != null) {
             temp = temp.nextLink;
+        }
 
         temp.nextLink = new DoubleNode(data, null, temp);
     }
 
     public void remove(Double data) {
-        if (data == null)
+        if (data == null) {
             return;
+        }
 
         if (head != null && head.data.equals(data)) {
             head = head.nextLink;
@@ -62,20 +65,24 @@ public class DoubleDoubleLL {
         DoubleNode temp = head;
 
         while (temp != null) {
-            if (temp.data.equals(data))
+            if (temp.data.equals(data)) {
                 break;
+            }
 
             temp = temp.nextLink;
         }
 
-        if (temp == null)
+        if (temp == null) {
             return;
+        }
 
-        if (temp.previousLink != null)
+        if (temp.previousLink != null) {
             temp.previousLink.nextLink = temp.nextLink;
+        }
 
-        if (temp.nextLink != null)
+        if (temp.nextLink != null) {
             temp.nextLink.previousLink = temp.previousLink;
+        }
     }
 
     /**
@@ -84,15 +91,17 @@ public class DoubleDoubleLL {
      * list.
      */
     public void gotoNext() {
-        if (current == null)
+        if (current == null) {
             return;
+        }
 
         current = current.nextLink;
     }
 
     public void gotoPrev() {
-        if (current == null)
+        if (current == null) {
             return;
+        }
 
         current = current.previousLink;
     }
@@ -109,8 +118,9 @@ public class DoubleDoubleLL {
 
         DoubleNode temp = head;
 
-        while (temp.nextLink != null)
+        while (temp.nextLink != null) {
             temp = temp.nextLink;
+        }
 
         current = temp;
     }
@@ -129,15 +139,17 @@ public class DoubleDoubleLL {
      * that was created if it is not null.
      */
     public void addAfterCurrent(Double data) {
-        if (current == null || data == null)
+        if (current == null || data == null) {
             return;
+        }
 
         DoubleNode temp = current.nextLink;
 
         current.nextLink = new DoubleNode(data, temp, current);
 
-        if (temp != null)
+        if (temp != null) {
             temp.previousLink = current.nextLink;
+        }
     }
 
     /**
@@ -154,8 +166,9 @@ public class DoubleDoubleLL {
      * node to the next node.
      */
     public void removeCurrent() {
-        if (current == null)
+        if (current == null) {
             return;
+        }
 
         if (current == head) {
             head = head.nextLink;
@@ -180,20 +193,23 @@ public class DoubleDoubleLL {
      * class wrapper type so it can return null if the current node is null.
      */
     public Double getCurrent() {
-        if (current == null)
+        if (current == null) {
             return null;
+        }
 
         return current.data;
     }
 
     public void setCurrent(Double data) {
-        if (current != null && data != null)
+        if (current != null && data != null) {
             current.data = data;
+        }
     }
 
     public void print() {
-        for (DoubleNode temp = head; temp != null; temp = temp.nextLink)
+        for (DoubleNode temp = head; temp != null; temp = temp.nextLink) {
             System.out.println(temp.data);
+        }
     }
 
     /**
@@ -202,12 +218,14 @@ public class DoubleDoubleLL {
      * using the Double class wrapper instead of the double primitive.
      */
     public boolean contains(Double data) {
-        if (data == null)
+        if (data == null) {
             return false;
+        }
 
         for (DoubleNode temp = head; temp != null; temp = temp.nextLink) {
-            if (temp.data.equals(data))
+            if (temp.data.equals(data)) {
                 return true;
+            }
         }
 
         return false;
