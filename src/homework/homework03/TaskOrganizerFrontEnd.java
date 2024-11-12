@@ -112,7 +112,6 @@ public class TaskOrganizerFrontEnd {
      */
     public static String promptFileName(String prompt) {
         System.out.println(prompt);
-        String filename = keyboardScanner.nextLine();
-        return filename;
+        return keyboardScanner.nextLine();
     }
 }
