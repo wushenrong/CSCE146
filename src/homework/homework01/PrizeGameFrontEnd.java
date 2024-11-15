@@ -27,9 +27,11 @@ public class PrizeGameFrontEnd {
             case 1:
                 newGame();
                 break;
+
             case 9:
                 quit = true;
                 break;
+
             default:
                 System.out.println("Sorry that is not a valid choice.");
                 break;

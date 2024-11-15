@@ -111,6 +111,7 @@ public class VideoGamesDatabaseManager {
             if (option.equals("no")) {
                 break;
             }
+
             if (option.equals("yes")) {
                 writeVideoGamesSearchResults();
                 break;
@@ -148,6 +149,7 @@ public class VideoGamesDatabaseManager {
                 append = false;
                 break;
             }
+
             if (option.equals("yes")) {
                 append = true;
                 break;

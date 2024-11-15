@@ -86,15 +86,19 @@ public class RobotSimulator {
         case UP:
             robotYPosition -= 1;
             break;
+
         case DOWN:
             robotYPosition += 1;
             break;
+
         case LEFT:
             robotXPosition -= 1;
             break;
+
         case RIGHT:
             robotXPosition += 1;
             break;
+
         default:
             return 3;
         }

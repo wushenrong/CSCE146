@@ -44,11 +44,49 @@ public class GroceryItem {
     }
 
     @Override
-    public String toString() {
-        return "Grocery Item Name: " + name + " Value: " + value;
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        long temp;
+        temp = Double.doubleToLongBits(value);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
-    public boolean equals(GroceryItem other) {
-        return other != null && name.equals(other.getName()) && value == other.getValue();
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        GroceryItem other = (GroceryItem) obj;
+
+        if (name == null) {
+            if (other.name != null) {
+                return false;
+            }
+        } else if (!name.equals(other.name)) {
+            return false;
+        }
+
+        if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Grocery Item Name: " + name + " Value: " + value;
     }
 }

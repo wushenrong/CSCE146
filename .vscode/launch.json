@@ -59,6 +59,13 @@
             "request": "launch",
             "mainClass": "labs.lab06.SortSorter",
             "projectName": "CSCE146Solutions_bc24c4b4"
+        },
+        {
+            "type": "java",
+            "name": "FruitTreeTester",
+            "request": "launch",
+            "mainClass": "labs.lab07.FruitTreeTester",
+            "projectName": "CSCE146Solutions_bc24c4b4"
         }
     ]
 }
