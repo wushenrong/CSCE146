@@ -69,7 +69,6 @@ public class RobotSimulatorFrontEnd {
         System.out.println("Goodbye!");
 
         keyboardScanner.close();
-
     }
 
     public static void printGreetings() {
