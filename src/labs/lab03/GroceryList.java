@@ -6,21 +6,6 @@
 package labs.lab03;
 
 public class GroceryList {
-    private class ListNode {
-        GroceryItem data;
-        ListNode link;
-
-        public ListNode() {
-            data = null;
-            link = null;
-        }
-
-        public ListNode(GroceryItem data, ListNode link) {
-            this.data = data;
-            this.link = link;
-        }
-    }
-
     private ListNode head;
     private ListNode current;
     private ListNode previous;
@@ -154,5 +139,20 @@ public class GroceryList {
         }
 
         return totalCost;
+    }
+
+    private class ListNode {
+        GroceryItem data;
+        ListNode link;
+
+        ListNode() {
+            data = null;
+            link = null;
+        }
+
+        ListNode(GroceryItem data, ListNode link) {
+            this.data = data;
+            this.link = link;
+        }
     }
 }

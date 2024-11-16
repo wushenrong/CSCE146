@@ -9,9 +9,8 @@ import java.util.Scanner;
 
 public class SortSorter {
     public static final String SORT_STRING = "sort";
-
-    public static Scanner keyboardScanner = new Scanner(System.in);
-    public static StringLinkedQueue stringsToBeSorted = new StringLinkedQueue();
+    public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
+    private static StringLinkedQueue stringsQueue = new StringLinkedQueue();
 
     /**
      * Sort strings by "sort" by asking the user strings with "sort" and enqueue
@@ -21,7 +20,6 @@ public class SortSorter {
      * they want to sort more strings.
      */
     public static void main(String[] args) {
-
         System.out.println("Welcome to the Sort Sorter!");
 
         boolean quit = false;
@@ -30,20 +28,20 @@ public class SortSorter {
             System.out.println("Just hit enter when you are done entering strings\n");
 
             while (true) {
-                String input = keyboardScanner.nextLine();
+                String input = KEYBOARD_SCANNER.nextLine();
 
                 if (input.equals("")) {
                     break;
                 }
 
-                stringsToBeSorted.enqueue(input);
+                stringsQueue.enqueue(input);
             }
 
-            int numberOfStrings = stringsToBeSorted.countStrings();
+            int numberOfStrings = stringsQueue.countStrings();
             String[] sortedSortStrings = new String[numberOfStrings];
 
             for (int i = 0; i < numberOfStrings; i++) {
-                sortedSortStrings[i] = stringsToBeSorted.dequeue();
+                sortedSortStrings[i] = stringsQueue.dequeue();
             }
 
             sortSortStrings(sortedSortStrings);
@@ -55,7 +53,7 @@ public class SortSorter {
             quit = promptToSortNewStrings();
         }
 
-        keyboardScanner.close();
+        KEYBOARD_SCANNER.close();
     }
 
     /**
@@ -126,7 +124,7 @@ public class SortSorter {
     public static boolean promptToSortNewStrings() {
         while (true) {
             System.out.println("\nDo you want run sort more strings? Yes or No");
-            String input = keyboardScanner.nextLine();
+            String input = KEYBOARD_SCANNER.nextLine();
 
             if (input.equalsIgnoreCase("Yes")) {
                 return false;

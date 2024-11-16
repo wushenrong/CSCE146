@@ -19,11 +19,12 @@ public class TaskOrganizer {
         init();
     }
 
+    @SuppressWarnings("unchecked")
     public void init() {
         organizedTasks = new GenericLinkedList[Task.NUMBER_OF_PRIORITIES];
 
         for (int priority = 0; priority < organizedTasks.length; priority++) {
-            organizedTasks[priority] = new GenericLinkedList<Task>();
+            organizedTasks[priority] = new GenericLinkedList<>();
         }
     }
 

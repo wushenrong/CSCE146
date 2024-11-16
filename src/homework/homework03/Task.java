@@ -7,6 +7,7 @@ package homework.homework03;
 
 public class Task {
     public static final int NUMBER_OF_PRIORITIES = 5;
+    public static final int DEFAULT_PRIORITY = 4;
 
     public static final String DELIMITER = "\t";
     public static final int NUMBER_OF_FIELDS = 2;
@@ -15,7 +16,7 @@ public class Task {
     private String action;
 
     public Task() {
-        priority = 4;
+        priority = DEFAULT_PRIORITY;
         action = "none";
     }
 
@@ -32,7 +33,7 @@ public class Task {
         if (priority >= 0 && priority < NUMBER_OF_PRIORITIES) {
             this.priority = priority;
         } else {
-            this.priority = 4;
+            this.priority = DEFAULT_PRIORITY;
         }
     }
 

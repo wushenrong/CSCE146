@@ -61,7 +61,7 @@ public class RobotSimulator {
      * to run is empty, return -1. If there are no commands to run next, return
      * 2. Next store the robot's previous position into temporary variables.
      * Next check if the command is valid, then move up, down, left, or right.
-     * Else if the command is invalid return 3. Then check if the robot is
+     * Else if the command is invalid do nothing. Then check if the robot is
      * outside of the board or hits an obstacle, return false. Else update the
      * board to move the robot and return 0.
      */
@@ -100,7 +100,7 @@ public class RobotSimulator {
             break;
 
         default:
-            return 3;
+            break;
         }
 
         if (!isPositionValid(robotXPosition) || !isPositionValid(robotYPosition)) {
@@ -169,7 +169,7 @@ public class RobotSimulator {
     }
 
     public void readCommandFile(String filename) {
-        commandsToRun = new GenericLinkedQueue<String>();
+        commandsToRun = new GenericLinkedQueue<>();
 
         try (Scanner fileScanner = new Scanner(new File(filename))) {
             while (fileScanner.hasNextLine()) {

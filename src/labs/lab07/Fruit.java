@@ -12,8 +12,8 @@ public class Fruit implements Comparable<Fruit> {
     public static final String TYPE_APPLE = "Apple";
     public static final String TYPE_ORANGE = "Orange";
     public static final String TYPE_BANANA = "Banana";
-    public static final String TYPE_KIWI = "KIWI";
-    public static final String TYPE_TOMATO = "TOMATO";
+    public static final String TYPE_KIWI = "Kiwi";
+    public static final String TYPE_TOMATO = "Tomato";
 
     private String type;
     private double weight;
@@ -54,28 +54,76 @@ public class Fruit implements Comparable<Fruit> {
 
     @Override
     public String toString() {
-        return "Type: " + type + " Weight: " + weight;
+        return "Type: " + type + DELIMITER + "Weight: " + weight;
     }
 
+    /**
+     * Compare a fruit to another by their weights, if the current fruit is less
+     * than the other fruit, return -1. If the current fruit is greater than the
+     * other fruit, return 1. Else return -1, 1, or 0 by comparing their type
+     * alphabetically.
+     */
     @Override
     public int compareTo(Fruit other) {
         if (other == null) {
             return -1;
         }
 
-        if (other.getWeight() > weight) {
+        if (weight < other.getWeight()) {
             return -1;
         }
 
-        if (other.getWeight() < weight) {
+        if (weight > other.getWeight()) {
             return 1;
         }
 
-        return other.getType().compareTo(type);
+        return type.compareTo(other.getType());
     }
 
-    private boolean isTypeValid(String type) {
-        return type.equals(TYPE_APPLE) || type.equals(TYPE_ORANGE) || type.equals(TYPE_BANANA) || type.equals(TYPE_KIWI)
-                || type.equals(TYPE_TOMATO);
+    /**
+     * Check if the type of the fruit is either an apple, orange, banana, kiwi,
+     * or tomato.
+     */
+    private boolean isTypeValid(String fruitType) {
+        return fruitType.equals(TYPE_APPLE) || fruitType.equals(TYPE_ORANGE) || fruitType.equals(TYPE_BANANA)
+                || fruitType.equals(TYPE_KIWI) || fruitType.equals(TYPE_TOMATO);
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((type == null) ? 0 : type.hashCode());
+        long temp;
+        temp = Double.doubleToLongBits(weight);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Fruit other = (Fruit) obj;
+
+        if (type == null) {
+            if (other.type != null) {
+                return false;
+            }
+        } else if (!type.equals(other.type)) {
+            return false;
+        }
+
+        return Double.doubleToLongBits(weight) != Double.doubleToLongBits(other.weight);
     }
 }

@@ -6,16 +6,6 @@
 package homework.homework02;
 
 public class GenericLinkedList<T> {
-    private class Node {
-        T data;
-        Node link;
-
-        public Node(T data, Node link) {
-            this.data = data;
-            this.link = link;
-        }
-    }
-
     private Node head;
     private Node current;
     private Node previous;
@@ -104,5 +94,15 @@ public class GenericLinkedList<T> {
         }
 
         return false;
+    }
+
+    private class Node {
+        T data;
+        Node link;
+
+        Node(T data, Node link) {
+            this.data = data;
+            this.link = link;
+        }
     }
 }

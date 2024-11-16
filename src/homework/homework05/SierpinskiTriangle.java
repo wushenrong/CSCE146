@@ -15,8 +15,8 @@ public class SierpinskiTriangle extends Canvas {
     public static final int NUMBER_OF_POINTS = 3;
     public static final int MAX_DEPTH = 4;
 
-    public static final Color black = new Color(0, 0, 0);
-    public static final Color white = new Color(255, 255, 255);
+    public static final Color BLACK = new Color(0, 0, 0);
+    public static final Color WHITE = new Color(255, 255, 255);
 
     /**
      * Draw the initial triangle right side up triangle from the top middle of
@@ -28,9 +28,9 @@ public class SierpinskiTriangle extends Canvas {
         int[] mainTriangleXPoints = { this.getWidth() / 2, 0, this.getWidth() };
         int[] mainTriangleYPoints = { 0, this.getHeight(), this.getHeight() };
 
-        g.setColor(black);
+        g.setColor(BLACK);
         g.fillPolygon(mainTriangleXPoints, mainTriangleYPoints, NUMBER_OF_POINTS);
-        g.setColor(white);
+        g.setColor(WHITE);
 
         Point top = new Point(mainTriangleXPoints[0], mainTriangleYPoints[0]);
         Point left = new Point(mainTriangleXPoints[1], mainTriangleYPoints[1]);
@@ -48,10 +48,8 @@ public class SierpinskiTriangle extends Canvas {
             return;
         }
 
-        /**
-         * Get the left, right, and bottom points of the divided triangle, this
-         * equally splits the triangle into similar small triangles.
-         */
+        // Get the left, right, and bottom points of the divided triangle, this
+        // equally splits the triangle into similar small triangles.
         Point subLeft = midpoint(top, left);
         Point subRight = midpoint(top, right);
         Point subBottom = midpoint(left, right);
@@ -64,15 +62,13 @@ public class SierpinskiTriangle extends Canvas {
 
         g.fillPolygon(triangle);
 
-        /**
-         * Recursively draw the triangles. The region for the top triangle is
-         * the top point of the main triangle, and the left and right point of
-         * the upside down triangle. The region for the left triangle is the
-         * left point of the main triangle and the left and bottom point of the
-         * of the upside down triangle. The region for the right triangle is the
-         * right point of the main triangle and the right and bottom point of
-         * the of the upside down triangle.
-         */
+        // Recursively draw the triangles. The region for the top triangle is
+        // the top point of the main triangle, and the left and right point of
+        // the upside down triangle. The region for the left triangle is the
+        // left point of the main triangle and the left and bottom point of the
+        // of the upside down triangle. The region for the right triangle is the
+        // right point of the main triangle and the right and bottom point of
+        // the of the upside down triangle.
         drawTriangles(g, top, subLeft, subRight, depth + 1);
         drawTriangles(g, subLeft, left, subBottom, depth + 1);
         drawTriangles(g, subRight, subBottom, right, depth + 1);

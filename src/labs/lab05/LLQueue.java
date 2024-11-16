@@ -6,16 +6,6 @@
 package labs.lab05;
 
 public class LLQueue<T> implements QueueI<T> {
-    private class Node {
-        T data;
-        Node link;
-
-        public Node(T data, Node link) {
-            this.data = data;
-            this.link = link;
-        }
-    }
-
     private Node head;
     private Node tail;
 
@@ -72,6 +62,16 @@ public class LLQueue<T> implements QueueI<T> {
     public void print() {
         for (Node temp = head; temp != null; temp = temp.link) {
             System.out.println(temp.data);
+        }
+    }
+
+    private class Node {
+        T data;
+        Node link;
+
+        Node(T data, Node link) {
+            this.data = data;
+            this.link = link;
         }
     }
 }

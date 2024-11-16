@@ -9,18 +9,16 @@ package homework;
 import java.util.Scanner;
 
 public class Vector {
-    public static Scanner keyboardScanner = new Scanner(System.in);
+    public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
         System.out.println("Vector Operations Program");
 
         String input = "";
 
-        /**
-         * Continually prints out the user interface and performs the correct
-         * operation based on user selection until the user enters 'Q' which
-         * break out of the loop.
-         */
+        // Continually prints out the user interface and performs the correct
+        // operation based on user selection until the user enters 'Q' which
+        // break out of the loop.
         while (true) {
             System.out.println("Please make a selection:");
             System.out.println("Enter A to add 2 vectors");
@@ -28,7 +26,7 @@ public class Vector {
             System.out.println("Enter M to find the magnitude of a vector");
             System.out.println("Enter Q to quit");
 
-            input = keyboardScanner.nextLine();
+            input = KEYBOARD_SCANNER.nextLine();
 
             if (input.equalsIgnoreCase("A")) {
                 System.out.println("Enter the size of the vectors:");
@@ -82,7 +80,7 @@ public class Vector {
             System.out.println();
         }
 
-        keyboardScanner.close();
+        KEYBOARD_SCANNER.close();
     }
 
     /**
@@ -90,13 +88,13 @@ public class Vector {
      * ask the user to input a valid size.
      */
     public static int getVectorSize() {
-        int vectorSize = keyboardScanner.nextInt();
-        keyboardScanner.nextLine();
+        int vectorSize = KEYBOARD_SCANNER.nextInt();
+        KEYBOARD_SCANNER.nextLine();
 
         while (vectorSize <= 0) {
             System.out.println("Error: Invalid size. Please try again");
-            vectorSize = keyboardScanner.nextInt();
-            keyboardScanner.nextLine();
+            vectorSize = KEYBOARD_SCANNER.nextInt();
+            KEYBOARD_SCANNER.nextLine();
         }
 
         return vectorSize;
@@ -109,8 +107,8 @@ public class Vector {
         double[] vector = new double[vectorSize];
 
         for (int i = 0; i < vector.length; i++) {
-            vector[i] = keyboardScanner.nextDouble();
-            keyboardScanner.nextLine();
+            vector[i] = KEYBOARD_SCANNER.nextDouble();
+            KEYBOARD_SCANNER.nextLine();
         }
 
         return vector;

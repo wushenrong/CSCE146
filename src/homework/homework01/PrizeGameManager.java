@@ -5,7 +5,7 @@
 
 package homework.homework01;
 
-import java.io.*;
+import java.io.File;
 import java.util.Scanner;
 
 public class PrizeGameManager {
@@ -128,7 +128,6 @@ public class PrizeGameManager {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return;
         }
 
         init(numberOfPrizes);

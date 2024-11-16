@@ -5,7 +5,9 @@
 
 package homework.homework02;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class VideoGamesDatabase {
@@ -34,7 +36,7 @@ public class VideoGamesDatabase {
             return false;
         }
 
-        searchResults = new GenericLinkedList<VideoGame>();
+        searchResults = new GenericLinkedList<>();
 
         videoGamesList.resetCurrent();
 

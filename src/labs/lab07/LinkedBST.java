@@ -6,17 +6,7 @@
 package labs.lab07;
 
 public class LinkedBST<T extends Comparable<T>> {
-    private class Node {
-        T data;
-        Node leftChild;
-        Node rightChild;
-
-        public Node(T data) {
-            this.data = data;
-        }
-    }
-
-    Node root;
+    private Node root;
 
     public void add(T data) {
         if (data == null) {
@@ -60,8 +50,8 @@ public class LinkedBST<T extends Comparable<T>> {
                 return node.leftChild;
             }
 
-            if (node.rightChild == null) {
-                return node.leftChild;
+            if (node.leftChild == null) {
+                return node.rightChild;
             }
 
             Node temp = findMinNode(node.rightChild);
@@ -76,6 +66,7 @@ public class LinkedBST<T extends Comparable<T>> {
         if (node == null) {
             return null;
         }
+
         if (node.leftChild == null) {
             return node;
         }
@@ -130,9 +121,9 @@ public class LinkedBST<T extends Comparable<T>> {
             return;
         }
 
-        printPreOrder(node.leftChild);
+        printInOrder(node.leftChild);
         System.out.println(node.data);
-        printPreOrder(node.rightChild);
+        printInOrder(node.rightChild);
     }
 
     public void printPostOrder() {
@@ -144,8 +135,18 @@ public class LinkedBST<T extends Comparable<T>> {
             return;
         }
 
-        printPreOrder(node.leftChild);
-        printPreOrder(node.rightChild);
+        printPostOrder(node.leftChild);
+        printPostOrder(node.rightChild);
         System.out.println(node.data);
+    }
+
+    private class Node {
+        T data;
+        Node leftChild;
+        Node rightChild;
+
+        Node(T data) {
+            this.data = data;
+        }
     }
 }

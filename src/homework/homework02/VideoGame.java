@@ -6,6 +6,7 @@
 package homework.homework02;
 
 public class VideoGame {
+    public static final String DEFAULT_GAME_VALUE = "unknown";
     public static final String DELIMITER = "\t";
     public static final int NUMBER_OF_FIELDS = 2;
 
@@ -13,8 +14,8 @@ public class VideoGame {
     private String console;
 
     public VideoGame() {
-        name = "unknown";
-        console = "unknown";
+        name = DEFAULT_GAME_VALUE;
+        console = DEFAULT_GAME_VALUE;
     }
 
     public VideoGame(String name, String console) {
@@ -30,7 +31,7 @@ public class VideoGame {
         if (name != null) {
             this.name = name;
         } else {
-            this.name = "unknown";
+            this.name = DEFAULT_GAME_VALUE;
         }
     }
 
@@ -42,7 +43,7 @@ public class VideoGame {
         if (console != null) {
             this.console = console;
         } else {
-            this.console = "unknown";
+            this.console = DEFAULT_GAME_VALUE;
         }
     }
 

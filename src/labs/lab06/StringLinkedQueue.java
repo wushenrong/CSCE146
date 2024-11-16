@@ -6,16 +6,6 @@
 package labs.lab06;
 
 public class StringLinkedQueue {
-    private class StringNode {
-        String data;
-        StringNode link;
-
-        public StringNode(String data, StringNode link) {
-            this.data = data;
-            this.link = link;
-        }
-    }
-
     private StringNode head;
     private StringNode tail;
 
@@ -59,5 +49,15 @@ public class StringLinkedQueue {
         }
 
         return count;
+    }
+
+    private class StringNode {
+        String data;
+        StringNode link;
+
+        StringNode(String data, StringNode link) {
+            this.data = data;
+            this.link = link;
+        }
     }
 }

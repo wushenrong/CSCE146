@@ -6,6 +6,7 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 !.vscode/java-formatter.xml
+!.vscode/checkstyle.xml
 
 # Local History for Visual Studio Code
 .history/
@@ -36,6 +37,9 @@
 *.zip
 *.tar.gz
 *.rar
+
+# Ignore library files and modules
+!lib/**/*.jar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*

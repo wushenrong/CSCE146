@@ -6,16 +6,6 @@
 package homework.homework04;
 
 public class GenericLinkedQueue<T> {
-    private class Node {
-        T data;
-        Node link;
-
-        public Node(T data, Node link) {
-            this.data = data;
-            this.link = link;
-        }
-    }
-
     private Node head;
     private Node tail;
 
@@ -62,6 +52,16 @@ public class GenericLinkedQueue<T> {
     public void print() {
         for (Node temp = head.link; temp != null; temp = temp.link) {
             System.out.println(temp.data);
+        }
+    }
+
+    private class Node {
+        T data;
+        Node link;
+
+        Node(T data, Node link) {
+            this.data = data;
+            this.link = link;
         }
     }
 }

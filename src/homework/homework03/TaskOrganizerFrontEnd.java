@@ -8,8 +8,8 @@ package homework.homework03;
 import java.util.Scanner;
 
 public class TaskOrganizerFrontEnd {
-    public static TaskOrganizer taskOrganizer = new TaskOrganizer();
-    public static Scanner keyboardScanner = new Scanner(System.in);
+    public static final TaskOrganizer TASK_ORGANIZER = new TaskOrganizer();
+    public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
         printGreetings();
@@ -19,7 +19,7 @@ public class TaskOrganizerFrontEnd {
         while (!quit) {
             printOptions();
 
-            String option = keyboardScanner.nextLine().toLowerCase();
+            String option = KEYBOARD_SCANNER.nextLine().toLowerCase();
 
             switch (option) {
             case "add":
@@ -31,7 +31,7 @@ public class TaskOrganizerFrontEnd {
                 break;
 
             case "print":
-                taskOrganizer.printTasks();
+                TASK_ORGANIZER.printTasks();
                 break;
 
             case "read":
@@ -54,7 +54,7 @@ public class TaskOrganizerFrontEnd {
 
         System.out.println("Goodbye!");
 
-        keyboardScanner.close();
+        KEYBOARD_SCANNER.close();
     }
 
     public static void printGreetings() {
@@ -73,22 +73,22 @@ public class TaskOrganizerFrontEnd {
 
     public static void addTask() {
         Task taskToAdd = promptTask();
-        taskOrganizer.addTask(taskToAdd);
+        TASK_ORGANIZER.addTask(taskToAdd);
     }
 
     public static void removeTask() {
         Task taskToRemove = promptTask();
-        taskOrganizer.removeTask(taskToRemove);
+        TASK_ORGANIZER.removeTask(taskToRemove);
     }
 
     public static void readTaskFile() {
         String filename = promptFileName("Enter the filename of the task file to read from:");
-        taskOrganizer.readTaskFile("./" + filename);
+        TASK_ORGANIZER.readTaskFile("./" + filename);
     }
 
     public static void writeTaskFile() {
         String filename = promptFileName("Enter the filename of the task file to write to:");
-        taskOrganizer.writeTaskFile("./" + filename);
+        TASK_ORGANIZER.writeTaskFile("./" + filename);
     }
 
     /**
@@ -97,11 +97,11 @@ public class TaskOrganizerFrontEnd {
      */
     public static Task promptTask() {
         System.out.println("Please enter the task's priority:");
-        int taskPriority = keyboardScanner.nextInt();
-        keyboardScanner.nextLine();
+        int taskPriority = KEYBOARD_SCANNER.nextInt();
+        KEYBOARD_SCANNER.nextLine();
 
         System.out.println("Please enter the task's action:");
-        String taskAction = keyboardScanner.nextLine();
+        String taskAction = KEYBOARD_SCANNER.nextLine();
 
         return new Task(taskPriority, taskAction);
     }
@@ -112,7 +112,6 @@ public class TaskOrganizerFrontEnd {
      */
     public static String promptFileName(String prompt) {
         System.out.println(prompt);
-        String filename = keyboardScanner.nextLine();
-        return filename;
+        return KEYBOARD_SCANNER.nextLine();
     }
 }

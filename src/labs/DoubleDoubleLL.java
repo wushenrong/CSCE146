@@ -7,22 +7,6 @@
 package labs;
 
 public class DoubleDoubleLL {
-    /**
-     * A Node for a Linked List that stores a class wrapper for the primitive
-     * type double and references to the next and previous Nodes.
-     */
-    private class DoubleNode {
-        Double data;
-        DoubleNode nextLink;
-        DoubleNode previousLink;
-
-        public DoubleNode(Double data, DoubleNode nextLink, DoubleNode previousLink) {
-            this.data = data;
-            this.nextLink = nextLink;
-            this.previousLink = previousLink;
-        }
-    }
-
     private DoubleNode head;
     private DoubleNode current;
 
@@ -229,5 +213,21 @@ public class DoubleDoubleLL {
         }
 
         return false;
+    }
+
+    /**
+     * A Node for a Linked List that stores a class wrapper for the primitive
+     * type double and references to the next and previous Nodes.
+     */
+    private class DoubleNode {
+        Double data;
+        DoubleNode nextLink;
+        DoubleNode previousLink;
+
+        DoubleNode(Double data, DoubleNode nextLink, DoubleNode previousLink) {
+            this.data = data;
+            this.nextLink = nextLink;
+            this.previousLink = previousLink;
+        }
     }
 }

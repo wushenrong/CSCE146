@@ -6,6 +6,7 @@
 package homework.homework01;
 
 public class Prize {
+    public static final String DEFAULT_NAME = "none";
     public static final String DELIMITER = "\t";
     public static final int NUMBER_OF_FIELDS = 2;
 
@@ -13,7 +14,7 @@ public class Prize {
     private double price;
 
     public Prize() {
-        name = "none";
+        name = DEFAULT_NAME;
         price = 0.0;
     }
 
@@ -30,7 +31,7 @@ public class Prize {
         if (name != null) {
             this.name = name;
         } else {
-            this.name = "none";
+            this.name = DEFAULT_NAME;
         }
     }
 

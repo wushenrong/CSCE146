@@ -6,11 +6,11 @@
 package labs.lab05;
 
 public interface QueueI<T> {
-    public void enqueue(T data);
+    void enqueue(T data);
 
-    public T dequeue();
+    T dequeue();
 
-    public T peek();
+    T peek();
 
-    public void print();
+    void print();
 }
