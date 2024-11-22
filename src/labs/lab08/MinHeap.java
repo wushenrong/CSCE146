@@ -58,6 +58,16 @@ public class MinHeap<T extends Comparable<T>> {
         return ret;
     }
 
+    public T peek() {
+        return heap[0];
+    }
+
+    public void print() {
+        for (int i = 0; i < lastIndex; i++) {
+            System.out.println(heap[i]);
+        }
+    }
+
     private void bubbleUp() {
         int index = lastIndex;
 

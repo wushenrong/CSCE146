@@ -50,9 +50,19 @@ public class GenericLinkedQueue<T> {
     }
 
     public void print() {
-        for (Node temp = head.link; temp != null; temp = temp.link) {
+        for (Node temp = head; temp != null; temp = temp.link) {
             System.out.println(temp.data);
         }
+    }
+
+    public int countQueue() {
+        int count = 0;
+
+        for (Node temp = head; temp != null; temp = temp.link) {
+            count++;
+        }
+
+        return count;
     }
 
     private class Node {
