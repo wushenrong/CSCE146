@@ -69,15 +69,15 @@ public class Fruit implements Comparable<Fruit> {
             return -1;
         }
 
-        if (weight < other.getWeight()) {
+        if (weight < other.weight) {
             return -1;
         }
 
-        if (weight > other.getWeight()) {
+        if (weight > other.weight) {
             return 1;
         }
 
-        return type.compareTo(other.getType());
+        return type.compareTo(other.type);
     }
 
     /**
