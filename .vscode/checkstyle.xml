@@ -170,12 +170,17 @@
             <property name="blockTypes" value="LITERAL_TRY" />
             <property name="blockTypes" value="LITERAL_CATCH" />
         </module>
-        <module name="NestedSwitch" />
-        <module name="PublicReferenceToPrivateType" />
+        <module name="ConstructorWithoutParamsCheck" />
+        <module name="ForbidWildcardAsReturnType" />
         <module name="InnerClass" />
+        <module name="NestedSwitch" />
+        <module name="NoMainMethodInAbstractClass" />
+        <module name="PublicReferenceToPrivateType" />
+        <module name="StaticMethodCandidate" />
 
         <!-- Checks for better and modern coding style -->
         <module name="AvoidConstantAsFirstOperandInCondition" />
+        <module name="AvoidHidingCauseException" />
         <module name="AvoidNotShortCircuitOperatorsForBoolean" />
         <module name="ConfusingCondition" />
         <module name="DiamondOperatorForVariableDefinition" />
@@ -185,7 +190,9 @@
         <module name="LogicConditionNeedOptimization" />
         <module name="MoveVariableInsideIf" />
         <module name="MultipleVariableDeclarationsExtended" />
+        <module name="NoNullForCollectionReturn" />
         <module name="NumericLiteralNeedsUnderscore" />
+        <module name="PreferMethodReference" />
         <module name="RedundantReturn" />
         <module name="ReturnBooleanFromTernary" />
         <module name="ReturnNullInsteadOfBoolean" />

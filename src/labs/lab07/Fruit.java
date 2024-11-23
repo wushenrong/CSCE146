@@ -84,7 +84,7 @@ public class Fruit implements Comparable<Fruit> {
      * Check if the type of the fruit is either an apple, orange, banana, kiwi,
      * or tomato.
      */
-    private boolean isTypeValid(String fruitType) {
+    private static boolean isTypeValid(String fruitType) {
         return fruitType.equals(TYPE_APPLE) || fruitType.equals(TYPE_ORANGE) || fruitType.equals(TYPE_BANANA)
                 || fruitType.equals(TYPE_KIWI) || fruitType.equals(TYPE_TOMATO);
     }

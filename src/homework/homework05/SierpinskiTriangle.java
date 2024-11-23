@@ -77,7 +77,7 @@ public class SierpinskiTriangle extends Canvas {
     /**
      * Find the midpoint between two points.
      */
-    private Point midpoint(Point pointA, Point pointB) {
+    private static Point midpoint(Point pointA, Point pointB) {
         return new Point((pointA.x + pointB.x) / 2, (pointA.y + pointB.y) / 2);
     }
 }

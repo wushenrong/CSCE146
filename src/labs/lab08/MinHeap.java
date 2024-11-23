@@ -101,15 +101,15 @@ public class MinHeap<T extends Comparable<T>> {
         }
     }
 
-    private int parentIndex(int index) {
+    private static int parentIndex(int index) {
         return (index - 1) / 2;
     }
 
-    private int leftIndex(int index) {
+    private static int leftIndex(int index) {
         return index * 2 + 1;
     }
 
-    private int rightIndex(int index) {
+    private static int rightIndex(int index) {
         return index * 2 + 2;
     }
 }

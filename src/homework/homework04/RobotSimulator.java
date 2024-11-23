@@ -103,11 +103,8 @@ public class RobotSimulator {
             break;
         }
 
-        if (!isPositionValid(robotXPosition) || !isPositionValid(robotYPosition)) {
-            return 1;
-        }
-
-        if (isPositionObstacle(robotXPosition, robotYPosition)) {
+        if (!isPositionValid(robotXPosition) || !isPositionValid(robotYPosition)
+                || isPositionObstacle(robotXPosition, robotYPosition)) {
             return 1;
         }
 
@@ -118,7 +115,7 @@ public class RobotSimulator {
     }
 
     private boolean isPositionValid(int position) {
-        return position >= 0 && position < BOARD_SIZE;
+        return position >= 0 && position < board.length;
     }
 
     /**
