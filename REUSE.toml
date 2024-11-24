@@ -1,0 +1,16 @@
+version = 1
+
+[[annotations]]
+path = [".vscode/*"]
+SPDX-FileCopyrightText = "2024 Samuel Wu"
+SPDX-License-Identifier = "MIT-0"
+
+[[annotations]]
+path = ["lib/checkstyle/sevntu-checks-*.jar"]
+SPDX-FileCopyrightText = "2022 Contributors of Sevntu-Checkstyle <sevntu-checkstyle@googlegroups.com>"
+SPDX-License-Identifier = "LGPL-2.1-or-later"
+
+[[annotations]]
+path = ["README.md"]
+SPDX-FileCopyrightText = "2024 Samuel Wu"
+SPDX-License-Identifier = "MIT"

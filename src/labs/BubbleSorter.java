@@ -1,22 +1,19 @@
 /*
- * Written by Samuel Wu
- * 2024-08-24
- * Lab 00
+ * SPDX-FileCopyrightText: 2024 Samuel Wu
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * Project: Lab 00
  */
 
 package labs;
 
-// Packages
 import java.util.Scanner;
 
-// Do not alter-----------------------------------------------
 public class BubbleSorter {
-    // -----------------------------------------------------------
     public static final int ARRAY_SIZE = 10;
 
-    // Do not alter-----------------------------------------------
     public static void main(String[] args) {
-        // -----------------------------------------------------------
         Scanner keyboardScanner = new Scanner(System.in);
 
         System.out.println("Enter " + ARRAY_SIZE + " numbers and I will sort them:");
@@ -52,6 +49,5 @@ public class BubbleSorter {
         }
 
         keyboardScanner.close();
-    } // Do not alter
-
-} // Do not alter
+    }
+}

@@ -1,7 +1,9 @@
 /*
- * Samuel Wu
- * 2024-08-30
- * Homework 00
+ * SPDX-FileCopyrightText: 2024 Samuel Wu
+ *
+ * SPDX-License-Identifier: MIT
+ *
+ * Project: Homework 00
  */
 
 package homework;

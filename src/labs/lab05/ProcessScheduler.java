@@ -1,6 +1,7 @@
 /*
- * Samuel Wu
- * 2024-10-08
+ * SPDX-FileCopyrightText: 2024 Samuel Wu
+ *
+ * SPDX-License-Identifier: MIT
  */
 
 package labs.lab05;
