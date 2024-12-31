@@ -1,6 +1,6 @@
 {
-    "recommendations": [
-        "vscjava.vscode-java-pack",
-        "shengchen.vscode-checkstyle"
-    ]
+  "recommendations": [
+    "vscjava.vscode-java-pack",
+    "shengchen.vscode-checkstyle"
+  ]
 }

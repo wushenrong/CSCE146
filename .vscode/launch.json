@@ -1,78 +1,75 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Vector Operations Program",
-            "request": "launch",
-            "mainClass": "homework.Vector",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Prize Game",
-            "request": "launch",
-            "mainClass": "homework.homework01.PrizeGameFrontEnd",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Video Games Database Manager",
-            "request": "launch",
-            "mainClass": "homework.homework02.VideoGamesDatabaseManager",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Task Organizer",
-            "request": "launch",
-            "mainClass": "homework.homework03.TaskOrganizerFrontEnd",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Robot Simulator",
-            "request": "launch",
-            "mainClass": "homework.homework04.RobotSimulatorFrontEnd",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Fractals",
-            "request": "launch",
-            "mainClass": "homework.homework05.Fractal",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Sheep Scheduler",
-            "request": "launch",
-            "mainClass": "homework.homework06.SheepScheduler",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Bubble Sorter",
-            "request": "launch",
-            "mainClass": "labs.BubbleSorter",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Sort Sorter",
-            "request": "launch",
-            "mainClass": "labs.lab06.SortSorter",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        },
-        {
-            "type": "java",
-            "name": "Fruit Tree Tester",
-            "request": "launch",
-            "mainClass": "labs.lab07.FruitTreeTester",
-            "projectName": "CSCE146Solutions_bc24c4b4"
-        }
-    ]
+  "configurations": [
+    {
+      "mainClass": "homework.Vector",
+      "name": "Vector Operations Program",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "homework.homework01.PrizeGameFrontEnd",
+      "name": "Prize Game",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "homework.homework02.VideoGamesDatabaseManager",
+      "name": "Video Games Database Manager",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "homework.homework03.TaskOrganizerFrontEnd",
+      "name": "Task Organizer",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "homework.homework04.RobotSimulatorFrontEnd",
+      "name": "Robot Simulator",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "homework.homework05.Fractal",
+      "name": "Fractals",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "homework.homework06.SheepScheduler",
+      "name": "Sheep Scheduler",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "labs.BubbleSorter",
+      "name": "Bubble Sorter",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "labs.lab06.SortSorter",
+      "name": "Sort Sorter",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    },
+    {
+      "mainClass": "labs.lab07.FruitTreeTester",
+      "name": "Fruit Tree Tester",
+      "projectName": "CSCE146Solutions_bc24c4b4",
+      "request": "launch",
+      "type": "java"
+    }
+  ],
+  "version": "0.2.0"
 }
