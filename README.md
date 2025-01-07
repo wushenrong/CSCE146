@@ -1,10 +1,8 @@
 # Algorithmic Design II Solutions
 
-Contains solutions for CSCE 146 written in the [Java][java] programming
-language. It might not have the most optimal solutions and does not contain test
-text files and driver files.
-
-[java]: https://dev.java
+Contains solutions for CSCE 146 written in the [Java](https://dev.java)
+programming language. It might not have the most optimal solutions and does not
+contain test text files and driver files.
 
 ## Hint for Homework 05
 
