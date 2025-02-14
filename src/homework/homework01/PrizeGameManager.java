@@ -89,18 +89,15 @@ public class PrizeGameManager {
     /**
      * Check if a price guess is between the total price of game prizes minus
      * the price tolerance for the game and the total prize of game prizes. If
-     * the guess is below the total prize of game prizes minus the price
-     * tolerance or above the the total prize of game prizes return false, else
-     * return true.
+     * the guess is between the total price of game prizes minus the price
+     * tolerance and the total price of game prizes inclusive, return true. Else
+     * return false.
      */
     public boolean checkPriceGuess(double guess) {
         double totalPrizePrice = getTotalPrizePrice();
 
-        if (guess < totalPrizePrice - PRICE_TOLERANCE || guess > totalPrizePrice) {
-            return false;
-        }
-
-        return true;
+        return guess >= totalPrizePrice - PRICE_TOLERANCE
+                && guess <= totalPrizePrice;
     }
 
     public void printGamePrizes() {
