@@ -7,72 +7,72 @@
 package homework.homework04;
 
 public class GenericLinkedQueue<T> {
-    private Node head;
-    private Node tail;
+  private Node head;
+  private Node tail;
 
-    public GenericLinkedQueue() {
-        head = null;
-        tail = null;
+  public GenericLinkedQueue() {
+    head = null;
+    tail = null;
+  }
+
+  public void enqueue(T data) {
+    if (data == null) {
+      return;
     }
 
-    public void enqueue(T data) {
-        if (data == null) {
-            return;
-        }
+    Node temp = new Node(data, null);
 
-        Node temp = new Node(data, null);
-
-        if (head == null) {
-            head = temp;
-            tail = head;
-            return;
-        }
-
-        tail.link = temp;
-        tail = tail.link;
+    if (head == null) {
+      head = temp;
+      tail = head;
+      return;
     }
 
-    public T dequeue() {
-        if (head == null) {
-            return null;
-        }
+    tail.link = temp;
+    tail = tail.link;
+  }
 
-        T data = head.data;
-        head = head.link;
-        return data;
+  public T dequeue() {
+    if (head == null) {
+      return null;
     }
 
-    public T peek() {
-        if (head == null) {
-            return null;
-        }
+    T data = head.data;
+    head = head.link;
+    return data;
+  }
 
-        return head.data;
+  public T peek() {
+    if (head == null) {
+      return null;
     }
 
-    public void print() {
-        for (Node temp = head; temp != null; temp = temp.link) {
-            System.out.println(temp.data);
-        }
+    return head.data;
+  }
+
+  public void print() {
+    for (Node temp = head; temp != null; temp = temp.link) {
+      System.out.println(temp.data);
+    }
+  }
+
+  public int countQueue() {
+    int count = 0;
+
+    for (Node temp = head; temp != null; temp = temp.link) {
+      count++;
     }
 
-    public int countQueue() {
-        int count = 0;
+    return count;
+  }
 
-        for (Node temp = head; temp != null; temp = temp.link) {
-            count++;
-        }
+  private class Node {
+    T data;
+    Node link;
 
-        return count;
+    Node(T data, Node link) {
+      this.data = data;
+      this.link = link;
     }
-
-    private class Node {
-        T data;
-        Node link;
-
-        Node(T data, Node link) {
-            this.data = data;
-            this.link = link;
-        }
-    }
+  }
 }

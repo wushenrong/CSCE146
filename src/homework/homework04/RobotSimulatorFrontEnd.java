@@ -9,104 +9,106 @@ package homework.homework04;
 import java.util.Scanner;
 
 public class RobotSimulatorFrontEnd {
-    public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
-    private static RobotSimulator simulator;
+  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
+  private static RobotSimulator simulator;
 
-    public static void main(String[] args) {
-        printGreetings();
+  public static void main(String[] args) {
+    printGreetings();
 
-        boolean quit = false;
+    boolean quit = false;
 
-        while (!quit) {
-            createNewSimulation();
+    while (!quit) {
+      createNewSimulation();
 
-            boolean simulationEnded = false;
+      boolean simulationEnded = false;
 
-            int status = simulator.startSimulation();
+      int status = simulator.startSimulation();
 
-            switch (status) {
-            case -1:
-                System.out.println("Error: The Board is not initialized");
-                simulationEnded = true;
-                break;
+      switch (status) {
+        case -1:
+          System.out.println("Error: The Board is not initialized");
+          simulationEnded = true;
+          break;
 
-            case 1:
-                System.out.println("Error: The Robot cannot be placed down on an Obstacle");
-                simulationEnded = true;
+        case 1:
+          System.out.println("Error: The Robot cannot be placed down on an Obstacle");
+          simulationEnded = true;
+          simulator.printBoard();
+          break;
 
-            default:
-                simulator.printBoard();
-                break;
-            }
+        default:
+          simulator.printBoard();
+          break;
+      }
 
-            while (!simulationEnded) {
-                status = simulator.runNextCommand();
+      while (!simulationEnded) {
+        status = simulator.runNextCommand();
 
-                switch (status) {
-                case -1:
-                    System.out.println("Error: No Commands received");
-                    simulationEnded = true;
-                    break;
+        switch (status) {
+          case -1:
+            System.out.println("Error: No Commands received");
+            simulationEnded = true;
+            break;
 
-                case 1:
-                    System.out.println("Error: The Robot crashed into an obstacle");
-                    simulationEnded = true;
-                    break;
+          case 1:
+            System.out.println("Error: The Robot crashed into an obstacle");
+            simulationEnded = true;
+            break;
 
-                case 2:
-                    simulationEnded = true;
-                    break;
+          case 2:
+            simulationEnded = true;
+            break;
 
-                default:
-                    simulator.printBoard();
-                    break;
-                }
-            }
-
-            System.out.println("Simulation End");
-            quit = promptForNewSimulation();
+          default:
+            simulator.printBoard();
+            break;
         }
+      }
 
-        System.out.println("Goodbye!");
-
-        KEYBOARD_SCANNER.close();
+      System.out.println("Simulation End");
+      quit = promptForNewSimulation();
     }
 
-    public static void printGreetings() {
-        System.out.println("Welcome to the Robot Simulator");
+    System.out.println("Goodbye!");
+
+    KEYBOARD_SCANNER.close();
+  }
+
+  public static void printGreetings() {
+    System.out.println("Welcome to the Robot Simulator");
+  }
+
+  public static void createNewSimulation() {
+    simulator = new RobotSimulator();
+
+    System.out.println("Enter file name for the Board:");
+    String boardFile = KEYBOARD_SCANNER.nextLine();
+    simulator.readBoardFile(boardFile);
+
+    System.out.println("Enter file name for the Commands:");
+    String commandsFile = KEYBOARD_SCANNER.nextLine();
+    simulator.readCommandFile(commandsFile);
+  }
+
+  /**
+   * Prompt the user if they want to run another simulation with another board and commands file. If
+   * the user answer yes, return false. If no, return true. Else prompt the user again for a yes or
+   * no answer.
+   */
+  public static boolean promptForNewSimulation() {
+    while (true) {
+      System.out.println("\nDo you want run another simulation? Yes or No");
+      String input = KEYBOARD_SCANNER.nextLine();
+
+      if (input.equalsIgnoreCase("Yes")) {
+        return false;
+      }
+
+      if (input.equalsIgnoreCase("No")) {
+        return true;
+      }
+
+      System.out.println("Error: Invalid input.");
     }
-
-    public static void createNewSimulation() {
-        simulator = new RobotSimulator();
-
-        System.out.println("Enter file name for the Board:");
-        String boardFile = KEYBOARD_SCANNER.nextLine();
-        simulator.readBoardFile(boardFile);
-
-        System.out.println("Enter file name for the Commands:");
-        String commandsFile = KEYBOARD_SCANNER.nextLine();
-        simulator.readCommandFile(commandsFile);
-    }
-
-    /**
-     * Prompt the user if they want to run another simulation with another board
-     * and commands file. If the user answer yes, return false. If no, return
-     * true. Else prompt the user again for a yes or no answer.
-     */
-    public static boolean promptForNewSimulation() {
-        while (true) {
-            System.out.println("\nDo you want run another simulation? Yes or No");
-            String input = KEYBOARD_SCANNER.nextLine();
-
-            if (input.equalsIgnoreCase("Yes")) {
-                return false;
-            }
-
-            if (input.equalsIgnoreCase("No")) {
-                return true;
-            }
-
-            System.out.println("Error: Invalid input.");
-        }
-    }
+  }
 }

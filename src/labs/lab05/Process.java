@@ -7,45 +7,45 @@
 package labs.lab05;
 
 public class Process {
-    private String name;
-    private double completionTime;
+  private String name;
+  private double completionTime;
 
-    public Process() {
-        name = "none";
-        completionTime = 0.0;
-    }
+  public Process() {
+    name = "none";
+    completionTime = 0.0;
+  }
 
-    public Process(String name, double completionTime) {
-        setName(name);
-        setCompletionTime(completionTime);
-    }
+  public Process(String name, double completionTime) {
+    setName(name);
+    setCompletionTime(completionTime);
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        if (name != null) {
-            this.name = name;
-        } else {
-            this.name = "none";
-        }
+  public void setName(String name) {
+    if (name != null) {
+      this.name = name;
+    } else {
+      this.name = "none";
     }
+  }
 
-    public double getCompletionTime() {
-        return completionTime;
-    }
+  public double getCompletionTime() {
+    return completionTime;
+  }
 
-    public void setCompletionTime(double completionTime) {
-        if (completionTime >= 0.0) {
-            this.completionTime = completionTime;
-        } else {
-            this.completionTime = 0.0;
-        }
+  public void setCompletionTime(double completionTime) {
+    if (completionTime >= 0.0) {
+      this.completionTime = completionTime;
+    } else {
+      this.completionTime = 0.0;
     }
+  }
 
-    @Override
-    public String toString() {
-        return "Process Name: " + name + " Completion Time: " + completionTime;
-    }
+  @Override
+  public String toString() {
+    return "Process Name: " + name + " Completion Time: " + completionTime;
+  }
 }

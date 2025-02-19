@@ -9,53 +9,52 @@ package homework.homework06;
 import labs.lab08.MinHeap;
 
 public class SheepShearer {
-    private MinHeap<Sheep> sheep;
-    private Sheep currentSheep;
-    private int timeLeftToShear;
+  private MinHeap<Sheep> sheep;
+  private Sheep currentSheep;
+  private int timeLeftToShear;
 
-    public SheepShearer() {
-        sheep = new MinHeap<>();
-        currentSheep = null;
-        timeLeftToShear = 0;
+  public SheepShearer() {
+    sheep = new MinHeap<>();
+    currentSheep = null;
+    timeLeftToShear = 0;
+  }
+
+  public void addSheep(Sheep data) {
+    if (data == null) {
+      return;
     }
 
-    public void addSheep(Sheep data) {
-        if (data == null) {
-            return;
-        }
-
-        if (currentSheep == null) {
-            currentSheep = data;
-            timeLeftToShear = currentSheep.getShearingTime();
-            return;
-        }
-
-        sheep.add(data);
+    if (currentSheep == null) {
+      currentSheep = data;
+      timeLeftToShear = currentSheep.getShearingTime();
+      return;
     }
 
-    /**
-     * Shear a sheep by decreasing the time left to shear the sheep. If the
-     * sheep is done shearing, return the sheep after a new sheep is ready to be
-     * sheared. Else return null.
-     */
-    public Sheep shearSheep() {
-        timeLeftToShear--;
+    sheep.add(data);
+  }
 
-        if (timeLeftToShear == 0) {
-            Sheep ret = currentSheep;
-            currentSheep = sheep.remove();
+  /**
+   * Shear a sheep by decreasing the time left to shear the sheep. If the sheep is done shearing,
+   * return the sheep after a new sheep is ready to be sheared. Else return null.
+   */
+  public Sheep shearSheep() {
+    timeLeftToShear--;
 
-            if (currentSheep != null) {
-                timeLeftToShear = currentSheep.getShearingTime();
-            }
+    if (timeLeftToShear == 0) {
+      Sheep ret = currentSheep;
+      currentSheep = sheep.remove();
 
-            return ret;
-        }
+      if (currentSheep != null) {
+        timeLeftToShear = currentSheep.getShearingTime();
+      }
 
-        return null;
+      return ret;
     }
 
-    public boolean isDone() {
-        return currentSheep == null;
-    }
+    return null;
+  }
+
+  public boolean isDone() {
+    return currentSheep == null;
+  }
 }

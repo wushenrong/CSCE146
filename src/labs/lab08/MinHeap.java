@@ -7,110 +7,111 @@
 package labs.lab08;
 
 public class MinHeap<T extends Comparable<T>> {
-    public static final int DEFAULT_SIZE = 64;
+  public static final int DEFAULT_SIZE = 64;
 
-    private T[] heap;
-    private int lastIndex;
+  private T[] heap;
+  private int lastIndex;
 
-    public MinHeap() {
-        init(DEFAULT_SIZE);
+  public MinHeap() {
+    init(DEFAULT_SIZE);
+  }
+
+  public MinHeap(int size) {
+    init(size);
+  }
+
+  @SuppressWarnings("unchecked")
+  public void init(int size) {
+    if (size >= 2) {
+      heap = (T[]) (new Comparable[size]);
+    } else {
+      heap = (T[]) (new Comparable[DEFAULT_SIZE]);
     }
 
-    public MinHeap(int size) {
-        init(size);
+    lastIndex = 0;
+  }
+
+  public void add(T data) {
+    if (data == null) {
+      return;
     }
 
-    @SuppressWarnings("unchecked")
-    public void init(int size) {
-        if (size >= 2) {
-            heap = (T[]) (new Comparable[size]);
-        } else {
-            heap = (T[]) (new Comparable[DEFAULT_SIZE]);
-        }
-
-        lastIndex = 0;
+    if (lastIndex >= heap.length) {
+      return;
     }
 
-    public void add(T data) {
-        if (data == null) {
-            return;
-        }
+    heap[lastIndex] = data;
+    bubbleUp();
+    lastIndex++;
+  }
 
-        if (lastIndex >= heap.length) {
-            return;
-        }
-
-        heap[lastIndex] = data;
-        bubbleUp();
-        lastIndex++;
+  public T remove() {
+    if (lastIndex <= 0) {
+      return null;
     }
 
-    public T remove() {
-        if (lastIndex <= 0) {
-            return null;
-        }
+    final T ret = heap[0];
+    heap[0] = heap[lastIndex - 1];
+    lastIndex--;
 
-        T ret = heap[0];
-        heap[0] = heap[lastIndex - 1];
-        lastIndex--;
+    bubbleDown();
 
-        bubbleDown();
+    return ret;
+  }
 
-        return ret;
+  public T peek() {
+    return heap[0];
+  }
+
+  public void print() {
+    for (int i = 0; i < lastIndex; i++) {
+      System.out.println(heap[i]);
     }
+  }
 
-    public T peek() {
-        return heap[0];
+  private void bubbleUp() {
+    int index = lastIndex;
+
+    while (index > 0 && heap[parentIndex(index)].compareTo(heap[index]) > 0) {
+      T temp = heap[parentIndex(index)];
+      heap[parentIndex(index)] = heap[index];
+      heap[index] = temp;
+      index = parentIndex(index);
     }
+  }
 
-    public void print() {
-        for (int i = 0; i < lastIndex; i++) {
-            System.out.println(heap[i]);
-        }
+  private void bubbleDown() {
+    int index = 0;
+
+    while (leftIndex(index) < lastIndex) {
+      int smallestIndex = leftIndex(index);
+
+      if (rightIndex(index) < lastIndex
+          && heap[leftIndex(index)].compareTo(heap[rightIndex(index)]) > 0) {
+        smallestIndex = rightIndex(index);
+      }
+
+      if (heap[index].compareTo(heap[smallestIndex]) > 0) {
+        T temp = heap[index];
+        heap[index] = heap[smallestIndex];
+        heap[smallestIndex] = temp;
+      } else {
+        break;
+      }
+
+      index = smallestIndex;
     }
+  }
 
-    private void bubbleUp() {
-        int index = lastIndex;
+  private static int parentIndex(int index) {
+    return (index - 1) / 2;
+  }
 
-        while (index > 0 && heap[parentIndex(index)].compareTo(heap[index]) > 0) {
-            T temp = heap[parentIndex(index)];
-            heap[parentIndex(index)] = heap[index];
-            heap[index] = temp;
-            index = parentIndex(index);
-        }
-    }
+  private static int leftIndex(int index) {
+    return index * 2 + 1;
+  }
 
-    private void bubbleDown() {
-        int index = 0;
-
-        while (leftIndex(index) < lastIndex) {
-            int smallestIndex = leftIndex(index);
-
-            if (rightIndex(index) < lastIndex && heap[leftIndex(index)].compareTo(heap[rightIndex(index)]) > 0) {
-                smallestIndex = rightIndex(index);
-            }
-
-            if (heap[index].compareTo(heap[smallestIndex]) > 0) {
-                T temp = heap[index];
-                heap[index] = heap[smallestIndex];
-                heap[smallestIndex] = temp;
-            } else {
-                break;
-            }
-
-            index = smallestIndex;
-        }
-    }
-
-    private static int parentIndex(int index) {
-        return (index - 1) / 2;
-    }
-
-    private static int leftIndex(int index) {
-        return index * 2 + 1;
-    }
-
-    private static int rightIndex(int index) {
-        return index * 2 + 2;
-    }
+  private static int rightIndex(int index) {
+    return index * 2 + 2;
+  }
 }

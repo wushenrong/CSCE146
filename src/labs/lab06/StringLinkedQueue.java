@@ -7,58 +7,58 @@
 package labs.lab06;
 
 public class StringLinkedQueue {
-    private StringNode head;
-    private StringNode tail;
+  private StringNode head;
+  private StringNode tail;
 
-    public StringLinkedQueue() {
-        head = null;
-        tail = null;
+  public StringLinkedQueue() {
+    head = null;
+    tail = null;
+  }
+
+  public void enqueue(String data) {
+    if (data == null) {
+      return;
     }
 
-    public void enqueue(String data) {
-        if (data == null) {
-            return;
-        }
+    StringNode temp = new StringNode(data, null);
 
-        StringNode temp = new StringNode(data, null);
-
-        if (head == null) {
-            head = temp;
-            tail = head;
-            return;
-        }
-
-        tail.link = temp;
-        tail = tail.link;
+    if (head == null) {
+      head = temp;
+      tail = head;
+      return;
     }
 
-    public String dequeue() {
-        if (head == null) {
-            return null;
-        }
+    tail.link = temp;
+    tail = tail.link;
+  }
 
-        String data = head.data;
-        head = head.link;
-        return data;
+  public String dequeue() {
+    if (head == null) {
+      return null;
     }
 
-    public int countStrings() {
-        int count = 0;
+    String data = head.data;
+    head = head.link;
+    return data;
+  }
 
-        for (StringNode temp = head; temp != null; temp = temp.link) {
-            count++;
-        }
+  public int countStrings() {
+    int count = 0;
 
-        return count;
+    for (StringNode temp = head; temp != null; temp = temp.link) {
+      count++;
     }
 
-    private class StringNode {
-        String data;
-        StringNode link;
+    return count;
+  }
 
-        StringNode(String data, StringNode link) {
-            this.data = data;
-            this.link = link;
-        }
+  private class StringNode {
+    String data;
+    StringNode link;
+
+    StringNode(String data, StringNode link) {
+      this.data = data;
+      this.link = link;
     }
+  }
 }

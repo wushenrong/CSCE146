@@ -7,147 +7,147 @@
 package labs.lab07;
 
 public class LinkedBST<T extends Comparable<T>> {
-    private Node root;
+  private Node root;
 
-    public void add(T data) {
-        if (data == null) {
-            return;
-        }
-
-        root = add(root, data);
+  public void add(T data) {
+    if (data == null) {
+      return;
     }
 
-    private Node add(Node node, T data) {
-        if (node == null) {
-            node = new Node(data);
-        } else if (data.compareTo(node.data) > 0) {
-            node.rightChild = add(node.rightChild, data);
-        } else if (data.compareTo(node.data) < 0) {
-            node.leftChild = add(node.leftChild, data);
-        }
+    root = add(root, data);
+  }
 
-        return node;
+  private Node add(Node node, T data) {
+    if (node == null) {
+      node = new Node(data);
+    } else if (data.compareTo(node.data) > 0) {
+      node.rightChild = add(node.rightChild, data);
+    } else if (data.compareTo(node.data) < 0) {
+      node.leftChild = add(node.leftChild, data);
     }
 
-    public void remove(T data) {
-        if (data == null) {
-            return;
-        }
+    return node;
+  }
 
-        root = remove(root, data);
+  public void remove(T data) {
+    if (data == null) {
+      return;
     }
 
-    private Node remove(Node node, T data) {
-        if (node == null) {
-            return null;
-        }
+    root = remove(root, data);
+  }
 
-        if (data.compareTo(node.data) > 0) {
-            node.rightChild = remove(node.rightChild, data);
-        } else if (data.compareTo(node.data) < 0) {
-            node.leftChild = remove(node.leftChild, data);
-        } else {
-            if (node.rightChild == null) {
-                return node.leftChild;
-            }
-
-            if (node.leftChild == null) {
-                return node.rightChild;
-            }
-
-            Node temp = findMinNode(node.rightChild);
-            node.data = temp.data;
-            node.rightChild = remove(node.rightChild, data);
-        }
-
-        return node;
+  private Node remove(Node node, T data) {
+    if (node == null) {
+      return null;
     }
 
-    private Node findMinNode(Node node) {
-        if (node == null) {
-            return null;
-        }
+    if (data.compareTo(node.data) > 0) {
+      node.rightChild = remove(node.rightChild, data);
+    } else if (data.compareTo(node.data) < 0) {
+      node.leftChild = remove(node.leftChild, data);
+    } else {
+      if (node.rightChild == null) {
+        return node.leftChild;
+      }
 
-        if (node.leftChild == null) {
-            return node;
-        }
+      if (node.leftChild == null) {
+        return node.rightChild;
+      }
 
-        return findMinNode(node.leftChild);
+      Node temp = findMinNode(node.rightChild);
+      node.data = temp.data;
+      node.rightChild = remove(node.rightChild, data);
     }
 
-    public boolean search(T data) {
-        if (data == null) {
-            return false;
-        }
+    return node;
+  }
 
-        return search(root, data);
+  private Node findMinNode(Node node) {
+    if (node == null) {
+      return null;
     }
 
-    private boolean search(Node node, T data) {
-        if (node == null) {
-            return false;
-        }
-
-        if (data.compareTo(node.data) > 0) {
-            return search(node.rightChild, data);
-        }
-
-        if (data.compareTo(node.data) < 0) {
-            return search(node.leftChild, data);
-        }
-
-        return true;
+    if (node.leftChild == null) {
+      return node;
     }
 
-    public void printPreOrder() {
-        printPreOrder(root);
+    return findMinNode(node.leftChild);
+  }
+
+  public boolean search(T data) {
+    if (data == null) {
+      return false;
     }
 
-    private void printPreOrder(Node node) {
-        if (node == null) {
-            return;
-        }
+    return search(root, data);
+  }
 
-        System.out.println(node.data);
-        printPreOrder(node.leftChild);
-        printPreOrder(node.rightChild);
+  private boolean search(Node node, T data) {
+    if (node == null) {
+      return false;
     }
 
-    public void printInOrder() {
-        printInOrder(root);
+    if (data.compareTo(node.data) > 0) {
+      return search(node.rightChild, data);
     }
 
-    private void printInOrder(Node node) {
-        if (node == null) {
-            return;
-        }
-
-        printInOrder(node.leftChild);
-        System.out.println(node.data);
-        printInOrder(node.rightChild);
+    if (data.compareTo(node.data) < 0) {
+      return search(node.leftChild, data);
     }
 
-    public void printPostOrder() {
-        printPostOrder(root);
+    return true;
+  }
+
+  public void printPreOrder() {
+    printPreOrder(root);
+  }
+
+  private void printPreOrder(Node node) {
+    if (node == null) {
+      return;
     }
 
-    private void printPostOrder(Node node) {
-        if (node == null) {
-            return;
-        }
+    System.out.println(node.data);
+    printPreOrder(node.leftChild);
+    printPreOrder(node.rightChild);
+  }
 
-        printPostOrder(node.leftChild);
-        printPostOrder(node.rightChild);
-        System.out.println(node.data);
+  public void printInOrder() {
+    printInOrder(root);
+  }
+
+  private void printInOrder(Node node) {
+    if (node == null) {
+      return;
     }
 
-    private class Node {
-        T data;
-        Node leftChild;
-        Node rightChild;
+    printInOrder(node.leftChild);
+    System.out.println(node.data);
+    printInOrder(node.rightChild);
+  }
 
-        Node(T data) {
-            this.data = data;
-        }
+  public void printPostOrder() {
+    printPostOrder(root);
+  }
+
+  private void printPostOrder(Node node) {
+    if (node == null) {
+      return;
     }
+
+    printPostOrder(node.leftChild);
+    printPostOrder(node.rightChild);
+    System.out.println(node.data);
+  }
+
+  private class Node {
+    T data;
+    Node leftChild;
+    Node rightChild;
+
+    Node(T data) {
+      this.data = data;
+    }
+  }
 }
