@@ -101,7 +101,11 @@ public class Order implements Comparable<Order> {
 
   @Override
   public String toString() {
-    return "Customer: " + customer + ", Order: " + foodOrder + ", Cooking Time Left: "
+    return "Customer: "
+        + customer
+        + ", Order: "
+        + foodOrder
+        + ", Cooking Time Left: "
         + cookingTimeLeft;
   }
 

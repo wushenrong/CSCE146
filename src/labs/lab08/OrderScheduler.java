@@ -21,9 +21,7 @@ public class OrderScheduler {
     totalWaitingTime = 0;
   }
 
-  /**
-   * Return the current order that we are preparing.
-   */
+  /** Return the current order that we are preparing. */
   public Order getCurrentOrder() {
     return currentOrder;
   }
@@ -63,9 +61,7 @@ public class OrderScheduler {
     }
   }
 
-  /**
-   * Checking if we are done cooking by checking if the current order is null.
-   */
+  /** Checking if we are done cooking by checking if the current order is null. */
   public boolean isDone() {
     return currentOrder == null;
   }

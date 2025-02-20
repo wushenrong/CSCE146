@@ -56,9 +56,7 @@ public class SortSorter {
     KEYBOARD_SCANNER.close();
   }
 
-  /**
-   * Method to quick sort an entire string array.
-   */
+  /** Method to quick sort an entire string array. */
   public static void sortSortStrings(String[] array) {
     quickSortStrings(array, 0, array.length - 1);
   }

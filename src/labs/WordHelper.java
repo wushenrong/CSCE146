@@ -138,7 +138,11 @@ public class WordHelper {
    * character is a consonant.
    */
   private static boolean isCharVowel(char character) {
-    return character == 'a' || character == 'e' || character == 'i' || character == 'o'
-        || character == 'u' || character == 'y';
+    return character == 'a'
+        || character == 'e'
+        || character == 'i'
+        || character == 'o'
+        || character == 'u'
+        || character == 'y';
   }
 }

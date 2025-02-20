@@ -80,12 +80,12 @@ public class Fruit implements Comparable<Fruit> {
     return type.compareTo(other.type);
   }
 
-  /**
-   * Check if the type of the fruit is either an apple, orange, banana, kiwi, or tomato.
-   */
+  /** Check if the type of the fruit is either an apple, orange, banana, kiwi, or tomato. */
   private static boolean isTypeValid(String fruitType) {
-    return fruitType.equals(TYPE_APPLE) || fruitType.equals(TYPE_ORANGE)
-        || fruitType.equals(TYPE_BANANA) || fruitType.equals(TYPE_KIWI)
+    return fruitType.equals(TYPE_APPLE)
+        || fruitType.equals(TYPE_ORANGE)
+        || fruitType.equals(TYPE_BANANA)
+        || fruitType.equals(TYPE_KIWI)
         || fruitType.equals(TYPE_TOMATO);
   }
 

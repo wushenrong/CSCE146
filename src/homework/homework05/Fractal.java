@@ -13,8 +13,8 @@ public class Fractal {
   public static final int SCREEN_HEIGHT = 400;
 
   /**
-   * Main method to create a new frame and canvas to show and draw the
-   * sierpinski triangle on respectively.
+   * Main method to create a new frame and canvas to show and draw the sierpinski triangle on
+   * respectively.
    */
   public static void main(String[] args) {
     JFrame mainFrame = new JFrame("Fractal");

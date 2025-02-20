@@ -12,7 +12,6 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-
 public class TaskOrganizer {
   private GenericLinkedList<Task>[] organizedTasks;
 
@@ -42,8 +41,12 @@ public class TaskOrganizer {
     int taskPriority = data.getPriority();
 
     if (organizedTasks[taskPriority].contains(data)) {
-      System.out.println("Task \"" + data.getAction() + "\" with priority " + data.getPriority()
-          + " already exists");
+      System.out.println(
+          "Task \""
+              + data.getAction()
+              + "\" with priority "
+              + data.getPriority()
+              + " already exists");
       System.out.println(
           "Skipping Task \"" + data.getAction() + "\" with priority " + data.getPriority());
       return;

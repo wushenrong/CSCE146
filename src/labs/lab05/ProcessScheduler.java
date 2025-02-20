@@ -19,9 +19,7 @@ public class ProcessScheduler {
     return currentProcess;
   }
 
-  /**
-   * Adds and runs a new process. If there is a process currently running, add it to our queue.
-   */
+  /** Adds and runs a new process. If there is a process currently running, add it to our queue. */
   public void addProcess(Process process) {
     if (currentProcess == null) {
       currentProcess = process;

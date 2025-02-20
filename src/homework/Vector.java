@@ -102,9 +102,7 @@ public class Vector {
     return vectorSize;
   }
 
-  /**
-   * Create a vector using an array and get vector values from the user.
-   */
+  /** Create a vector using an array and get vector values from the user. */
   public static double[] createVector(int vectorSize) {
     double[] vector = new double[vectorSize];
 
@@ -116,9 +114,7 @@ public class Vector {
     return vector;
   }
 
-  /**
-   * Adds the vectors by each of its component and returns a new vector for the result.
-   */
+  /** Adds the vectors by each of its component and returns a new vector for the result. */
   public static double[] addVectors(double[] vector1, double[] vector2) {
     double[] output = new double[vector1.length];
 
@@ -129,9 +125,7 @@ public class Vector {
     return output;
   }
 
-  /**
-   * Subtracts the vectors by each of its component and returns a new vector for the result.
-   */
+  /** Subtracts the vectors by each of its component and returns a new vector for the result. */
   public static double[] subtractVectors(double[] vector1, double[] vector2) {
     double[] outputVector = new double[vector1.length];
 

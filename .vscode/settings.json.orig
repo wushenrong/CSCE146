@@ -1,6 +1,8 @@
 {
   "[java]": {
-    "editor.detectIndentation": false
+    "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
   },
   "java.checkstyle.configuration": ".vscode/checkstyle.xml",
   "java.checkstyle.version": "10.20.1",

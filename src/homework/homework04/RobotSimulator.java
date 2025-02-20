@@ -103,7 +103,8 @@ public class RobotSimulator {
         break;
     }
 
-    if (!isPositionValid(robotXPosition) || !isPositionValid(robotYPosition)
+    if (!isPositionValid(robotXPosition)
+        || !isPositionValid(robotYPosition)
         || isPositionObstacle(robotXPosition, robotYPosition)) {
       return 1;
     }
