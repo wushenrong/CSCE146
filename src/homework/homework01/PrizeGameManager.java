@@ -55,15 +55,17 @@ public class PrizeGameManager {
    * increments the number of prizes selected.
    */
   public void newGame() {
-    for (int i = 0; i < gamePrizes.length; i++) {
+    int i = 0;
+
+    while (i < gamePrizes.length) {
       int gamePrize = (int) (Math.random() * prizes.length);
 
       if (prizes[gamePrize] == null || isGamePrizeSelected(prizes[gamePrize])) {
-        i--;
         continue;
       }
 
       gamePrizes[i] = prizes[gamePrize];
+      i++;
     }
   }
 
