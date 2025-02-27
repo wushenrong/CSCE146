@@ -10,9 +10,15 @@ package labs;
 
 import java.util.Scanner;
 
+/// A class with a main function to demonstrate the bubble sort algorithm.
 public class BubbleSorter {
+  /// The max size of an array for sort.
   public static final int ARRAY_SIZE = 10;
 
+  /// A main function that ask the user to input {@value #ARRAY_SIZE} integer values and sorts them
+  /// using bubble sort.
+  ///
+  /// @param args Arguments passed in by the commandline.
   public static void main(String[] args) {
     Scanner keyboardScanner = new Scanner(System.in);
 

@@ -146,7 +146,7 @@ public class PrizeGameManager {
 
   /**
    * Checking if a prize has been selected for the game by checking each prize in the array of
-   * prizes that was selected for the game. If the prizes in the array is not null and one of the
+   * prizes that was selected for the game. If the prizes in the array is not `null` and one of the
    * selected prizes matched the prize given return true, else return false.
    */
   private boolean isGamePrizeSelected(Prize gamePrize) {

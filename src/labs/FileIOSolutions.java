@@ -13,14 +13,14 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/// A utility class to demonstrate file operations
 public class FileIOSolutions {
-  /**
-   * Change all instances of "is" to "was" from a text file regardless of case and prints and writes
-   * the words line by line in a new text file.
-   *
-   * @param inputFilename The file to be read.
-   * @param outputFilename The file for the changes to be written to.
-   */
+
+  /// Change all instances of "is" to "was" from a text file regardless of case and prints and
+  /// writes the words line by line in a new text file.
+  ///
+  /// @param inputFilename The file to be read.
+  /// @param outputFilename The file for the changes to be written to.
   public static void pastTense(String inputFilename, String outputFilename) {
     // Checks and read the next word in a text file. Next check if the word
     // is "is" or "Is" using a separate check to preserve case. Then change
@@ -45,12 +45,11 @@ public class FileIOSolutions {
     }
   }
 
-  /**
-   * Finds the total volume of tubes from a file formatted as "[Identifier]\t[Radius]\t[Height]".
-   *
-   * @param filename A file that contains the radius and height of each tube.
-   * @return The sum of every volumes of each tube in a file.
-   */
+  /// Finds the total volume of tubes from a file formatted as
+  /// "\[Identifier\]\t\[Radius\]\t\[Height\]".
+  ///
+  /// @param filename A file that contains the radius and height of each tube.
+  /// @return The sum of every volumes of each tube in a file.
   public static double totalTubeVolume(String filename) {
     // Sets the delimiter and number of columns that formats our tubes file.
     // We expect that the file is using tabs to separate the data and there

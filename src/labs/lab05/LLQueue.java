@@ -16,9 +16,9 @@ public class LLQueue<T> implements QueueI<T> {
   }
 
   /**
-   * Adds data to the end of the queue by first checking if the data is not null, then if the queue
-   * is empty, add it as the first and last element of the queue. Else add the data at the end of
-   * the linked list queue and mark it as the last element of the queue.
+   * Adds data to the end of the queue by first checking if the data is not `null`, then if the
+   * queue is empty, add it as the first and last element of the queue. Else add the data at the end
+   * of the linked list queue and mark it as the last element of the queue.
    */
   @Override
   public void enqueue(T data) {

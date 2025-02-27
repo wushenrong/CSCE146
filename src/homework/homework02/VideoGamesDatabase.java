@@ -22,7 +22,7 @@ public class VideoGamesDatabase {
 
   /**
    * Search the video game database by checking if the video games list, the game's name, or the
-   * game's console name is null, and if it passes return false for not being able to search the
+   * game's console name is `null`, and if it passes return false for not being able to search the
    * database. Else, create a new linked list that contains the results for the search. Next set the
    * current reference of the videoGamesList back to the head, then iterate through the list and
    * getting the current game's name and console. Next check if the game's name and console contains

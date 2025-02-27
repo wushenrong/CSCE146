@@ -27,8 +27,8 @@ public class OrderScheduler {
   }
 
   /**
-   * Add an order by increment the number of orders we have added and if the current order is null,
-   * make the order as the current order to prepare. Else add the order to the orders heap that is
+   * Add an order by increment the number of orders we have added and if the current order is`
+   * null`, make it as the current order to prepare. Else add the order to the orders heap that is
    * heapified by shortest time to cook.
    */
   public void addOrder(Order data) {
@@ -61,7 +61,7 @@ public class OrderScheduler {
     }
   }
 
-  /** Checking if we are done cooking by checking if the current order is null. */
+  /** Check if we are done cooking. */
   public boolean isDone() {
     return currentOrder == null;
   }

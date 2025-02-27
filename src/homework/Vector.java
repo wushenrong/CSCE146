@@ -10,9 +10,11 @@ package homework;
 
 import java.util.Scanner;
 
+/// A Vector utility class to calculate vector operations.
 public class Vector {
   public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
 
+  /// A main method to demonstrate the vector operations functions.
   public static void main(String[] args) throws Exception {
     System.out.println("Vector Operations Program");
 
@@ -85,10 +87,10 @@ public class Vector {
     KEYBOARD_SCANNER.close();
   }
 
-  /**
-   * Get the size of the vector from the user. If the size is invalid, then ask the user to input a
-   * valid size.
-   */
+  /// Get the size of the vector from the user. If the size is invalid, then ask the user to input a
+  /// valid size.
+  ///
+  /// @return The size of the user requested vector.
   public static int getVectorSize() {
     int vectorSize = KEYBOARD_SCANNER.nextInt();
     KEYBOARD_SCANNER.nextLine();
@@ -102,7 +104,10 @@ public class Vector {
     return vectorSize;
   }
 
-  /** Create a vector using an array and get vector values from the user. */
+  /// Create a vector using an array and get vector values from the user.
+  ///
+  /// @param vectorSize The size of the vector, usually user requested.
+  /// @return A vector with user requested values.
   public static double[] createVector(int vectorSize) {
     double[] vector = new double[vectorSize];
 
@@ -114,7 +119,11 @@ public class Vector {
     return vector;
   }
 
-  /** Adds the vectors by each of its component and returns a new vector for the result. */
+  /// Adds the vectors by each of its component and returns a new vector for the result.
+  ///
+  /// @param vector1 First vector to add.
+  /// @param vector2 Second vector to add.
+  /// @return A vector with the sum of the two vectors.
   public static double[] addVectors(double[] vector1, double[] vector2) {
     double[] output = new double[vector1.length];
 
@@ -125,7 +134,11 @@ public class Vector {
     return output;
   }
 
-  /** Subtracts the vectors by each of its component and returns a new vector for the result. */
+  /// Subtracts the vectors by each of its component and returns a new vector for the result.
+  ///
+  /// @param vector1 The vector to subtract from.
+  /// @param vector2 The vector to subtract.
+  /// @return A vector with the difference of the two vectors.
   public static double[] subtractVectors(double[] vector1, double[] vector2) {
     double[] outputVector = new double[vector1.length];
 
@@ -136,10 +149,11 @@ public class Vector {
     return outputVector;
   }
 
-  /**
-   * Finding the magnitude of a vector by adding the squares of each component and then square
-   * rooting the result using the Java Math class.
-   */
+  /// Finding the magnitude of a vector by adding the squares of each component and then square
+  /// rooting the result using [Math].
+  ///
+  /// @param vector The vector which we get the magnitude of.
+  /// @return The magnitude of the vector.
   public static double findVectorMagnitude(double[] vector) {
     double magnitude = 0.0;
 
@@ -150,9 +164,9 @@ public class Vector {
     return Math.sqrt(magnitude);
   }
 
-  /**
-   * Turn vectors into a clean string representation with angle brackets. Example: "<1.0, 2.0, 3.0>"
-   */
+  /// {@return a clean string representation with angle brackets. Example: "<1.0, 2.0, 3.0>"}
+  ///
+  /// @param vector The vector to turn into a string representation.
   public static String vectorToString(double[] vector) {
     StringBuffer output = new StringBuffer("<");
 
