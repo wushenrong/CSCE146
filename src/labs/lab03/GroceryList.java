@@ -70,9 +70,9 @@ public class GroceryList {
 
   /**
    * Add a new grocery item after the current by first checking if either the list, the first node,
-   * the reference to the current node, or the grocery item is null. If the previous check succeeds
-   * then do nothing, else create a new node with the grocery item and reference to the next node of
-   * the current node before referencing this node to the current node's link.
+   * the reference to the current node, or the grocery item is `null`. If the previous check
+   * succeeds then do nothing, else create a new node with the grocery item and reference to the
+   * next node of the current node before referencing this node to the current node's link.
    */
   public void addItemAfterCurrent(GroceryItem data) {
     if (head == null || head.data == null || current == null || data == null) {

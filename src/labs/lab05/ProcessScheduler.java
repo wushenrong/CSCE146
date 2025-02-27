@@ -31,8 +31,8 @@ public class ProcessScheduler {
 
   /**
    * Runs the next process by dequeueing the first element from the queue and set that process to
-   * run as the current process. If the next process is null, dequeuing will set it to null, meaning
-   * the queue was empty and no new process to run.
+   * run as the current process. If the next process is `null`,return `null`, as the queue was empty
+   * and no new process to run.
    */
   public void runNextProcess() {
     currentProcess = processes.dequeue();

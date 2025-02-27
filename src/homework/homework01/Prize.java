@@ -6,6 +6,9 @@
 
 package homework.homework01;
 
+import java.util.Objects;
+
+/// A class representation of a Prize with its name and price.
 public class Prize {
   public static final String DEFAULT_NAME = "none";
   public static final String DELIMITER = "\t";
@@ -14,11 +17,16 @@ public class Prize {
   private String name;
   private double price;
 
+  /// Initialize a Prize with {@value #DEFAULT_NAME} as the name and `0.0` as the price.
   public Prize() {
     name = DEFAULT_NAME;
     price = 0.0;
   }
 
+  /// Initialize a Prize with a custom name and price.
+  ///
+  /// @param name The name of the prize.
+  /// @param price The price of the prize.
   public Prize(String name, double price) {
     setName(name);
     setPrice(price);
@@ -28,6 +36,9 @@ public class Prize {
     return name;
   }
 
+  /// Sets the name of the prize. If the name is `null`, set it to {@value #DEFAULT_NAME}.
+  ///
+  /// @param name The name for the prize.
   public void setName(String name) {
     if (name != null) {
       this.name = name;
@@ -40,6 +51,9 @@ public class Prize {
     return price;
   }
 
+  /// Sets the price of the Prize. If the price is negative, set it to `0.0`.
+  ///
+  /// @param price The price for the prize.
   public void setPrice(double price) {
     if (price >= 0.0) {
       this.price = price;
@@ -55,13 +69,7 @@ public class Prize {
 
   @Override
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
-    long temp;
-    temp = Double.doubleToLongBits(price);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    return result;
+    return Objects.hash(name, price);
   }
 
   @Override
@@ -70,28 +78,13 @@ public class Prize {
       return true;
     }
 
-    if (obj == null) {
-      return false;
-    }
-
-    if (getClass() != obj.getClass()) {
+    if (!(obj instanceof Prize)) {
       return false;
     }
 
     Prize other = (Prize) obj;
 
-    if (name == null) {
-      if (other.name != null) {
-        return false;
-      }
-    } else if (!name.equals(other.name)) {
-      return false;
-    }
-
-    if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price)) {
-      return false;
-    }
-
-    return true;
+    return Objects.equals(name, other.name)
+        && Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
   }
 }

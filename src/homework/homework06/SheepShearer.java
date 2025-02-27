@@ -35,7 +35,7 @@ public class SheepShearer {
 
   /**
    * Shear a sheep by decreasing the time left to shear the sheep. If the sheep is done shearing,
-   * return the sheep after a new sheep is ready to be sheared. Else return null.
+   * return the sheep after a new sheep is ready to be sheared. Else return `null`.
    */
   public Sheep shearSheep() {
     timeLeftToShear--;
