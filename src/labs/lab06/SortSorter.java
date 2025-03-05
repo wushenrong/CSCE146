@@ -10,7 +10,9 @@ import java.util.Scanner;
 
 public class SortSorter {
   public static final String SORT_STRING = "sort";
-  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
+
+  public static final Scanner keyboardScanner = new Scanner(System.in);
+
   private static StringLinkedQueue stringsQueue = new StringLinkedQueue();
 
   /**
@@ -28,7 +30,7 @@ public class SortSorter {
       System.out.println("Just hit enter when you are done entering strings\n");
 
       while (true) {
-        String input = KEYBOARD_SCANNER.nextLine();
+        String input = keyboardScanner.nextLine();
 
         if (input.equals("")) {
           break;
@@ -53,7 +55,7 @@ public class SortSorter {
       quit = promptToSortNewStrings();
     }
 
-    KEYBOARD_SCANNER.close();
+    keyboardScanner.close();
   }
 
   /** Method to quick sort an entire string array. */
@@ -120,7 +122,7 @@ public class SortSorter {
   public static boolean promptToSortNewStrings() {
     while (true) {
       System.out.println("\nDo you want run sort more strings? Yes or No");
-      String input = KEYBOARD_SCANNER.nextLine();
+      String input = keyboardScanner.nextLine();
 
       if (input.equalsIgnoreCase("Yes")) {
         return false;

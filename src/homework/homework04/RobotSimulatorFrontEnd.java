@@ -9,7 +9,8 @@ package homework.homework04;
 import java.util.Scanner;
 
 public class RobotSimulatorFrontEnd {
-  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
+  public static final Scanner keyboardScanner = new Scanner(System.in);
+
   private static RobotSimulator simulator;
 
   public static void main(String[] args) {
@@ -71,7 +72,7 @@ public class RobotSimulatorFrontEnd {
 
     System.out.println("Goodbye!");
 
-    KEYBOARD_SCANNER.close();
+    keyboardScanner.close();
   }
 
   public static void printGreetings() {
@@ -82,11 +83,11 @@ public class RobotSimulatorFrontEnd {
     simulator = new RobotSimulator();
 
     System.out.println("Enter file name for the Board:");
-    String boardFile = KEYBOARD_SCANNER.nextLine();
+    String boardFile = keyboardScanner.nextLine();
     simulator.readBoardFile(boardFile);
 
     System.out.println("Enter file name for the Commands:");
-    String commandsFile = KEYBOARD_SCANNER.nextLine();
+    String commandsFile = keyboardScanner.nextLine();
     simulator.readCommandFile(commandsFile);
   }
 
@@ -98,7 +99,7 @@ public class RobotSimulatorFrontEnd {
   public static boolean promptForNewSimulation() {
     while (true) {
       System.out.println("\nDo you want run another simulation? Yes or No");
-      String input = KEYBOARD_SCANNER.nextLine();
+      String input = keyboardScanner.nextLine();
 
       if (input.equalsIgnoreCase("Yes")) {
         return false;

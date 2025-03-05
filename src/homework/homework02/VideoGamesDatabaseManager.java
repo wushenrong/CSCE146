@@ -9,8 +9,8 @@ package homework.homework02;
 import java.util.Scanner;
 
 public class VideoGamesDatabaseManager {
-  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
-  public static final VideoGamesDatabase DATABASE = new VideoGamesDatabase();
+  public static final Scanner keyboardScanner = new Scanner(System.in);
+  public static final VideoGamesDatabase database = new VideoGamesDatabase();
 
   public static void main(String[] args) {
     printGreetings();
@@ -20,7 +20,7 @@ public class VideoGamesDatabaseManager {
     while (!quit) {
       printChoices();
 
-      String choice = KEYBOARD_SCANNER.nextLine().toLowerCase();
+      String choice = keyboardScanner.nextLine().toLowerCase();
 
       switch (choice) {
         case "quit":
@@ -45,7 +45,7 @@ public class VideoGamesDatabaseManager {
       }
     }
 
-    KEYBOARD_SCANNER.close();
+    keyboardScanner.close();
 
     System.out.println("Goodbye!");
   }
@@ -71,12 +71,12 @@ public class VideoGamesDatabaseManager {
   public static void searchVideoGamesDatabase() {
     System.out.println();
     System.out.println("Enter the name of the game or '*' for all games:");
-    String gameQuery = KEYBOARD_SCANNER.nextLine();
+    String gameQuery = keyboardScanner.nextLine();
 
     System.out.println("Enter the name of the console or '*' for all consoles:");
-    String consoleQuery = KEYBOARD_SCANNER.nextLine();
+    String consoleQuery = keyboardScanner.nextLine();
 
-    if (!DATABASE.searchVideoGames(gameQuery, consoleQuery)) {
+    if (!database.searchVideoGames(gameQuery, consoleQuery)) {
       System.out.println("Error: Something has gone wrong with the search function.");
       System.out.println("Have you load a video game database yet?");
       return;
@@ -95,7 +95,7 @@ public class VideoGamesDatabaseManager {
   public static void printVideoGamesResult() {
     System.out.println();
 
-    if (!DATABASE.printVideoGamesSearchResults()) {
+    if (!database.printVideoGamesSearchResults()) {
       System.out.println("Error: No search result, please search for a game.");
       return;
     }
@@ -103,7 +103,7 @@ public class VideoGamesDatabaseManager {
     System.out.println();
 
     System.out.println("Do you want to save the results to a file? Yes or No?");
-    String option = KEYBOARD_SCANNER.nextLine().toLowerCase();
+    String option = keyboardScanner.nextLine().toLowerCase();
 
     while (true) {
       if (option.equals("no")) {
@@ -116,14 +116,14 @@ public class VideoGamesDatabaseManager {
       }
 
       System.out.println("Error: Invalid option, please type 'Yes' or 'No'.");
-      option = KEYBOARD_SCANNER.nextLine().toLowerCase();
+      option = keyboardScanner.nextLine().toLowerCase();
     }
   }
 
   public static void readVideoGamesCollectionFile() {
     System.out.println("Enter the file name of the video games database:");
-    String filename = KEYBOARD_SCANNER.nextLine();
-    DATABASE.readVideoGameCollectionFile("./" + filename);
+    String filename = keyboardScanner.nextLine();
+    database.readVideoGameCollectionFile("./" + filename);
   }
 
   /**
@@ -134,11 +134,11 @@ public class VideoGamesDatabaseManager {
    */
   public static void writeVideoGamesSearchResults() {
     System.out.println("Enter the name of the file to write results to:");
-    String filename = KEYBOARD_SCANNER.nextLine();
+    String filename = keyboardScanner.nextLine();
 
     boolean append = promptToAppendFile();
 
-    if (!DATABASE.writeVideoGamesSearchResults("./" + filename, append)) {
+    if (!database.writeVideoGamesSearchResults("./" + filename, append)) {
       System.out.println("Error: Failed to write search results to file.");
       System.out.println("Have you search for a game yet?");
       return;
@@ -149,7 +149,7 @@ public class VideoGamesDatabaseManager {
 
   private static boolean promptToAppendFile() {
     System.out.println("Would you like to append to the file? Yes or No");
-    String option = KEYBOARD_SCANNER.nextLine().toLowerCase();
+    String option = keyboardScanner.nextLine().toLowerCase();
 
     while (true) {
       if (option.equals("no")) {
@@ -161,7 +161,7 @@ public class VideoGamesDatabaseManager {
       }
 
       System.out.println("Error: Invalid option, please type 'Yes' or 'No'.");
-      option = KEYBOARD_SCANNER.nextLine().toLowerCase();
+      option = keyboardScanner.nextLine().toLowerCase();
     }
   }
 }

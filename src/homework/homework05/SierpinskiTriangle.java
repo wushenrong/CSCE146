@@ -16,8 +16,8 @@ public class SierpinskiTriangle extends Canvas {
   public static final int NUMBER_OF_POINTS = 3;
   public static final int MAX_DEPTH = 4;
 
-  public static final Color BLACK = new Color(0, 0, 0);
-  public static final Color WHITE = new Color(255, 255, 255);
+  public static final Color black = new Color(0, 0, 0);
+  public static final Color white = new Color(255, 255, 255);
 
   /**
    * Draw the initial triangle right side up triangle from the top middle of the canvas, the bottom
@@ -29,9 +29,9 @@ public class SierpinskiTriangle extends Canvas {
     int[] mainTriangleXpoints = {this.getWidth() / 2, 0, this.getWidth()};
     int[] mainTriangleYpoints = {0, this.getHeight(), this.getHeight()};
 
-    g.setColor(BLACK);
+    g.setColor(black);
     g.fillPolygon(mainTriangleXpoints, mainTriangleYpoints, NUMBER_OF_POINTS);
-    g.setColor(WHITE);
+    g.setColor(white);
 
     Point top = new Point(mainTriangleXpoints[0], mainTriangleYpoints[0]);
     Point left = new Point(mainTriangleXpoints[1], mainTriangleYpoints[1]);

@@ -13,8 +13,8 @@ public class FruitTreeTester {
   public static final String FRUIT_TYPE_TO_DELETE = Fruit.TYPE_APPLE;
   public static final double FRUIT_WEIGHT_TO_DELETE = 0.485_985_341_217_072_8;
 
-  public static final LinkedBinarySearchTree<Fruit> FRUIT_TREE = new LinkedBinarySearchTree<>();
-  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
+  public static final Scanner keyboardScanner = new Scanner(System.in);
+  public static final LinkedBinarySearchTree<Fruit> fruitTree = new LinkedBinarySearchTree<>();
 
   /**
    * Main function to test four subfunctions of the tree, adding, printing in order, pre order, and
@@ -29,7 +29,7 @@ public class FruitTreeTester {
     printPostOrder();
     deleteFruit();
 
-    KEYBOARD_SCANNER.close();
+    keyboardScanner.close();
   }
 
   /**
@@ -39,7 +39,7 @@ public class FruitTreeTester {
    */
   public static void readFruitFile() {
     System.out.println("Please enter the filename for a Fruit File");
-    String filename = KEYBOARD_SCANNER.nextLine();
+    String filename = keyboardScanner.nextLine();
 
     System.out.println("Populating the fruit tree");
 
@@ -55,7 +55,7 @@ public class FruitTreeTester {
         String fruitType = fields[0];
         double fruitWeight = Double.parseDouble(fields[1]);
 
-        FRUIT_TREE.add(new Fruit(fruitType, fruitWeight));
+        fruitTree.add(new Fruit(fruitType, fruitWeight));
       }
     } catch (Exception e) {
       e.printStackTrace();
@@ -64,19 +64,19 @@ public class FruitTreeTester {
 
   public static void printInOrder() {
     System.out.println("Printing the in-order traversal");
-    FRUIT_TREE.printInOrder();
+    fruitTree.printInOrder();
     System.out.println();
   }
 
   public static void printPreOrder() {
     System.out.println("Printing the pre-order traversal");
-    FRUIT_TREE.printPreOrder();
+    fruitTree.printPreOrder();
     System.out.println();
   }
 
   public static void printPostOrder() {
     System.out.println("Printing the post-order traversal");
-    FRUIT_TREE.printPostOrder();
+    fruitTree.printPostOrder();
     System.out.println();
   }
 
@@ -87,7 +87,7 @@ public class FruitTreeTester {
   public static void deleteFruit() {
     System.out.println(
         "Deleting: " + FRUIT_TYPE_TO_DELETE + Fruit.DELIMITER + FRUIT_WEIGHT_TO_DELETE);
-    FRUIT_TREE.remove(new Fruit(FRUIT_TYPE_TO_DELETE, FRUIT_WEIGHT_TO_DELETE));
+    fruitTree.remove(new Fruit(FRUIT_TYPE_TO_DELETE, FRUIT_WEIGHT_TO_DELETE));
     printInOrder();
   }
 }

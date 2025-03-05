@@ -7,10 +7,10 @@
 package homework.homework06;
 
 public class Sheep implements Comparable<Sheep> {
-  public static final String DEFAULT_NAME = "unknown";
-
   public static final String DELIMITER = "\t";
   public static final int NUMBER_OF_FIELDS = 3;
+
+  public static final String DEFAULT_NAME = "unknown";
 
   private String name;
   private int shearingTime;

@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 /// The main class interface to play the Prize Game.
 public class PrizeGameFrontEnd {
-  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
-  public static final PrizeGameManager GAME_MANAGER = new PrizeGameManager();
+  public static final Scanner keyboardScanner = new Scanner(System.in);
+  public static final PrizeGameManager gameManager = new PrizeGameManager();
 
   /// Main function to play the prize game.
   ///
@@ -25,8 +25,8 @@ public class PrizeGameFrontEnd {
     while (!quit) {
       printChoices();
 
-      int choice = KEYBOARD_SCANNER.nextInt();
-      KEYBOARD_SCANNER.nextLine();
+      int choice = keyboardScanner.nextInt();
+      keyboardScanner.nextLine();
 
       switch (choice) {
         case 1:
@@ -45,7 +45,7 @@ public class PrizeGameFrontEnd {
 
     System.out.println("Goodbye!");
 
-    KEYBOARD_SCANNER.close();
+    keyboardScanner.close();
   }
 
   public static void printGreetings() {
@@ -59,7 +59,7 @@ public class PrizeGameFrontEnd {
   }
 
   public static void newGame() {
-    GAME_MANAGER.newGame();
+    gameManager.newGame();
 
     System.out.println(
         "Your goal for this game is to guess the total price of "
@@ -69,30 +69,30 @@ public class PrizeGameFrontEnd {
             + " of its actual price.");
     System.out.println("Here are your " + PrizeGameManager.NUMBER_OF_GAME_PRIZES + " prizes:");
 
-    GAME_MANAGER.printGamePrizes();
+    gameManager.printGamePrizes();
 
     System.out.println(
         "Enter your guess for the price of the "
             + PrizeGameManager.NUMBER_OF_GAME_PRIZES
             + " prizes:");
 
-    double guess = KEYBOARD_SCANNER.nextDouble();
-    KEYBOARD_SCANNER.nextLine();
+    double guess = keyboardScanner.nextDouble();
+    keyboardScanner.nextLine();
 
-    if (GAME_MANAGER.checkPriceGuess(guess)) {
+    if (gameManager.checkPriceGuess(guess)) {
       System.out.println("Congratulations, you win!!!");
     } else {
       System.out.println("Sorry you lose.");
     }
 
-    double totalPrizePrice = GAME_MANAGER.getTotalPrizePrice();
+    double totalPrizePrice = gameManager.getTotalPrizePrice();
     System.out.println("The actual price of the 5 prizes is " + totalPrizePrice);
   }
 
   public static void getPrizeListFile() {
     System.out.println("Please enter the filename of the prize list for this game:");
-    String prizeListFile = KEYBOARD_SCANNER.nextLine();
+    String prizeListFile = keyboardScanner.nextLine();
 
-    GAME_MANAGER.readPrizeList("./" + prizeListFile);
+    gameManager.readPrizeList("./" + prizeListFile);
   }
 }

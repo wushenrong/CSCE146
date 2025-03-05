@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 
 public class SheepScheduler {
-  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
+  public static final Scanner keyboardScanner = new Scanner(System.in);
 
   private static GenericLinkedQueue<Sheep> sheepToBeSorted;
   private static GenericLinkedQueue<Sheep> sheepSchedule;
@@ -34,7 +34,7 @@ public class SheepScheduler {
 
     System.out.println("Goodbye");
 
-    KEYBOARD_SCANNER.close();
+    keyboardScanner.close();
   }
 
   public static void printGreetings() {
@@ -124,7 +124,7 @@ public class SheepScheduler {
 
   public static void promptForSheep() {
     System.out.println("Please enter the filename for the sheep file: ");
-    String filename = KEYBOARD_SCANNER.nextLine();
+    String filename = keyboardScanner.nextLine();
     readSheepFile("./" + filename);
   }
 
@@ -135,7 +135,7 @@ public class SheepScheduler {
   public static boolean promptForNewSchedule() {
     while (true) {
       System.out.println("\nDo you want to create a new shearing schedule? Yes or No");
-      String input = KEYBOARD_SCANNER.nextLine();
+      String input = keyboardScanner.nextLine();
 
       if (input.equalsIgnoreCase("Yes")) {
         return false;

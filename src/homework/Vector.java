@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /// A Vector utility class to calculate vector operations.
 public class Vector {
-  public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
+  public static final Scanner keyboardScanner = new Scanner(System.in);
 
   /// A main method to demonstrate the vector operations functions.
   public static void main(String[] args) throws Exception {
@@ -30,7 +30,7 @@ public class Vector {
       System.out.println("Enter M to find the magnitude of a vector");
       System.out.println("Enter Q to quit");
 
-      input = KEYBOARD_SCANNER.nextLine();
+      input = keyboardScanner.nextLine();
 
       if (input.equalsIgnoreCase("A")) {
         System.out.println("Enter the size of the vectors:");
@@ -84,7 +84,7 @@ public class Vector {
       System.out.println();
     }
 
-    KEYBOARD_SCANNER.close();
+    keyboardScanner.close();
   }
 
   /// Get the size of the vector from the user. If the size is invalid, then ask the user to input a
@@ -92,13 +92,13 @@ public class Vector {
   ///
   /// @return The size of the user requested vector.
   public static int getVectorSize() {
-    int vectorSize = KEYBOARD_SCANNER.nextInt();
-    KEYBOARD_SCANNER.nextLine();
+    int vectorSize = keyboardScanner.nextInt();
+    keyboardScanner.nextLine();
 
     while (vectorSize <= 0) {
       System.out.println("Error: Invalid size. Please try again");
-      vectorSize = KEYBOARD_SCANNER.nextInt();
-      KEYBOARD_SCANNER.nextLine();
+      vectorSize = keyboardScanner.nextInt();
+      keyboardScanner.nextLine();
     }
 
     return vectorSize;
@@ -112,8 +112,8 @@ public class Vector {
     double[] vector = new double[vectorSize];
 
     for (int i = 0; i < vector.length; i++) {
-      vector[i] = KEYBOARD_SCANNER.nextDouble();
-      KEYBOARD_SCANNER.nextLine();
+      vector[i] = keyboardScanner.nextDouble();
+      keyboardScanner.nextLine();
     }
 
     return vector;
