@@ -11,7 +11,7 @@ public class ProcessScheduler {
   private Process currentProcess;
 
   public ProcessScheduler() {
-    processes = new LLQueue<Process>();
+    processes = new LinkedListQueue<Process>();
     currentProcess = null;
   }
 

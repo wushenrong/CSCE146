@@ -303,7 +303,6 @@
         value="//SLIST[not(parent::CASE_GROUP)]/SLIST
                                    | //SLIST[not(parent::CASE_GROUP)]/SLIST/RCURLY" />
     </module>
-    <!--
     <module name="AbbreviationAsWordInName">
       <property name="ignoreFinal" value="false" />
       <property name="allowedAbbreviationLength" value="0" />
@@ -312,7 +311,6 @@
                     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF, PATTERN_VARIABLE_DEF, RECORD_DEF,
                     RECORD_COMPONENT_DEF" />
     </module>
-    -->
     <module name="NoWhitespaceBeforeCaseDefaultColon" />
     <module name="OverloadMethodsDeclarationOrder" />
     <module name="ConstructorsDeclarationGrouping" />

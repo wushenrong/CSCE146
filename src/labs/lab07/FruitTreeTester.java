@@ -13,7 +13,7 @@ public class FruitTreeTester {
   public static final String FRUIT_TYPE_TO_DELETE = Fruit.TYPE_APPLE;
   public static final double FRUIT_WEIGHT_TO_DELETE = 0.485_985_341_217_072_8;
 
-  public static final LinkedBST<Fruit> FRUIT_TREE = new LinkedBST<>();
+  public static final LinkedBinarySearchTree<Fruit> FRUIT_TREE = new LinkedBinarySearchTree<>();
   public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
 
   /**

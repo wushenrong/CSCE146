@@ -10,8 +10,11 @@ import java.util.Objects;
 
 /// A class representation of a Prize with its name and price.
 public class Prize {
+  /// Default name for Prize.
   public static final String DEFAULT_NAME = "none";
+  /// The separator for the Prize name and price in a Prize list.
   public static final String DELIMITER = "\t";
+  /// How many fields that Prize has.
   public static final int NUMBER_OF_FIELDS = 2;
 
   private String name;
@@ -36,7 +39,7 @@ public class Prize {
     return name;
   }
 
-  /// Sets the name of the prize. If the name is `null`, set it to {@value #DEFAULT_NAME}.
+  /// Sets the name of the Prize. If the name is `null`, set it to {@value #DEFAULT_NAME}.
   ///
   /// @param name The name for the prize.
   public void setName(String name) {
@@ -53,7 +56,7 @@ public class Prize {
 
   /// Sets the price of the Prize. If the price is negative, set it to `0.0`.
   ///
-  /// @param price The price for the prize.
+  /// @param price The price for the Prize.
   public void setPrice(double price) {
     if (price >= 0.0) {
       this.price = price;

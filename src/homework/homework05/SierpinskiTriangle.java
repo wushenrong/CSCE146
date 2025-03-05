@@ -26,16 +26,16 @@ public class SierpinskiTriangle extends Canvas {
    */
   @Override
   public void paint(Graphics g) {
-    int[] mainTriangleXPoints = {this.getWidth() / 2, 0, this.getWidth()};
-    int[] mainTriangleYPoints = {0, this.getHeight(), this.getHeight()};
+    int[] mainTriangleXpoints = {this.getWidth() / 2, 0, this.getWidth()};
+    int[] mainTriangleYpoints = {0, this.getHeight(), this.getHeight()};
 
     g.setColor(BLACK);
-    g.fillPolygon(mainTriangleXPoints, mainTriangleYPoints, NUMBER_OF_POINTS);
+    g.fillPolygon(mainTriangleXpoints, mainTriangleYpoints, NUMBER_OF_POINTS);
     g.setColor(WHITE);
 
-    Point top = new Point(mainTriangleXPoints[0], mainTriangleYPoints[0]);
-    Point left = new Point(mainTriangleXPoints[1], mainTriangleYPoints[1]);
-    Point right = new Point(mainTriangleXPoints[2], mainTriangleYPoints[2]);
+    Point top = new Point(mainTriangleXpoints[0], mainTriangleYpoints[0]);
+    Point left = new Point(mainTriangleXpoints[1], mainTriangleYpoints[1]);
+    Point right = new Point(mainTriangleXpoints[2], mainTriangleYpoints[2]);
 
     drawTriangles(g, top, left, right, 1);
   }
