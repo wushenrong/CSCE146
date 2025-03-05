@@ -7,11 +7,11 @@
 package homework.homework03;
 
 public class Task {
-  public static final int NUMBER_OF_PRIORITIES = 5;
-  public static final int DEFAULT_PRIORITY = 4;
-
   public static final String DELIMITER = "\t";
   public static final int NUMBER_OF_FIELDS = 2;
+
+  public static final int NUMBER_OF_PRIORITIES = 5;
+  public static final int DEFAULT_PRIORITY = 4;
 
   private int priority;
   private String action;

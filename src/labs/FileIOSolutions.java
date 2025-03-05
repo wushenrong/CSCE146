@@ -15,7 +15,6 @@ import java.util.Scanner;
 
 /// A utility class to demonstrate file operations
 public class FileIoSolutions {
-
   /// Change all instances of "is" to "was" from a text file regardless of case and prints and
   /// writes the words line by line in a new text file.
   ///
