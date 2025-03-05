@@ -9,6 +9,7 @@ package homework.homework01;
 import java.io.File;
 import java.util.Scanner;
 
+/// A class to create a Prize Game
 public class PrizeGameManager {
   public static final int DEFAULT_PRIZE_SIZE = 20;
   public static final int NUMBER_OF_GAME_PRIZES = 5;
@@ -46,14 +47,12 @@ public class PrizeGameManager {
     }
   }
 
-  /**
-   * Creates a new prize game by randomizing the prizes for the game from the prize list. First the
-   * array for game prizes is iterated to fill up the array. Then a prize is selected from the prize
-   * list by generating a number between 0 and the size of the prize list minus one for the index of
-   * the prize array. Next check if the prize is either null or the prize was selected. If not add
-   * it to the array for game prize, else decrement the number of prizes selected. Lastly the loop
-   * increments the number of prizes selected.
-   */
+  /// Creates a new prize game by randomizing the prizes for the game from the prize list. First the
+  /// array for game prizes is iterated to fill up the array. Then a prize is selected from the
+  /// prize list by generating a number between 0 and the size of the prize list minus one for the
+  /// index of the prize array. Next check if the prize is either null or the prize was selected. If
+  /// not add it to the array for game prize, else skip the prize. Lastly the loop increments the
+  /// number of prizes selected.
   public void newGame() {
     int i = 0;
 
@@ -69,10 +68,7 @@ public class PrizeGameManager {
     }
   }
 
-  /**
-   * Gets the total price of prizes for the current game by iterating through the array for game,
-   * adding the price of the prizes to a sum variable, and lastly returning the sum variable.
-   */
+  /// Returns the total price of prizes for the current game
   public double getTotalPrizePrice() {
     double totalPrizePrice = 0;
 

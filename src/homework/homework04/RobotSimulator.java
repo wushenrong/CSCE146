@@ -26,8 +26,8 @@ public class RobotSimulator {
   private GenericLinkedQueue<String> commandsToRun;
 
   private int commandCounter = 0;
-  private int robotXPosition = START_POSITION;
-  private int robotYPosition = START_POSITION;
+  private int robotXposition = START_POSITION;
+  private int robotYposition = START_POSITION;
 
   public RobotSimulator() {
     board = null;
@@ -46,13 +46,13 @@ public class RobotSimulator {
       return -1;
     }
 
-    if (isPositionObstacle(robotXPosition, robotYPosition)) {
+    if (isPositionObstacle(robotXposition, robotYposition)) {
       return 1;
     }
 
-    robotXPosition = START_POSITION;
-    robotYPosition = START_POSITION;
-    board[robotYPosition][robotXPosition] = ROBOT;
+    robotXposition = START_POSITION;
+    robotYposition = START_POSITION;
+    board[robotYposition][robotXposition] = ROBOT;
 
     return 0;
   }
@@ -79,38 +79,38 @@ public class RobotSimulator {
 
     System.out.println("Command " + commandCounter + ": " + command);
 
-    final int previousXPosition = robotXPosition;
-    final int previousYPosition = robotYPosition;
+    final int previousXposition = robotXposition;
+    final int previousYposition = robotYposition;
 
     switch (command) {
       case UP:
-        robotYPosition -= 1;
+        robotYposition -= 1;
         break;
 
       case DOWN:
-        robotYPosition += 1;
+        robotYposition += 1;
         break;
 
       case LEFT:
-        robotXPosition -= 1;
+        robotXposition -= 1;
         break;
 
       case RIGHT:
-        robotXPosition += 1;
+        robotXposition += 1;
         break;
 
       default:
         break;
     }
 
-    if (!isPositionValid(robotXPosition)
-        || !isPositionValid(robotYPosition)
-        || isPositionObstacle(robotXPosition, robotYPosition)) {
+    if (!isPositionValid(robotXposition)
+        || !isPositionValid(robotYposition)
+        || isPositionObstacle(robotXposition, robotYposition)) {
       return 1;
     }
 
-    board[robotYPosition][robotXPosition] = ROBOT;
-    board[previousYPosition][previousXPosition] = EMPTY;
+    board[robotYposition][robotXposition] = ROBOT;
+    board[previousYposition][previousXposition] = EMPTY;
 
     return 0;
   }

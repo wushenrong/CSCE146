@@ -8,10 +8,14 @@ package homework.homework01;
 
 import java.util.Scanner;
 
+/// The main class interface to play the Prize Game.
 public class PrizeGameFrontEnd {
   public static final Scanner KEYBOARD_SCANNER = new Scanner(System.in);
   public static final PrizeGameManager GAME_MANAGER = new PrizeGameManager();
 
+  /// Main function to play the prize game.
+  ///
+  /// @param args Arguments from the commandline.
   public static void main(String[] args) {
     printGreetings();
     getPrizeListFile();

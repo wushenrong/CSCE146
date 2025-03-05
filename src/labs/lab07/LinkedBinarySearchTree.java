@@ -6,7 +6,7 @@
 
 package labs.lab07;
 
-public class LinkedBST<T extends Comparable<T>> {
+public class LinkedBinarySearchTree<T extends Comparable<T>> {
   private Node root;
 
   public void add(T data) {

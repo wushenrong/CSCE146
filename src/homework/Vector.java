@@ -164,7 +164,7 @@ public class Vector {
     return Math.sqrt(magnitude);
   }
 
-  /// {@return a clean string representation with angle brackets. Example: "<1.0, 2.0, 3.0>"}
+  /// Returns a clean string representation with angle brackets. Example: "<1.0, 2.0, 3.0>"
   ///
   /// @param vector The vector to turn into a string representation.
   public static String vectorToString(double[] vector) {

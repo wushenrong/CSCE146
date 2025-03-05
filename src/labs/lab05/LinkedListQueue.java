@@ -6,11 +6,11 @@
 
 package labs.lab05;
 
-public class LLQueue<T> implements QueueI<T> {
+public class LinkedListQueue<T> implements QueueI<T> {
   private Node head;
   private Node tail;
 
-  public LLQueue() {
+  public LinkedListQueue() {
     head = null;
     tail = null;
   }

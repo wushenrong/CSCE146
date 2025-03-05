@@ -9,12 +9,12 @@
 package labs;
 
 /// A double linked list class that holds a list of doubles and can move forwards and backwards.
-public class DoubleDoubleLL {
+public class DoubleDoubleLinkedList {
   private DoubleNode head;
   private DoubleNode current;
 
   /// Creates an empty link list.
-  public DoubleDoubleLL() {
+  public DoubleDoubleLinkedList() {
     head = null;
     current = null;
   }
@@ -118,7 +118,7 @@ public class DoubleDoubleLL {
     current = temp;
   }
 
-  /// {@return true if there are more items in the linked list to process.}
+  /// Returns true if there are more items in the linked list to process.
   public boolean hasMore() {
     return current != null;
   }
@@ -178,7 +178,7 @@ public class DoubleDoubleLL {
     current = current.nextLink;
   }
 
-  /// {@return the double value stored at the current node.}
+  /// Returns the double value stored at the current node.
   public Double getCurrent() {
     if (current == null) {
       return null;
