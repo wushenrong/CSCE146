@@ -43,11 +43,7 @@ public class Prize {
   ///
   /// @param name The name for the prize.
   public void setName(String name) {
-    if (name != null) {
-      this.name = name;
-    } else {
-      this.name = DEFAULT_NAME;
-    }
+    this.name = name != null ? name : DEFAULT_NAME;
   }
 
   public double getPrice() {
@@ -58,11 +54,7 @@ public class Prize {
   ///
   /// @param price The price for the Prize.
   public void setPrice(double price) {
-    if (price >= 0.0) {
-      this.price = price;
-    } else {
-      this.price = 0.0;
-    }
+    this.price = price >= 0.0 ? price : 0.0;
   }
 
   @Override

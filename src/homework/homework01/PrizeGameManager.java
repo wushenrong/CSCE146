@@ -27,11 +27,7 @@ public class PrizeGameManager {
   }
 
   public void init(int prizeSize) {
-    if (prizeSize >= 1) {
-      prizes = new Prize[prizeSize];
-    } else {
-      prizes = new Prize[DEFAULT_PRIZE_SIZE];
-    }
+    prizes = prizeSize >= 1 ? new Prize[prizeSize] : new Prize[DEFAULT_PRIZE_SIZE];
   }
 
   public void addPrize(Prize prize) {
