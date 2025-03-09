@@ -51,7 +51,7 @@ public class BubbleSorter {
     } while (hasSwapped);
 
     for (int number : numbers) {
-      System.err.println(number);
+      System.out.println(number);
     }
 
     keyboardScanner.close();

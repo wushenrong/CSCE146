@@ -7,7 +7,7 @@
 package labs.lab05;
 
 public class ProcessScheduler {
-  private QueueI<Process> processes;
+  private IQueue<Process> processes;
   private Process currentProcess;
 
   public ProcessScheduler() {

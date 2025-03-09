@@ -33,11 +33,7 @@ public class Sheep implements Comparable<Sheep> {
   }
 
   public void setName(String name) {
-    if (name != null) {
-      this.name = name;
-    } else {
-      this.name = DEFAULT_NAME;
-    }
+    this.name = name != null ? name : DEFAULT_NAME;
   }
 
   public int getShearingTime() {
@@ -45,11 +41,7 @@ public class Sheep implements Comparable<Sheep> {
   }
 
   public void setShearingTime(int shearingTime) {
-    if (shearingTime >= 1) {
-      this.shearingTime = shearingTime;
-    } else {
-      this.shearingTime = 1;
-    }
+    this.shearingTime = shearingTime >= 1 ? shearingTime : 1;
   }
 
   public int getArrivalTime() {
@@ -57,11 +49,7 @@ public class Sheep implements Comparable<Sheep> {
   }
 
   public void setArrivalTime(int arrivalTime) {
-    if (arrivalTime >= 0) {
-      this.arrivalTime = arrivalTime;
-    } else {
-      this.arrivalTime = 0;
-    }
+    this.arrivalTime = arrivalTime >= 0 ? arrivalTime : 0;
   }
 
   @Override

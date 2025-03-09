@@ -6,7 +6,7 @@
 
 package labs.lab05;
 
-public class LinkedListQueue<T> implements QueueI<T> {
+public class LinkedListQueue<T> implements IQueue<T> {
   private Node head;
   private Node tail;
 

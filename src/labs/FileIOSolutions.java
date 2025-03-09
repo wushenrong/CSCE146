@@ -14,7 +14,8 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /// A utility class to demonstrate file operations
-public class FileIoSolutions {
+@SuppressWarnings({"AbbreviationAsWordInName", "OuterTypeFilename"})
+public class FileIOSolutions {
   /// Change all instances of "is" to "was" from a text file regardless of case and prints and
   /// writes the words line by line in a new text file.
   ///
@@ -54,7 +55,7 @@ public class FileIoSolutions {
     // We expect that the file is using tabs to separate the data and there
     // are three columns for the identifier, radius and height.
     final String delimiter = "\t";
-    final int numberOfColumns = 3;
+    final int numberOfFields = 3;
 
     double totalVolume = 0.0;
 
@@ -71,14 +72,14 @@ public class FileIoSolutions {
         String line = fileScanner.nextLine();
         String[] splitLines = line.split(delimiter);
 
-        if (splitLines.length != numberOfColumns) {
+        if (splitLines.length != numberOfFields) {
           continue;
         }
 
         double radius = Double.parseDouble(splitLines[1]);
         double height = Double.parseDouble(splitLines[2]);
 
-        totalVolume += radius * radius * Math.PI * height;
+        totalVolume += Math.pow(radius, 2) * Math.PI * height;
       }
     } catch (Exception e) {
       e.printStackTrace();

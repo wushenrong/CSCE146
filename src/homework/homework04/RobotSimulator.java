@@ -8,6 +8,7 @@ package homework.homework04;
 
 import java.io.File;
 import java.util.Scanner;
+import labs.lab05.IQueue;
 
 public class RobotSimulator {
   public static final int BOARD_SIZE = 10;
@@ -23,7 +24,7 @@ public class RobotSimulator {
   public static final String RIGHT = "Move Right";
 
   private char[][] board;
-  private GenericLinkedQueue<String> commandsToRun;
+  private IQueue<String> commandsToRun;
 
   private int commandCounter = 0;
   private int robotXposition = START_POSITION;

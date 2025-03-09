@@ -50,9 +50,7 @@ public class DoubleDoubleLinkedList {
       return;
     }
 
-    if (head != null && head.data.equals(data)) {
-      head = head.nextLink;
-      head.previousLink = null;
+    if (head == null) {
       return;
     }
 
@@ -162,18 +160,29 @@ public class DoubleDoubleLinkedList {
 
     if (current == head) {
       head = head.nextLink;
-      head.previousLink = null;
+
+      if (head != null) {
+        head.previousLink = null;
+      }
+
       current = head;
       return;
     }
 
     if (current.nextLink == null) {
       current = current.previousLink;
-      current.nextLink = null;
+
+      if (current != null) {
+        current.nextLink = null;
+      }
+
       return;
     }
 
-    current.previousLink.nextLink = current.nextLink;
+    if (current.previousLink != null) {
+      current.previousLink.nextLink = current.nextLink;
+    }
+
     current.nextLink.previousLink = current.previousLink;
     current = current.nextLink;
   }
