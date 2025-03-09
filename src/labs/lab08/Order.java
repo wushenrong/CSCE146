@@ -7,7 +7,7 @@
 package labs.lab08;
 
 public class Order implements Comparable<Order> {
-  public static final String DEFAULT_ORDER = "none";
+  public static final String DEFAULT_VALUE = "none";
 
   private String customer;
   private String foodOrder;
@@ -16,8 +16,8 @@ public class Order implements Comparable<Order> {
   private int cookingTimeLeft;
 
   public Order() {
-    customer = DEFAULT_ORDER;
-    foodOrder = DEFAULT_ORDER;
+    customer = DEFAULT_VALUE;
+    foodOrder = DEFAULT_VALUE;
     cookingTime = 1;
     arrivalTime = 0;
     cookingTimeLeft = 1;
@@ -36,11 +36,7 @@ public class Order implements Comparable<Order> {
   }
 
   public void setCustomer(String customer) {
-    if (customer != null) {
-      this.customer = customer;
-    } else {
-      this.customer = DEFAULT_ORDER;
-    }
+    this.customer = customer != null ? customer : DEFAULT_VALUE;
   }
 
   public String getFoodOrder() {
@@ -48,11 +44,7 @@ public class Order implements Comparable<Order> {
   }
 
   public void setFoodOrder(String foodOrder) {
-    if (foodOrder != null) {
-      this.foodOrder = foodOrder;
-    } else {
-      this.foodOrder = DEFAULT_ORDER;
-    }
+    this.foodOrder = foodOrder != null ? foodOrder : DEFAULT_VALUE;
   }
 
   public int getCookingTime() {
@@ -60,11 +52,7 @@ public class Order implements Comparable<Order> {
   }
 
   public void setCookingTime(int cookingTime) {
-    if (cookingTime >= 1) {
-      this.cookingTime = cookingTime;
-    } else {
-      this.cookingTime = 1;
-    }
+    this.cookingTime = cookingTime >= 1 ? cookingTime : 1;
   }
 
   public int getArrivalTime() {
@@ -72,11 +60,7 @@ public class Order implements Comparable<Order> {
   }
 
   public void setArrivalTime(int arrivalTime) {
-    if (arrivalTime >= 0) {
-      this.arrivalTime = arrivalTime;
-    } else {
-      this.arrivalTime = 0;
-    }
+    this.arrivalTime = arrivalTime >= 0 ? arrivalTime : 0;
   }
 
   public int getCookingTimeLeft() {
@@ -84,13 +68,10 @@ public class Order implements Comparable<Order> {
   }
 
   public void setCookingTimeLeft(int cookingTimeLeft) {
-    if (cookingTimeLeft >= 1) {
-      this.cookingTimeLeft = cookingTimeLeft;
-    } else {
-      this.cookingTimeLeft = 1;
-    }
+    this.cookingTimeLeft = cookingTimeLeft >= 1 ? cookingTimeLeft : 1;
   }
 
+  /// Decreases the cooking time by 1 minute.
   public void cookForOneMinute() {
     cookingTimeLeft--;
   }

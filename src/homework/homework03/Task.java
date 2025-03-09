@@ -31,11 +31,7 @@ public class Task {
   }
 
   public void setPriority(int priority) {
-    if (priority >= 0 && priority < NUMBER_OF_PRIORITIES) {
-      this.priority = priority;
-    } else {
-      this.priority = DEFAULT_PRIORITY;
-    }
+    this.priority = priority >= 0 && priority < NUMBER_OF_PRIORITIES ? priority : DEFAULT_PRIORITY;
   }
 
   public String getAction() {
@@ -43,11 +39,7 @@ public class Task {
   }
 
   public void setAction(String action) {
-    if (action != null) {
-      this.action = action;
-    } else {
-      this.action = "none";
-    }
+    this.action = action != null ? action : "none";
   }
 
   @Override

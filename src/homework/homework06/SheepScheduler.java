@@ -10,7 +10,6 @@ import homework.homework04.GenericLinkedQueue;
 import java.io.File;
 import java.util.Scanner;
 
-
 public class SheepScheduler {
   public static final Scanner keyboardScanner = new Scanner(System.in);
 

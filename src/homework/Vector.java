@@ -18,8 +18,6 @@ public class Vector {
   public static void main(String[] args) throws Exception {
     System.out.println("Vector Operations Program");
 
-    String input = "";
-
     // Continually prints out the user interface and performs the correct
     // operation based on user selection until the user enters 'Q' which
     // break out of the loop.
@@ -30,7 +28,7 @@ public class Vector {
       System.out.println("Enter M to find the magnitude of a vector");
       System.out.println("Enter Q to quit");
 
-      input = keyboardScanner.nextLine();
+      String input = keyboardScanner.nextLine();
 
       if (input.equalsIgnoreCase("A")) {
         System.out.println("Enter the size of the vectors:");

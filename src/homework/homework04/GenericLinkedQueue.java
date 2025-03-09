@@ -6,7 +6,9 @@
 
 package homework.homework04;
 
-public class GenericLinkedQueue<T> {
+import labs.lab05.IQueue;
+
+public class GenericLinkedQueue<T> implements IQueue<T> {
   private Node head;
   private Node tail;
 

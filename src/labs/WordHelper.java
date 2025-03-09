@@ -15,7 +15,7 @@ public class WordHelper {
    * countVowels before returning the sorted copy.
    */
   public static String[] sortByVowels(String[] words) {
-    String[] sortedWords = copyStringArray(words);
+    String[] sortedWords = words.clone();
 
     boolean hasSwapped;
 
@@ -41,7 +41,7 @@ public class WordHelper {
    * using countConsonants before returning the sorted copy.
    */
   public static String[] sortByConsonants(String[] words) {
-    String[] sortedWords = copyStringArray(words);
+    String[] sortedWords = words.clone();
 
     boolean hasSwapped;
 
@@ -67,7 +67,7 @@ public class WordHelper {
    * before returning the sorted copy.
    */
   public static String[] sortByLength(String[] words) {
-    String[] sortedWords = copyStringArray(words);
+    String[] sortedWords = words.clone();
 
     boolean hasSwapped;
 
@@ -85,20 +85,6 @@ public class WordHelper {
     } while (hasSwapped);
 
     return sortedWords;
-  }
-
-  /**
-   * Copying a String array by creating a new String array of the same length as the original array
-   * and then copying every element of the original array into the new array.
-   */
-  private static String[] copyStringArray(String[] original) {
-    String[] copy = new String[original.length];
-
-    for (int i = 0; i < original.length; i++) {
-      copy[i] = original[i];
-    }
-
-    return copy;
   }
 
   /**

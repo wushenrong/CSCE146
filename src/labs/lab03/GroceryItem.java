@@ -25,11 +25,7 @@ public class GroceryItem {
   }
 
   public void setName(String name) {
-    if (name != null) {
-      this.name = name;
-    } else {
-      this.name = "none";
-    }
+    this.name = name != null ? name : "none";
   }
 
   public double getValue() {
@@ -37,11 +33,7 @@ public class GroceryItem {
   }
 
   public void setValue(double value) {
-    if (value >= 0.0) {
-      this.value = value;
-    } else {
-      this.value = 0.0;
-    }
+    this.value = value >= 0.0 ? value : 0.0;
   }
 
   @Override

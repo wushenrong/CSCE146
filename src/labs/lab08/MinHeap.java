@@ -22,11 +22,7 @@ public class MinHeap<T extends Comparable<T>> {
 
   @SuppressWarnings("unchecked")
   public void init(int size) {
-    if (size >= 2) {
-      heap = (T[]) (new Comparable[size]);
-    } else {
-      heap = (T[]) (new Comparable[DEFAULT_SIZE]);
-    }
+    heap = size >= 2 ? (T[]) (new Comparable[size]) : (T[]) (new Comparable[DEFAULT_SIZE]);
 
     lastIndex = 0;
   }

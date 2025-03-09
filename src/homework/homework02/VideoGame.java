@@ -29,11 +29,7 @@ public class VideoGame {
   }
 
   public void setName(String name) {
-    if (name != null) {
-      this.name = name;
-    } else {
-      this.name = DEFAULT_GAME_VALUE;
-    }
+    this.name = name != null ? name : DEFAULT_GAME_VALUE;
   }
 
   public String getConsole() {
@@ -41,11 +37,7 @@ public class VideoGame {
   }
 
   public void setConsole(String console) {
-    if (console != null) {
-      this.console = console;
-    } else {
-      this.console = DEFAULT_GAME_VALUE;
-    }
+    this.console = console != null ? console : DEFAULT_GAME_VALUE;
   }
 
   @Override
