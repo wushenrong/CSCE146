@@ -42,13 +42,9 @@ public class TaskOrganizer {
 
     if (organizedTasks[taskPriority].contains(data)) {
       System.out.println(
-          "Task \""
-              + data.getAction()
-              + "\" with priority "
-              + data.getPriority()
-              + " already exists");
+          "Task \"" + data.getAction() + "\" with priority " + taskPriority + " already exists");
       System.out.println(
-          "Skipping Task \"" + data.getAction() + "\" with priority " + data.getPriority());
+          "Skipping Task \"" + data.getAction() + "\" with priority " + taskPriority);
       return;
     }
 
@@ -58,9 +54,14 @@ public class TaskOrganizer {
   /**
    * Removes a task by getting the task list based on the task's priority, then manually looping
    * through the task list to remove the task. If the current task is equal to the task given,
-   * remove it and return. Else move to the next task until there are no task to check.
+   * remove it and return. Else move to the next task until there are no task to check. If the task
+   * to remove is null, then do nothing.
    */
   public void removeTask(Task data) {
+    if (data == null) {
+      return;
+    }
+
     int taskPriority = data.getPriority();
 
     GenericLinkedList<Task> taskList = organizedTasks[taskPriority];
@@ -113,8 +114,7 @@ public class TaskOrganizer {
         int taskPriority = Integer.parseInt(fields[0]);
         String taskAction = fields[1];
 
-        Task newTask = new Task(taskPriority, taskAction);
-        addTask(newTask);
+        addTask(new Task(taskPriority, taskAction));
       }
     } catch (Exception e) {
       e.printStackTrace();

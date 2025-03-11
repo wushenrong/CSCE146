@@ -92,18 +92,8 @@ public class Order implements Comparable<Order> {
 
   @Override
   public int compareTo(Order other) {
-    if (other == null) {
-      return -1;
-    }
-
-    if (cookingTime < other.cookingTime) {
-      return -1;
-    }
-
-    if (cookingTime > other.cookingTime) {
-      return 1;
-    }
-
-    return 0;
+    return other == null || cookingTime < other.cookingTime
+        ? -1
+        : cookingTime > other.cookingTime ? 1 : 0;
   }
 }

@@ -49,11 +49,7 @@ public class GenericLinkedList<T> {
   }
 
   public T getCurrent() {
-    if (current == null) {
-      return null;
-    }
-
-    return current.data;
+    return current == null ? null : current.data;
   }
 
   public void setCurrent(T data) {
@@ -74,7 +70,10 @@ public class GenericLinkedList<T> {
       return;
     }
 
-    previous.link = current.link;
+    if (previous != null) {
+      previous.link = current.link;
+    }
+
     current = current.link;
   }
 
@@ -89,7 +88,7 @@ public class GenericLinkedList<T> {
     }
 
     for (Node temp = head; temp != null; temp = temp.link) {
-      if (temp.data.equals(data)) {
+      if (temp.data != null && temp.data.equals(data)) {
         return true;
       }
     }

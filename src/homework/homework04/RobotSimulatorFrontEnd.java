@@ -21,6 +21,11 @@ public class RobotSimulatorFrontEnd {
     while (!quit) {
       createNewSimulation();
 
+      if (simulator == null) {
+        System.out.println("Error creating simulation. Exiting...");
+        break;
+      }
+
       boolean simulationEnded = false;
 
       int status = simulator.startSimulation();
@@ -47,7 +52,7 @@ public class RobotSimulatorFrontEnd {
 
         switch (status) {
           case -1:
-            System.out.println("Error: No Commands received");
+            System.out.println("Error: Board is not initialized or no Commands received");
             simulationEnded = true;
             break;
 

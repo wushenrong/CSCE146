@@ -6,6 +6,8 @@
 
 package labs.lab07;
 
+import java.util.Objects;
+
 public class Fruit implements Comparable<Fruit> {
   public static final int NUMBER_OF_FIELDS = 2;
   public static final String DELIMITER = "\t";
@@ -25,8 +27,8 @@ public class Fruit implements Comparable<Fruit> {
   }
 
   public Fruit(String type, double weight) {
-    this.type = type;
-    this.weight = weight;
+    setType(type);
+    setWeight(weight);
   }
 
   public String getType() {
@@ -45,6 +47,15 @@ public class Fruit implements Comparable<Fruit> {
     this.weight = weight > 0.0 ? weight : 1.0;
   }
 
+  /** Check if the type of the fruit is either an apple, orange, banana, kiwi, or tomato. */
+  private static boolean isTypeValid(String fruitType) {
+    return fruitType.equals(TYPE_APPLE)
+        || fruitType.equals(TYPE_ORANGE)
+        || fruitType.equals(TYPE_BANANA)
+        || fruitType.equals(TYPE_KIWI)
+        || fruitType.equals(TYPE_TOMATO);
+  }
+
   @Override
   public String toString() {
     return "Type: " + type + DELIMITER + "Weight: " + weight;
@@ -57,39 +68,14 @@ public class Fruit implements Comparable<Fruit> {
    */
   @Override
   public int compareTo(Fruit other) {
-    if (other == null) {
-      return -1;
-    }
-
-    if (weight < other.weight) {
-      return -1;
-    }
-
-    if (weight > other.weight) {
-      return 1;
-    }
-
-    return type.compareTo(other.type);
-  }
-
-  /** Check if the type of the fruit is either an apple, orange, banana, kiwi, or tomato. */
-  private static boolean isTypeValid(String fruitType) {
-    return fruitType.equals(TYPE_APPLE)
-        || fruitType.equals(TYPE_ORANGE)
-        || fruitType.equals(TYPE_BANANA)
-        || fruitType.equals(TYPE_KIWI)
-        || fruitType.equals(TYPE_TOMATO);
+    return other == null || weight < other.weight
+        ? -1
+        : weight > other.weight ? 1 : type.compareTo(other.type);
   }
 
   @Override
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((type == null) ? 0 : type.hashCode());
-    long temp;
-    temp = Double.doubleToLongBits(weight);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    return result;
+    return Objects.hash(type, weight);
   }
 
   @Override
@@ -98,24 +84,13 @@ public class Fruit implements Comparable<Fruit> {
       return true;
     }
 
-    if (obj == null) {
-      return false;
-    }
-
-    if (getClass() != obj.getClass()) {
+    if (!(obj instanceof Fruit)) {
       return false;
     }
 
     Fruit other = (Fruit) obj;
 
-    if (type == null) {
-      if (other.type != null) {
-        return false;
-      }
-    } else if (!type.equals(other.type)) {
-      return false;
-    }
-
-    return Double.doubleToLongBits(weight) != Double.doubleToLongBits(other.weight);
+    return Objects.equals(type, other.type)
+        && Double.doubleToLongBits(weight) == Double.doubleToLongBits(other.weight);
   }
 }

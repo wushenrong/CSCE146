@@ -41,7 +41,9 @@ public class SheepScheduler {
   }
 
   public static void printSchedule() {
-    sheepSchedule.print();
+    if (sheepSchedule != null) {
+      sheepSchedule.print();
+    }
   }
 
   /**
@@ -55,6 +57,11 @@ public class SheepScheduler {
     SheepShearer sheepShearer = new SheepShearer();
     int currentTime = 0;
     int currentSheep = 0;
+
+    if (sheepToBeScheduled == null) {
+      System.out.println("Error: No sheep are scheduled to be shared");
+      return;
+    }
 
     while (true) {
       while (currentSheep < sheepToBeScheduled.length
@@ -82,11 +89,22 @@ public class SheepScheduler {
    * from the file. Then quick sort the array by arrival time.
    */
   public static void prepareSchedule() {
+    if (sheepToBeSorted == null) {
+      System.out.println("Error: There are no sheep to be shared");
+      return;
+    }
+
     int numberOfSheep = sheepToBeSorted.countQueue();
     sheepToBeScheduled = new Sheep[numberOfSheep];
 
     for (int i = 0; i < numberOfSheep; i++) {
-      sheepToBeScheduled[i] = sheepToBeSorted.dequeue();
+      Sheep sheep = sheepToBeSorted.dequeue();
+
+      if (sheep == null) {
+        continue;
+      }
+
+      sheepToBeScheduled[i] = sheep;
     }
 
     quickSortSheepByArrivalTime(0, sheepToBeScheduled.length - 1);

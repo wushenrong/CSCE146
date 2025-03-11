@@ -67,7 +67,7 @@ public class RobotSimulator {
    * return 0.
    */
   public int runNextCommand() {
-    if (commandsToRun == null) {
+    if (board == null || commandsToRun == null) {
       return -1;
     }
 
@@ -117,7 +117,7 @@ public class RobotSimulator {
   }
 
   private boolean isPositionValid(int position) {
-    return position >= 0 && position < board.length;
+    return board != null && position >= 0 && position < board.length;
   }
 
   /**
@@ -129,6 +129,10 @@ public class RobotSimulator {
   }
 
   public void printBoard() {
+    if (board == null) {
+      return;
+    }
+
     for (int row = 0; row < board.length; row++) {
       for (int column = 0; column < board[row].length; column++) {
         System.out.print(board[row][column]);
