@@ -6,6 +6,8 @@
 
 package labs.lab03;
 
+import java.util.Objects;
+
 public class GroceryItem {
   private String name;
   private double value;
@@ -37,14 +39,13 @@ public class GroceryItem {
   }
 
   @Override
+  public String toString() {
+    return "Grocery Item Name: " + name + " Value: " + value;
+  }
+
+  @Override
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
-    long temp;
-    temp = Double.doubleToLongBits(value);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    return result;
+    return Objects.hash(name, value);
   }
 
   @Override
@@ -53,33 +54,13 @@ public class GroceryItem {
       return true;
     }
 
-    if (obj == null) {
-      return false;
-    }
-
-    if (getClass() != obj.getClass()) {
+    if (!(obj instanceof GroceryItem)) {
       return false;
     }
 
     GroceryItem other = (GroceryItem) obj;
 
-    if (name == null) {
-      if (other.name != null) {
-        return false;
-      }
-    } else if (!name.equals(other.name)) {
-      return false;
-    }
-
-    if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value)) {
-      return false;
-    }
-
-    return true;
-  }
-
-  @Override
-  public String toString() {
-    return "Grocery Item Name: " + name + " Value: " + value;
+    return Objects.equals(name, other.name)
+        && Double.doubleToLongBits(value) == Double.doubleToLongBits(other.value);
   }
 }
