@@ -42,6 +42,10 @@ public class VideoGamesDatabase {
     while (videoGamesList.hasNext()) {
       VideoGame game = videoGamesList.getCurrent();
 
+      if (game == null) {
+        continue;
+      }
+
       String gameName = game.getName().toLowerCase();
       String gameConsole = game.getConsole().toLowerCase();
 

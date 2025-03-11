@@ -34,8 +34,10 @@ public class LinkedListQueue<T> implements IQueue<T> {
       return;
     }
 
-    tail.link = temp;
-    tail = tail.link;
+    if (tail != null) {
+      tail.link = temp;
+      tail = tail.link;
+    }
   }
 
   @Override
@@ -51,11 +53,7 @@ public class LinkedListQueue<T> implements IQueue<T> {
 
   @Override
   public T peek() {
-    if (head == null) {
-      return null;
-    }
-
-    return head.data;
+    return head == null ? null : head.data;
   }
 
   @Override

@@ -112,11 +112,9 @@ public class SortSorter {
   public static int countSorts(String string) {
     int indexOfSort = string.indexOf(SORT_STRING);
 
-    if (indexOfSort == -1) {
-      return 0;
-    }
-
-    return countSorts(string.substring(indexOfSort + SORT_STRING.length())) + 1;
+    return indexOfSort == -1
+        ? 0
+        : countSorts(string.substring(indexOfSort + SORT_STRING.length())) + 1;
   }
 
   public static boolean promptToSortNewStrings() {

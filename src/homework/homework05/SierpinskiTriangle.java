@@ -44,7 +44,7 @@ public class SierpinskiTriangle extends Canvas {
    * Recursively draw the top, left and right, upside down triangles before hitting the MAX_DEPTH to
    * draw the sierpinski triangle.
    */
-  public void drawTriangles(Graphics g, Point top, Point left, Point right, int depth) {
+  private static void drawTriangles(Graphics g, Point top, Point left, Point right, int depth) {
     if (depth > MAX_DEPTH) {
       return;
     }

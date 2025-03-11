@@ -7,6 +7,7 @@
 package homework.homework01;
 
 import java.io.File;
+import java.util.Random;
 import java.util.Scanner;
 
 /// A class to create a Prize Game
@@ -15,8 +16,10 @@ public class PrizeGameManager {
   public static final int NUMBER_OF_GAME_PRIZES = 5;
   public static final double PRICE_TOLERANCE = 1300;
 
+  private final Random rng = new Random(0);
+
   private Prize[] prizes;
-  private Prize[] gamePrizes = new Prize[NUMBER_OF_GAME_PRIZES];
+  private final Prize[] gamePrizes = new Prize[NUMBER_OF_GAME_PRIZES];
 
   public PrizeGameManager() {
     init(DEFAULT_PRIZE_SIZE);
@@ -53,7 +56,7 @@ public class PrizeGameManager {
     int i = 0;
 
     while (i < gamePrizes.length) {
-      int gamePrize = (int) (Math.random() * prizes.length);
+      int gamePrize = rng.nextInt(prizes.length);
 
       if (prizes[gamePrize] == null || isGamePrizeSelected(prizes[gamePrize])) {
         continue;
@@ -66,12 +69,10 @@ public class PrizeGameManager {
 
   /// Returns the total price of prizes for the current game
   public double getTotalPrizePrice() {
-    double totalPrizePrice = 0;
+    double totalPrizePrice = 0.0;
 
     for (Prize prize : gamePrizes) {
-      if (prize != null) {
-        totalPrizePrice += prize.getPrice();
-      }
+      totalPrizePrice += prize.getPrice();
     }
 
     return totalPrizePrice;

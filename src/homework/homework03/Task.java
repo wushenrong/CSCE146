@@ -6,6 +6,8 @@
 
 package homework.homework03;
 
+import java.util.Objects;
+
 public class Task {
   public static final String DELIMITER = "\t";
   public static final int NUMBER_OF_FIELDS = 2;
@@ -43,12 +45,13 @@ public class Task {
   }
 
   @Override
+  public String toString() {
+    return priority + DELIMITER + action;
+  }
+
+  @Override
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + priority;
-    result = prime * result + ((action == null) ? 0 : action.hashCode());
-    return result;
+    return Objects.hash(priority, action);
   }
 
   @Override
@@ -57,33 +60,11 @@ public class Task {
       return true;
     }
 
-    if (obj == null) {
-      return false;
-    }
-
-    if (getClass() != obj.getClass()) {
+    if (!(obj instanceof Task)) {
       return false;
     }
 
     Task other = (Task) obj;
-
-    if (priority != other.priority) {
-      return false;
-    }
-
-    if (action == null) {
-      if (other.action != null) {
-        return false;
-      }
-    } else if (!action.equals(other.action)) {
-      return false;
-    }
-
-    return true;
-  }
-
-  @Override
-  public String toString() {
-    return priority + DELIMITER + action;
+    return priority == other.priority && Objects.equals(action, other.action);
   }
 }

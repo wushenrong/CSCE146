@@ -156,7 +156,7 @@ public class Vector {
     double magnitude = 0.0;
 
     for (double component : vector) {
-      magnitude += component * component;
+      magnitude += Math.pow(component, 2);
     }
 
     return Math.sqrt(magnitude);
@@ -176,6 +176,6 @@ public class Vector {
       }
     }
 
-    return output.append(">").toString();
+    return output.append('>').toString();
   }
 }
