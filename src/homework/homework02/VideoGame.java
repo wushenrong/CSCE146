@@ -9,9 +9,10 @@ package homework.homework02;
 import java.util.Objects;
 
 public class VideoGame {
-  public static final String DEFAULT_GAME_VALUE = "unknown";
   public static final String DELIMITER = "\t";
   public static final int NUMBER_OF_FIELDS = 2;
+
+  public static final String DEFAULT_GAME_VALUE = "unknown";
 
   private String name;
   private String console;

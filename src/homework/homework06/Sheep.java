@@ -11,13 +11,15 @@ public class Sheep implements Comparable<Sheep> {
   public static final int NUMBER_OF_FIELDS = 3;
 
   public static final String DEFAULT_NAME = "unknown";
+  public static final int DEFAULT_SHEARING_TIME = 1;
+  public static final int DEFAULT_ARRIVAL_TIME = 0;
 
   private String name;
   private int shearingTime;
   private int arrivalTime;
 
   public Sheep() {
-    this(DEFAULT_NAME, 1, 0);
+    this(DEFAULT_NAME, DEFAULT_SHEARING_TIME, DEFAULT_ARRIVAL_TIME);
   }
 
   public Sheep(String name, int shearingTime, int arrivalTime) {
@@ -39,7 +41,8 @@ public class Sheep implements Comparable<Sheep> {
   }
 
   public void setShearingTime(int shearingTime) {
-    this.shearingTime = shearingTime >= 1 ? shearingTime : 1;
+    this.shearingTime =
+        shearingTime >= DEFAULT_SHEARING_TIME ? shearingTime : DEFAULT_SHEARING_TIME;
   }
 
   public int getArrivalTime() {
@@ -47,7 +50,7 @@ public class Sheep implements Comparable<Sheep> {
   }
 
   public void setArrivalTime(int arrivalTime) {
-    this.arrivalTime = arrivalTime >= 0 ? arrivalTime : 0;
+    this.arrivalTime = arrivalTime >= DEFAULT_ARRIVAL_TIME ? arrivalTime : DEFAULT_ARRIVAL_TIME;
   }
 
   @Override

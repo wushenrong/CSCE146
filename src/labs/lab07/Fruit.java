@@ -18,11 +18,13 @@ public class Fruit implements Comparable<Fruit> {
   public static final String TYPE_KIWI = "Kiwi";
   public static final String TYPE_TOMATO = "Tomato";
 
+  public static final double DEFAULT_WEIGHT = 1.0;
+
   private String type;
   private double weight;
 
   public Fruit() {
-    this(TYPE_APPLE, 1.0);
+    this(TYPE_APPLE, DEFAULT_WEIGHT);
   }
 
   public Fruit(String type, double weight) {
@@ -43,7 +45,7 @@ public class Fruit implements Comparable<Fruit> {
   }
 
   public void setWeight(double weight) {
-    this.weight = weight > 0.0 ? weight : 1.0;
+    this.weight = weight > 0.0 ? weight : DEFAULT_WEIGHT;
   }
 
   /** Check if the type of the fruit is either an apple, orange, banana, kiwi, or tomato. */

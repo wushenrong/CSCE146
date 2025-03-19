@@ -9,11 +9,14 @@ package labs.lab03;
 import java.util.Objects;
 
 public class GroceryItem {
+  public static final String DEFAULT_NAME = "none";
+  public static final double DEFAULT_VALUE = 0.0;
+
   private String name;
   private double value;
 
   public GroceryItem() {
-    this("none", 0.0);
+    this(DEFAULT_NAME, DEFAULT_VALUE);
   }
 
   public GroceryItem(String name, double value) {
@@ -26,7 +29,7 @@ public class GroceryItem {
   }
 
   public void setName(String name) {
-    this.name = name != null ? name : "none";
+    this.name = name != null ? name : DEFAULT_NAME;
   }
 
   public double getValue() {
@@ -34,7 +37,7 @@ public class GroceryItem {
   }
 
   public void setValue(double value) {
-    this.value = value >= 0.0 ? value : 0.0;
+    this.value = value >= DEFAULT_VALUE ? value : DEFAULT_VALUE;
   }
 
   @Override

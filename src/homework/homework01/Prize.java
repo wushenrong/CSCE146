@@ -10,19 +10,22 @@ import java.util.Objects;
 
 /// A class representation of a Prize with its name and price.
 public class Prize {
-  /// Default name for Prize.
-  public static final String DEFAULT_NAME = "none";
   /// The separator for the Prize name and price in a Prize list.
   public static final String DELIMITER = "\t";
   /// How many fields that Prize has.
   public static final int NUMBER_OF_FIELDS = 2;
 
+  /// Default name for Prize.
+  public static final String DEFAULT_NAME = "none";
+  public static final double DEFAULT_PRICE = 0.0;
+
   private String name;
   private double price;
 
-  /// Initialize a Prize with {@value #DEFAULT_NAME} as the name and `0.0` as the price.
+  /// Initialize a Prize with {@value #DEFAULT_NAME} as the name and {@value #DEFAULT_PRICE} as the
+  // price.
   public Prize() {
-    this(DEFAULT_NAME, 0.0);
+    this(DEFAULT_NAME, DEFAULT_PRICE);
   }
 
   /// Initialize a Prize with a custom name and price.
@@ -49,11 +52,11 @@ public class Prize {
     return price;
   }
 
-  /// Sets the price of the Prize. If the price is negative, set it to `0.0`.
+  /// Sets the price of the Prize. If the price is negative, set it to {@value #DEFAULT_PRICE}.
   ///
   /// @param price The price for the Prize.
   public void setPrice(double price) {
-    this.price = price >= 0.0 ? price : 0.0;
+    this.price = price >= DEFAULT_PRICE ? price : DEFAULT_PRICE;
   }
 
   @Override

@@ -21,14 +21,14 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.17.1
+    rev: v0.17.2
     hooks:
       - id: markdownlint-cli2
         args:
           - --fix
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.23.0
+    rev: v8.24.0
     hooks:
       - id: gitleaks
 
@@ -37,13 +37,13 @@ repos:
     hooks:
       - id: reuse
 
-  - repo: https://github.com/HotSprings-GmbH/pre-commit-checkstyle
-    rev: "0.2.1"
+  - repo: https://github.com/SeunMatt/precommit4j
+    rev: v1.0.0
     hooks:
       - id: checkstyle
         args:
-          - "10.4"
-          - "-c=.vscode/checkstyle.xml"
+          - -c
+          - .vscode/checkstyle.xml
 
   - repo: meta
     hooks:

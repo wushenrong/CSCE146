@@ -7,11 +7,14 @@
 package labs.lab05;
 
 public class Process {
+  public static final String DEFAULT_NAME = "none";
+  public static final double DEFAULT_COMPLETION_TIME = 0.0;
+
   private String name;
   private double completionTime;
 
   public Process() {
-    this("none", 0.0);
+    this(DEFAULT_NAME, DEFAULT_COMPLETION_TIME);
   }
 
   public Process(String name, double completionTime) {
@@ -24,7 +27,7 @@ public class Process {
   }
 
   public void setName(String name) {
-    this.name = name != null ? name : "none";
+    this.name = name != null ? name : DEFAULT_NAME;
   }
 
   public double getCompletionTime() {
@@ -32,7 +35,8 @@ public class Process {
   }
 
   public void setCompletionTime(double completionTime) {
-    this.completionTime = completionTime >= 0.0 ? completionTime : 0.0;
+    this.completionTime =
+        completionTime >= DEFAULT_COMPLETION_TIME ? completionTime : DEFAULT_COMPLETION_TIME;
   }
 
   @Override
