@@ -13,8 +13,7 @@ public class GroceryItem {
   private double value;
 
   public GroceryItem() {
-    name = "none";
-    value = 0.0;
+    this("none", 0.0);
   }
 
   public GroceryItem(String name, double value) {

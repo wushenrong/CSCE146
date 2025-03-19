@@ -22,8 +22,7 @@ public class Prize {
 
   /// Initialize a Prize with {@value #DEFAULT_NAME} as the name and `0.0` as the price.
   public Prize() {
-    name = DEFAULT_NAME;
-    price = 0.0;
+    this(DEFAULT_NAME, 0.0);
   }
 
   /// Initialize a Prize with a custom name and price.

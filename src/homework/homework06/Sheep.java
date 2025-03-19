@@ -17,9 +17,7 @@ public class Sheep implements Comparable<Sheep> {
   private int arrivalTime;
 
   public Sheep() {
-    name = DEFAULT_NAME;
-    shearingTime = 1;
-    arrivalTime = 0;
+    this(DEFAULT_NAME, 1, 0);
   }
 
   public Sheep(String name, int shearingTime, int arrivalTime) {

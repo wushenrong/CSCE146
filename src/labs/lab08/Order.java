@@ -16,11 +16,7 @@ public class Order implements Comparable<Order> {
   private int cookingTimeLeft;
 
   public Order() {
-    customer = DEFAULT_VALUE;
-    foodOrder = DEFAULT_VALUE;
-    cookingTime = 1;
-    arrivalTime = 0;
-    cookingTimeLeft = 1;
+    this(DEFAULT_VALUE, DEFAULT_VALUE, 1, 0);
   }
 
   public Order(String customer, String foodOrder, int cookingTime, int arrivalTime) {

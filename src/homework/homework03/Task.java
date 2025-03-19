@@ -14,13 +14,13 @@ public class Task {
 
   public static final int NUMBER_OF_PRIORITIES = 5;
   public static final int DEFAULT_PRIORITY = 4;
+  public static final String DEFAULT_ACTION = "none";
 
   private int priority;
   private String action;
 
   public Task() {
-    priority = DEFAULT_PRIORITY;
-    action = "none";
+    this(DEFAULT_PRIORITY, DEFAULT_ACTION);
   }
 
   public Task(int priority, String action) {
@@ -41,7 +41,7 @@ public class Task {
   }
 
   public void setAction(String action) {
-    this.action = action != null ? action : "none";
+    this.action = action != null ? action : DEFAULT_ACTION;
   }
 
   @Override

@@ -17,8 +17,7 @@ public class VideoGame {
   private String console;
 
   public VideoGame() {
-    name = DEFAULT_GAME_VALUE;
-    console = DEFAULT_GAME_VALUE;
+    this(DEFAULT_GAME_VALUE, DEFAULT_GAME_VALUE);
   }
 
   public VideoGame(String name, String console) {

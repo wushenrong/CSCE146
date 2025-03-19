@@ -22,8 +22,7 @@ public class Fruit implements Comparable<Fruit> {
   private double weight;
 
   public Fruit() {
-    type = TYPE_APPLE;
-    weight = 1.0;
+    this(TYPE_APPLE, 1.0);
   }
 
   public Fruit(String type, double weight) {

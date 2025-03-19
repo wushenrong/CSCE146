@@ -11,8 +11,7 @@ public class Process {
   private double completionTime;
 
   public Process() {
-    name = "none";
-    completionTime = 0.0;
+    this("none", 0.0);
   }
 
   public Process(String name, double completionTime) {
