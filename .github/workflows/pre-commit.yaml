@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2024 Samuel Wu
+#
+# SPDX-License-Identifier: MIT-0
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.13
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+      - uses: actions/setup-java@v2
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: pre-commit/action@v3.0.1
+      - uses: pre-commit-ci/lite-action@v1.1.0
+        if: always()
