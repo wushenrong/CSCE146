@@ -17,9 +17,9 @@ public class WordHelper {
   public static String[] sortByVowels(String[] words) {
     String[] sortedWords = words.clone();
 
-    boolean hasSwapped;
+    boolean hasSwapped = true;
 
-    do {
+    while (hasSwapped) {
       hasSwapped = false;
 
       for (int i = 0; i < sortedWords.length - 1; i++) {
@@ -30,7 +30,7 @@ public class WordHelper {
           hasSwapped = true;
         }
       }
-    } while (hasSwapped);
+    }
 
     return sortedWords;
   }
@@ -43,9 +43,9 @@ public class WordHelper {
   public static String[] sortByConsonants(String[] words) {
     String[] sortedWords = words.clone();
 
-    boolean hasSwapped;
+    boolean hasSwapped = true;
 
-    do {
+    while (hasSwapped) {
       hasSwapped = false;
 
       for (int i = 0; i < sortedWords.length - 1; i++) {
@@ -56,7 +56,7 @@ public class WordHelper {
           hasSwapped = true;
         }
       }
-    } while (hasSwapped);
+    }
 
     return sortedWords;
   }
@@ -69,9 +69,9 @@ public class WordHelper {
   public static String[] sortByLength(String[] words) {
     String[] sortedWords = words.clone();
 
-    boolean hasSwapped;
+    boolean hasSwapped = true;
 
-    do {
+    while (hasSwapped) {
       hasSwapped = false;
 
       for (int i = 0; i < sortedWords.length - 1; i++) {
@@ -82,7 +82,7 @@ public class WordHelper {
           hasSwapped = true;
         }
       }
-    } while (hasSwapped);
+    }
 
     return sortedWords;
   }

@@ -34,9 +34,9 @@ public class BubbleSorter {
     }
 
     // Bubble sort numbers
-    boolean hasSwapped;
+    boolean hasSwapped = true;
 
-    do {
+    while (hasSwapped) {
       hasSwapped = false;
 
       for (int i = 0; i < numbers.length - 1; i++) {
@@ -48,7 +48,7 @@ public class BubbleSorter {
           hasSwapped = true;
         }
       }
-    } while (hasSwapped);
+    }
 
     for (int number : numbers) {
       System.out.println(number);
