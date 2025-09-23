@@ -60,8 +60,7 @@ public class Sheep implements Comparable<Sheep> {
 
   @Override
   public int compareTo(Sheep other) {
-    return other == null || shearingTime < other.shearingTime
-        ? -1
+    return other == null || shearingTime < other.shearingTime ? -1
         : shearingTime > other.shearingTime ? 1 : name.compareTo(other.name);
   }
 }

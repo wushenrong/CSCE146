@@ -81,18 +81,13 @@ public class Order implements Comparable<Order> {
 
   @Override
   public String toString() {
-    return "Customer: "
-        + customer
-        + ", Order: "
-        + foodOrder
-        + ", Cooking Time Left: "
+    return "Customer: " + customer + ", Order: " + foodOrder + ", Cooking Time Left: "
         + cookingTimeLeft;
   }
 
   @Override
   public int compareTo(Order other) {
-    return other == null || cookingTime < other.cookingTime
-        ? -1
+    return other == null || cookingTime < other.cookingTime ? -1
         : cookingTime > other.cookingTime ? 1 : 0;
   }
 }

@@ -43,8 +43,8 @@ public class TaskOrganizer {
     if (organizedTasks[taskPriority].contains(data)) {
       System.out.println(
           "Task \"" + data.getAction() + "\" with priority " + taskPriority + " already exists");
-      System.out.println(
-          "Skipping Task \"" + data.getAction() + "\" with priority " + taskPriority);
+      System.out
+          .println("Skipping Task \"" + data.getAction() + "\" with priority " + taskPriority);
       return;
     }
 

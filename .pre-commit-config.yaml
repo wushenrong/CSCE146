@@ -37,13 +37,13 @@ repos:
     hooks:
       - id: reuse
 
-  - repo: https://github.com/SeunMatt/precommit4j
-    rev: v1.0.0
-    hooks:
-      - id: checkstyle
-        args:
-          - -c
-          - .vscode/checkstyle.xml
+  # - repo: https://github.com/SeunMatt/precommit4j
+  #   rev: v1.0.0
+  #   hooks:
+  #     - id: checkstyle
+  #       args:
+  #         - -c
+  #         - .vscode/checkstyle.xml
 
   - repo: meta
     hooks:

@@ -3,28 +3,24 @@
     {
       "mainClass": "homework.Vector",
       "name": "Vector Operations Program",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
     {
       "mainClass": "homework.homework01.PrizeGameFrontEnd",
       "name": "Prize Game",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
     {
       "mainClass": "homework.homework02.VideoGamesDatabaseManager",
       "name": "Video Games Database Manager",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
     {
       "mainClass": "homework.homework03.TaskOrganizerFrontEnd",
       "name": "Task Organizer",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
@@ -38,35 +34,30 @@
     {
       "mainClass": "homework.homework05.Fractal",
       "name": "Fractals",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
     {
       "mainClass": "homework.homework06.SheepScheduler",
       "name": "Sheep Scheduler",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
     {
       "mainClass": "labs.BubbleSorter",
       "name": "Bubble Sorter",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
     {
       "mainClass": "labs.lab06.SortSorter",
       "name": "Sort Sorter",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     },
     {
       "mainClass": "labs.lab07.FruitTreeTester",
       "name": "Fruit Tree Tester",
-      "projectName": "CSCE146Solutions_bc24c4b4",
       "request": "launch",
       "type": "java"
     }

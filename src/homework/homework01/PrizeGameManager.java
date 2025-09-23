@@ -47,11 +47,11 @@ public class PrizeGameManager {
   }
 
   /// Creates a new prize game by randomizing the prizes for the game from the prize list. First the
-  /// array for game prizes is iterated to fill up the array. Then a prize is selected from the
-  /// prize list by generating a number between 0 and the size of the prize list minus one for the
-  /// index of the prize array. Next check if the prize is either null or the prize was selected. If
-  /// not add it to the array for game prize, else skip the prize. Lastly the loop increments the
-  /// number of prizes selected.
+  /// array for game prizes is iterated to fill up the array. Then a prize is selected from the prize
+  /// list by generating a number between 0 and the size of the prize list minus one for the index of
+  /// the prize array. Next check if the prize is either null or the prize was selected. If not add
+  /// it to the array for game prize, else skip the prize. Lastly the loop increments the number of
+  /// prizes selected.
   public void newGame() {
     int i = 0;
 

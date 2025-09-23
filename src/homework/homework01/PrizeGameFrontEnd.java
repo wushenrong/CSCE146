@@ -61,20 +61,15 @@ public class PrizeGameFrontEnd {
   public static void newGame() {
     gameManager.newGame();
 
-    System.out.println(
-        "Your goal for this game is to guess the total price of "
-            + PrizeGameManager.NUMBER_OF_GAME_PRIZES
-            + " prizes without going over and within "
-            + PrizeGameManager.PRICE_TOLERANCE
-            + " of its actual price.");
+    System.out.println("Your goal for this game is to guess the total price of "
+        + PrizeGameManager.NUMBER_OF_GAME_PRIZES + " prizes without going over and within "
+        + PrizeGameManager.PRICE_TOLERANCE + " of its actual price.");
     System.out.println("Here are your " + PrizeGameManager.NUMBER_OF_GAME_PRIZES + " prizes:");
 
     gameManager.printGamePrizes();
 
-    System.out.println(
-        "Enter your guess for the price of the "
-            + PrizeGameManager.NUMBER_OF_GAME_PRIZES
-            + " prizes:");
+    System.out.println("Enter your guess for the price of the "
+        + PrizeGameManager.NUMBER_OF_GAME_PRIZES + " prizes:");
 
     double guess = keyboardScanner.nextDouble();
     keyboardScanner.nextLine();

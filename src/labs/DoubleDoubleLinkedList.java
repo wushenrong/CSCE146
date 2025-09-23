@@ -145,14 +145,14 @@ public class DoubleDoubleLinkedList {
 
   /// Remove the current node from the double linked list.
   ///
-  /// First check if the current node is `null` then do nothing. Then if the reference of the
-  /// current node is pointing at the head of the  list, then point the head to the next node after
-  /// the head, remove the reference to the previous node, and move the current reference to the
-  /// head of the list before returning. Next if the reference of the current node is pointing at
-  /// the last node of the list, then move the reference of the current node back one node and
-  /// remove the reference of next node of the current node with `null` before returning. Else make
-  /// the previous node to point to the next node of the current node and vice-versa before moving
-  /// the reference of the current node to the next node.
+  /// First check if the current node is `null` then do nothing. Then if the reference of the current
+  /// node is pointing at the head of the list, then point the head to the next node after the head,
+  /// remove the reference to the previous node, and move the current reference to the head of the
+  /// list before returning. Next if the reference of the current node is pointing at the last node
+  /// of the list, then move the reference of the current node back one node and remove the reference
+  /// of next node of the current node with `null` before returning. Else make the previous node to
+  /// point to the next node of the current node and vice-versa before moving the reference of the
+  /// current node to the next node.
   public void removeCurrent() {
     if (current == null) {
       return;
@@ -213,8 +213,8 @@ public class DoubleDoubleLinkedList {
   }
 
   /// Checks if a double value is contained in the linked list by iterating though the list. Uses
-  /// the [equals][Double#equals(Object obj)] method instead of `==` because the linked list is
-  /// using the [Double] class wrapper instead of the double primitive.
+  /// the [equals][Double#equals(Object obj)] method instead of `==` because the linked list is using
+  /// the [Double] class wrapper instead of the double primitive.
   ///
   /// @param data The double value to see if it is in the linked list.
   /// @return True if the double value is in the list, otherwise false.

@@ -1,12 +1,7 @@
 {
-  "[java]": {
-    "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2
-  },
-  "java.checkstyle.configuration": ".vscode/checkstyle.xml",
-  "java.checkstyle.version": "10.20.1",
-  "java.format.settings.url": ".vscode/java-formatter.xml",
+  "java.checkstyle.configuration": "https://raw.githubusercontent.com/checkstyle/checkstyle/refs/heads/master/src/main/resources/google_checks.xml",
+  "java.checkstyle.version": "11.0.1",
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
   "java.project.outputPath": "bin",
   "java.project.referencedLibraries": [
     "lib"

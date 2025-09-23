@@ -85,8 +85,8 @@ public class FruitTreeTester {
    * tree in order to see if the has been removed.
    */
   public static void deleteFruit() {
-    System.out.println(
-        "Deleting: " + FRUIT_TYPE_TO_DELETE + Fruit.DELIMITER + FRUIT_WEIGHT_TO_DELETE);
+    System.out
+        .println("Deleting: " + FRUIT_TYPE_TO_DELETE + Fruit.DELIMITER + FRUIT_WEIGHT_TO_DELETE);
     fruitTree.remove(new Fruit(FRUIT_TYPE_TO_DELETE, FRUIT_WEIGHT_TO_DELETE));
     printInOrder();
   }

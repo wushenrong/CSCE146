@@ -76,10 +76,8 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> {
   }
 
   private boolean search(Node node, T data) {
-    return node != null
-        && (data.compareTo(node.data) > 0
-            ? search(node.rightChild, data)
-            : data.compareTo(node.data) >= 0 || search(node.leftChild, data));
+    return node != null && (data.compareTo(node.data) > 0 ? search(node.rightChild, data)
+        : data.compareTo(node.data) >= 0 || search(node.leftChild, data));
   }
 
   public void printPreOrder() {

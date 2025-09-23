@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "josevseb.google-java-format-for-vs-code",
     "shengchen.vscode-checkstyle",
     "vscjava.vscode-java-pack"
   ]
