@@ -13,6 +13,13 @@ public class PrizeGameFrontEnd {
   public static final Scanner keyboardScanner = new Scanner(System.in);
   public static final PrizeGameManager gameManager = new PrizeGameManager();
 
+  public static void getPrizeListFile() {
+    System.out.println("Please enter the filename of the prize list for this game:");
+    String prizeListFile = keyboardScanner.nextLine();
+
+    gameManager.readPrizeList("./" + prizeListFile);
+  }
+
   /// Main function to play the prize game.
   ///
   /// @param args Arguments from the commandline.
@@ -48,16 +55,6 @@ public class PrizeGameFrontEnd {
     keyboardScanner.close();
   }
 
-  public static void printGreetings() {
-    System.out.println("Welcome to the showcase showdown!");
-  }
-
-  public static void printChoices() {
-    System.out.println("What would like to do:");
-    System.out.println("Enter 1 for a new game.");
-    System.out.println("Enter 2 to exit.");
-  }
-
   public static void newGame() {
     gameManager.newGame();
 
@@ -84,10 +81,13 @@ public class PrizeGameFrontEnd {
     System.out.println("The actual price of the 5 prizes is " + totalPrizePrice);
   }
 
-  public static void getPrizeListFile() {
-    System.out.println("Please enter the filename of the prize list for this game:");
-    String prizeListFile = keyboardScanner.nextLine();
+  public static void printChoices() {
+    System.out.println("What would like to do:");
+    System.out.println("Enter 1 for a new game.");
+    System.out.println("Enter 2 to exit.");
+  }
 
-    gameManager.readPrizeList("./" + prizeListFile);
+  public static void printGreetings() {
+    System.out.println("Welcome to the showcase showdown!");
   }
 }

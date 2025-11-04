@@ -35,27 +35,57 @@ public class RobotSimulator {
     commandsToRun = null;
   }
 
-  /**
-   * Starts the robot simulation by placing the robot down. Returns -1 if the board is not
-   * initialized. Returns 1 if the robot is placed on an obstacle at (0, 0). Else return 0 for
-   * successfully placing the robot.
-   */
-  public int startSimulation() {
-    commandCounter = 0;
-
+  public void printBoard() {
     if (board == null) {
-      return -1;
+      return;
     }
 
-    if (isPositionObstacle(robotXposition, robotYposition)) {
-      return 1;
+    for (char[] row : board) {
+      for (char column : row) {
+        System.out.print(column);
+      }
+
+      System.out.println();
     }
 
-    robotXposition = START_POSITION;
-    robotYposition = START_POSITION;
-    board[robotYposition][robotXposition] = ROBOT;
+    System.out.println();
+  }
 
-    return 0;
+  /**
+   * Read and fill the board by reading each line as the row of the board and each character as the
+   * column of the board. The board is a 2D array where both the row and column are the same size.
+   * Each space of the board is placed in the same position of the array.
+   */
+  public void readBoardFile(String filename) {
+    board = new char[BOARD_SIZE][BOARD_SIZE];
+
+    try (Scanner fileScanner = new Scanner(new File(filename))) {
+      int row = 0;
+
+      while (fileScanner.hasNextLine()) {
+        String line = fileScanner.nextLine();
+
+        for (int column = 0; column < line.length(); column++) {
+          board[row][column] = line.charAt(column);
+        }
+
+        row++;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void readCommandFile(String filename) {
+    commandsToRun = new GenericLinkedQueue<>();
+
+    try (Scanner fileScanner = new Scanner(new File(filename))) {
+      while (fileScanner.hasNextLine()) {
+        commandsToRun.enqueue(fileScanner.nextLine());
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -115,8 +145,27 @@ public class RobotSimulator {
     return 0;
   }
 
-  private boolean isPositionValid(int position) {
-    return board != null && position >= 0 && position < board.length;
+  /**
+   * Starts the robot simulation by placing the robot down. Returns -1 if the board is not
+   * initialized. Returns 1 if the robot is placed on an obstacle at (0, 0). Else return 0 for
+   * successfully placing the robot.
+   */
+  public int startSimulation() {
+    commandCounter = 0;
+
+    if (board == null) {
+      return -1;
+    }
+
+    if (isPositionObstacle(robotXposition, robotYposition)) {
+      return 1;
+    }
+
+    robotXposition = START_POSITION;
+    robotYposition = START_POSITION;
+    board[robotYposition][robotXposition] = ROBOT;
+
+    return 0;
   }
 
   /**
@@ -127,56 +176,7 @@ public class RobotSimulator {
     return board[yPosition][xPosition] == OBSTACLE;
   }
 
-  public void printBoard() {
-    if (board == null) {
-      return;
-    }
-
-    for (int row = 0; row < board.length; row++) {
-      for (int column = 0; column < board[row].length; column++) {
-        System.out.print(board[row][column]);
-      }
-
-      System.out.println();
-    }
-
-    System.out.println();
-  }
-
-  /**
-   * Read and fill the board by reading each line as the row of the board and each character as the
-   * column of the board. The board is a 2D array where both the row and column are the same size.
-   * Each space of the board is placed in the same position of the array.
-   */
-  public void readBoardFile(String filename) {
-    board = new char[BOARD_SIZE][BOARD_SIZE];
-
-    try (Scanner fileScanner = new Scanner(new File(filename))) {
-      int row = 0;
-
-      while (fileScanner.hasNextLine()) {
-        String line = fileScanner.nextLine();
-
-        for (int column = 0; column < line.length(); column++) {
-          board[row][column] = line.charAt(column);
-        }
-
-        row++;
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  public void readCommandFile(String filename) {
-    commandsToRun = new GenericLinkedQueue<>();
-
-    try (Scanner fileScanner = new Scanner(new File(filename))) {
-      while (fileScanner.hasNextLine()) {
-        commandsToRun.enqueue(fileScanner.nextLine());
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+  private boolean isPositionValid(int position) {
+    return board != null && position >= 0 && position < board.length;
   }
 }

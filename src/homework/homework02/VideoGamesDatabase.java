@@ -21,6 +21,50 @@ public class VideoGamesDatabase {
   }
 
   /**
+   * Print out search results by checking if there is already results saved. If there is no results,
+   * return false for not being able to print out the results. Else reset the current reference of
+   * searchResults back to the head, then iterate through the list and print out each result. Lastly
+   * return true as all of the results was printed.
+   */
+  public boolean printVideoGamesSearchResults() {
+    if (searchResults == null) {
+      return false;
+    }
+
+    searchResults.resetCurrent();
+
+    while (searchResults.hasNext()) {
+      System.out.println(searchResults.getCurrent());
+      searchResults.next();
+    }
+
+    return true;
+  }
+
+  public void readVideoGameCollectionFile(String filename) {
+    videoGamesList = new GenericLinkedList<>();
+
+    try (Scanner fileScanner = new Scanner(new File(filename))) {
+      while (fileScanner.hasNext()) {
+        String entry = fileScanner.nextLine();
+        String[] fields = entry.split(VideoGame.DELIMITER);
+
+        if (fields.length != VideoGame.NUMBER_OF_FIELDS) {
+          continue;
+        }
+
+        String videoGameName = fields[0];
+        String videoGameConsole = fields[1];
+
+        VideoGame newVideoGame = new VideoGame(videoGameName, videoGameConsole);
+        videoGamesList.add(newVideoGame);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
    * Search the video game database by checking if the video games list, the game's name, or the
    * game's console name is `null`, and if it passes return false for not being able to search the
    * database. Else, create a new linked list that contains the results for the search. Next set the
@@ -68,50 +112,6 @@ public class VideoGamesDatabase {
     }
 
     return true;
-  }
-
-  /**
-   * Print out search results by checking if there is already results saved. If there is no results,
-   * return false for not being able to print out the results. Else reset the current reference of
-   * searchResults back to the head, then iterate through the list and print out each result. Lastly
-   * return true as all of the results was printed.
-   */
-  public boolean printVideoGamesSearchResults() {
-    if (searchResults == null) {
-      return false;
-    }
-
-    searchResults.resetCurrent();
-
-    while (searchResults.hasNext()) {
-      System.out.println(searchResults.getCurrent());
-      searchResults.next();
-    }
-
-    return true;
-  }
-
-  public void readVideoGameCollectionFile(String filename) {
-    videoGamesList = new GenericLinkedList<VideoGame>();
-
-    try (Scanner fileScanner = new Scanner(new File(filename))) {
-      while (fileScanner.hasNext()) {
-        String entry = fileScanner.nextLine();
-        String[] fields = entry.split(VideoGame.DELIMITER);
-
-        if (fields.length != VideoGame.NUMBER_OF_FIELDS) {
-          continue;
-        }
-
-        String videoGameName = fields[0];
-        String videoGameConsole = fields[1];
-
-        VideoGame newVideoGame = new VideoGame(videoGameName, videoGameConsole);
-        videoGamesList.add(newVideoGame);
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
   }
 
   public boolean writeVideoGamesSearchResults(String filename, boolean append) {

@@ -7,12 +7,34 @@
 package labs.lab05;
 
 public class LinkedListQueue<T> implements IQueue<T> {
+  private class Node {
+    T data;
+    Node link;
+
+    Node(T data, Node link) {
+      this.data = data;
+      this.link = link;
+    }
+  }
+
   private Node head;
+
   private Node tail;
 
   public LinkedListQueue() {
     head = null;
     tail = null;
+  }
+
+  @Override
+  public T dequeue() {
+    if (head == null) {
+      return null;
+    }
+
+    T data = head.data;
+    head = head.link;
+    return data;
   }
 
   /**
@@ -41,17 +63,6 @@ public class LinkedListQueue<T> implements IQueue<T> {
   }
 
   @Override
-  public T dequeue() {
-    if (head == null) {
-      return null;
-    }
-
-    T data = head.data;
-    head = head.link;
-    return data;
-  }
-
-  @Override
   public T peek() {
     return head == null ? null : head.data;
   }
@@ -60,16 +71,6 @@ public class LinkedListQueue<T> implements IQueue<T> {
   public void print() {
     for (Node temp = head; temp != null; temp = temp.link) {
       System.out.println(temp.data);
-    }
-  }
-
-  private class Node {
-    T data;
-    Node link;
-
-    Node(T data, Node link) {
-      this.data = data;
-      this.link = link;
     }
   }
 }

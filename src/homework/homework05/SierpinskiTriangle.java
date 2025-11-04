@@ -13,6 +13,7 @@ import java.awt.Point;
 import java.awt.Polygon;
 
 public class SierpinskiTriangle extends Canvas {
+  private static final long serialVersionUID = 1L;
   public static final int NUMBER_OF_POINTS = 3;
   public static final int MAX_DEPTH = 4;
 
@@ -20,29 +21,8 @@ public class SierpinskiTriangle extends Canvas {
   public static final Color white = new Color(255, 255, 255);
 
   /**
-   * Draw the initial triangle right side up triangle from the top middle of the canvas, the bottom
-   * left of the canvas, and the bottom right of the canvas. Then call a recursive method to draw
-   * the upside down triangles.
-   */
-  @Override
-  public void paint(Graphics g) {
-    int[] mainTriangleXpoints = {this.getWidth() / 2, 0, this.getWidth()};
-    int[] mainTriangleYpoints = {0, this.getHeight(), this.getHeight()};
-
-    g.setColor(black);
-    g.fillPolygon(mainTriangleXpoints, mainTriangleYpoints, NUMBER_OF_POINTS);
-    g.setColor(white);
-
-    Point top = new Point(mainTriangleXpoints[0], mainTriangleYpoints[0]);
-    Point left = new Point(mainTriangleXpoints[1], mainTriangleYpoints[1]);
-    Point right = new Point(mainTriangleXpoints[2], mainTriangleYpoints[2]);
-
-    drawTriangles(g, top, left, right, 1);
-  }
-
-  /**
    * Recursively draw the top, left and right, upside down triangles before hitting the MAX_DEPTH to
-   * draw the sierpinski triangle.
+   * draw the Sierpinski triangle.
    */
   private static void drawTriangles(Graphics g, Point top, Point left, Point right, int depth) {
     if (depth > MAX_DEPTH) {
@@ -78,5 +58,26 @@ public class SierpinskiTriangle extends Canvas {
   /** Find the midpoint between two points. */
   private static Point midpoint(Point pointA, Point pointB) {
     return new Point((pointA.x + pointB.x) / 2, (pointA.y + pointB.y) / 2);
+  }
+
+  /**
+   * Draw the initial triangle right side up triangle from the top middle of the canvas, the bottom
+   * left of the canvas, and the bottom right of the canvas. Then call a recursive method to draw
+   * the upside down triangles.
+   */
+  @Override
+  public void paint(Graphics g) {
+    int[] mainTriangleXpoints = {getWidth() / 2, 0, getWidth()};
+    int[] mainTriangleYpoints = {0, getHeight(), getHeight()};
+
+    g.setColor(black);
+    g.fillPolygon(mainTriangleXpoints, mainTriangleYpoints, NUMBER_OF_POINTS);
+    g.setColor(white);
+
+    Point top = new Point(mainTriangleXpoints[0], mainTriangleYpoints[0]);
+    Point left = new Point(mainTriangleXpoints[1], mainTriangleYpoints[1]);
+    Point right = new Point(mainTriangleXpoints[2], mainTriangleYpoints[2]);
+
+    drawTriangles(g, top, left, right, 1);
   }
 }

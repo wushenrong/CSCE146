@@ -26,25 +26,25 @@ public class VideoGame {
     setConsole(console);
   }
 
-  public String getName() {
-    return name;
-  }
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
 
-  public void setName(String name) {
-    this.name = name != null ? name : DEFAULT_GAME_VALUE;
+    if (!(obj instanceof VideoGame other)) {
+      return false;
+    }
+
+    return Objects.equals(name, other.name) && Objects.equals(console, other.console);
   }
 
   public String getConsole() {
     return console;
   }
 
-  public void setConsole(String console) {
-    this.console = console != null ? console : DEFAULT_GAME_VALUE;
-  }
-
-  @Override
-  public String toString() {
-    return name + DELIMITER + console;
+  public String getName() {
+    return name;
   }
 
   @Override
@@ -52,17 +52,16 @@ public class VideoGame {
     return Objects.hash(name, console);
   }
 
+  public void setConsole(String console) {
+    this.console = console != null ? console : DEFAULT_GAME_VALUE;
+  }
+
+  public void setName(String name) {
+    this.name = name != null ? name : DEFAULT_GAME_VALUE;
+  }
+
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-
-    if (!(obj instanceof VideoGame)) {
-      return false;
-    }
-
-    VideoGame other = (VideoGame) obj;
-    return Objects.equals(name, other.name) && Objects.equals(console, other.console);
+  public String toString() {
+    return name + DELIMITER + console;
   }
 }

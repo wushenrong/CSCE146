@@ -7,6 +7,7 @@
 package homework.homework05;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 public class Fractal {
   public static final int SCREEN_WIDTH = 400;
@@ -22,7 +23,7 @@ public class Fractal {
 
     mainFrame.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     mainFrame.setVisible(true);
-    mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     mainFrame.add(triangle);
   }
 }

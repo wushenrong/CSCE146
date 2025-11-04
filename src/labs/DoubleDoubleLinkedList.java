@@ -10,7 +10,22 @@ package labs;
 
 /// A double linked list class that holds a list of doubles and can move forwards and backwards.
 public class DoubleDoubleLinkedList {
+  /// A node for a Linked List that stores a class wrapper for the primitive type double and
+  /// references to the next and previous Nodes.
+  private class DoubleNode {
+    Double data;
+    DoubleNode nextLink;
+    DoubleNode previousLink;
+
+    DoubleNode(Double data, DoubleNode nextLink, DoubleNode previousLink) {
+      this.data = data;
+      this.nextLink = nextLink;
+      this.previousLink = previousLink;
+    }
+  }
+
   private DoubleNode head;
+
   private DoubleNode current;
 
   /// Creates an empty link list.
@@ -42,15 +57,108 @@ public class DoubleDoubleLinkedList {
     temp.nextLink = new DoubleNode(data, null, temp);
   }
 
+  /// Add a double value to the list after the current node.
+  ///
+  /// If the current node or data is `null`, do nothing. Else get a temporary reference of the next
+  /// node. Then create a new node with the value that double links to the current node and the next
+  /// node before linking that node back to the new node, if that node is not `null`. Lastly update
+  /// the reference to the next node to the new node that was created if it is not `null`.
+  ///
+  /// @param data The double value to insert after the current node.
+  public void addAfterCurrent(Double data) {
+    if (current == null || data == null) {
+      return;
+    }
+
+    DoubleNode temp = current.nextLink;
+
+    current.nextLink = new DoubleNode(data, temp, current);
+
+    if (temp != null) {
+      temp.previousLink = current.nextLink;
+    }
+  }
+
+  /// Checks if a double value is contained in the linked list by iterating though the list. Uses
+  /// the [equals][Double#equals(Object obj)] method instead of `==` because the linked list is using
+  /// the [Double] class wrapper instead of the double primitive.
+  ///
+  /// @param data The double value to see if it is in the linked list.
+  /// @return True if the double value is in the list, otherwise false.
+  public boolean contains(Double data) {
+    if (data == null) {
+      return false;
+    }
+
+    for (DoubleNode temp = head; temp != null; temp = temp.nextLink) {
+      if (temp.data.equals(data)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /// Returns the double value stored at the current node.
+  public Double getCurrent() {
+    if (current == null) {
+      return null;
+    }
+
+    return current.data;
+  }
+
+  /// Moves the pointer of the current node to the end of the linked list.
+  public void gotoEnd() {
+    if (head == null) {
+      current = head;
+      return;
+    }
+
+    DoubleNode temp = head;
+
+    while (temp.nextLink != null) {
+      temp = temp.nextLink;
+    }
+
+    current = temp;
+  }
+
+  /// Go to the next node by checking if the current node is not null.
+  public void gotoNext() {
+    if (current == null) {
+      return;
+    }
+
+    current = current.nextLink;
+  }
+
+  /// Go to the previous node by checking if the current node is not null.
+  public void gotoPrev() {
+    if (current == null) {
+      return;
+    }
+
+    current = current.previousLink;
+  }
+
+  /// Returns true if there are more items in the linked list to process.
+  public boolean hasMore() {
+    return current != null;
+  }
+
+  /// Print out the entire link list to the console.
+  public void print() {
+    for (DoubleNode temp = head; temp != null; temp = temp.nextLink) {
+      System.out.println(temp.data);
+    }
+  }
+
   /// Removes a double from the linked list.
   ///
   /// @param data The double value to remove.
   public void remove(Double data) {
-    if (data == null) {
-      return;
-    }
-
-    if (head == null) {
+    if (data == null || head == null) {
       return;
     }
 
@@ -74,72 +182,6 @@ public class DoubleDoubleLinkedList {
 
     if (temp.nextLink != null) {
       temp.nextLink.previousLink = temp.previousLink;
-    }
-  }
-
-  /// Go to the next node by checking if the current node is not null.
-  public void gotoNext() {
-    if (current == null) {
-      return;
-    }
-
-    current = current.nextLink;
-  }
-
-  /// Go to the previous node by checking if the current node is not null.
-  public void gotoPrev() {
-    if (current == null) {
-      return;
-    }
-
-    current = current.previousLink;
-  }
-
-  /// Moves the pointer of the current node to the head of the linked list.
-  public void reset() {
-    current = head;
-  }
-
-  /// Moves the pointer of the current node to the end of the linked list.
-  public void gotoEnd() {
-    if (head == null) {
-      current = head;
-      return;
-    }
-
-    DoubleNode temp = head;
-
-    while (temp.nextLink != null) {
-      temp = temp.nextLink;
-    }
-
-    current = temp;
-  }
-
-  /// Returns true if there are more items in the linked list to process.
-  public boolean hasMore() {
-    return current != null;
-  }
-
-  /// Add a double value to the list after the current node.
-  ///
-  /// If the current node or data is `null`, do nothing. Else get a temporary reference of the next
-  /// node. Then create a new node with the value that double links to the current node and the next
-  /// node before linking that node back to the new node, if that node is not `null`. Lastly update
-  /// the reference to the next node to the new node that was created if it is not `null`.
-  ///
-  /// @param data The double value to insert after the current node.
-  public void addAfterCurrent(Double data) {
-    if (current == null || data == null) {
-      return;
-    }
-
-    DoubleNode temp = current.nextLink;
-
-    current.nextLink = new DoubleNode(data, temp, current);
-
-    if (temp != null) {
-      temp.previousLink = current.nextLink;
     }
   }
 
@@ -187,13 +229,9 @@ public class DoubleDoubleLinkedList {
     current = current.nextLink;
   }
 
-  /// Returns the double value stored at the current node.
-  public Double getCurrent() {
-    if (current == null) {
-      return null;
-    }
-
-    return current.data;
+  /// Moves the pointer of the current node to the head of the linked list.
+  public void reset() {
+    current = head;
   }
 
   /// Sets the double value of the current value if it is not empty.
@@ -202,47 +240,6 @@ public class DoubleDoubleLinkedList {
   public void setCurrent(Double data) {
     if (current != null && data != null) {
       current.data = data;
-    }
-  }
-
-  /// Print out the entire link list to the console.
-  public void print() {
-    for (DoubleNode temp = head; temp != null; temp = temp.nextLink) {
-      System.out.println(temp.data);
-    }
-  }
-
-  /// Checks if a double value is contained in the linked list by iterating though the list. Uses
-  /// the [equals][Double#equals(Object obj)] method instead of `==` because the linked list is using
-  /// the [Double] class wrapper instead of the double primitive.
-  ///
-  /// @param data The double value to see if it is in the linked list.
-  /// @return True if the double value is in the list, otherwise false.
-  public boolean contains(Double data) {
-    if (data == null) {
-      return false;
-    }
-
-    for (DoubleNode temp = head; temp != null; temp = temp.nextLink) {
-      if (temp.data.equals(data)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  /// A node for a Linked List that stores a class wrapper for the primitive type double and
-  /// references to the next and previous Nodes.
-  private class DoubleNode {
-    Double data;
-    DoubleNode nextLink;
-    DoubleNode previousLink;
-
-    DoubleNode(Double data, DoubleNode nextLink, DoubleNode previousLink) {
-      this.data = data;
-      this.nextLink = nextLink;
-      this.previousLink = previousLink;
     }
   }
 }

@@ -7,8 +7,19 @@
 package homework.homework02;
 
 public class GenericLinkedList<T> {
+  private class Node {
+    T data;
+    Node link;
+
+    Node(T data, Node link) {
+      this.data = data;
+      this.link = link;
+    }
+  }
+
   private Node head;
   private Node current;
+
   private Node previous;
 
   public GenericLinkedList() {
@@ -37,24 +48,32 @@ public class GenericLinkedList<T> {
     temp.link = new Node(data, null);
   }
 
-  public void next() {
-    if (current != null) {
-      previous = current;
-      current = current.link;
+  public boolean contains(T data) {
+    if (data == null) {
+      return false;
     }
-  }
 
-  public boolean hasNext() {
-    return current != null;
+    for (Node temp = head; temp != null; temp = temp.link) {
+      if (temp.data != null && temp.data.equals(data)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   public T getCurrent() {
     return current == null ? null : current.data;
   }
 
-  public void setCurrent(T data) {
-    if (current != null && data != null) {
-      current.data = data;
+  public boolean hasNext() {
+    return current != null;
+  }
+
+  public void next() {
+    if (current != null) {
+      previous = current;
+      current = current.link;
     }
   }
 
@@ -82,27 +101,9 @@ public class GenericLinkedList<T> {
     previous = null;
   }
 
-  public boolean contains(T data) {
-    if (data == null) {
-      return false;
-    }
-
-    for (Node temp = head; temp != null; temp = temp.link) {
-      if (temp.data != null && temp.data.equals(data)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  private class Node {
-    T data;
-    Node link;
-
-    Node(T data, Node link) {
-      this.data = data;
-      this.link = link;
+  public void setCurrent(T data) {
+    if (current != null && data != null) {
+      current.data = data;
     }
   }
 }

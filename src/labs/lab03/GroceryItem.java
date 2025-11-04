@@ -24,16 +24,35 @@ public class GroceryItem {
     setValue(value);
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+
+    if (!(obj instanceof GroceryItem other)) {
+      return false;
+    }
+
+    return Objects.equals(name, other.name)
+        && Double.doubleToLongBits(value) == Double.doubleToLongBits(other.value);
+  }
+
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name != null ? name : DEFAULT_NAME;
-  }
-
   public double getValue() {
     return value;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, value);
+  }
+
+  public void setName(String name) {
+    this.name = name != null ? name : DEFAULT_NAME;
   }
 
   public void setValue(double value) {
@@ -43,26 +62,5 @@ public class GroceryItem {
   @Override
   public String toString() {
     return "Grocery Item Name: " + name + " Value: " + value;
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, value);
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-
-    if (!(obj instanceof GroceryItem)) {
-      return false;
-    }
-
-    GroceryItem other = (GroceryItem) obj;
-
-    return Objects.equals(name, other.name)
-        && Double.doubleToLongBits(value) == Double.doubleToLongBits(other.value);
   }
 }

@@ -12,6 +12,11 @@ public class TaskOrganizerFrontEnd {
   public static final Scanner keyboardScanner = new Scanner(System.in);
   public static final TaskOrganizer taskOrganizer = new TaskOrganizer();
 
+  public static void addTask() {
+    Task taskToAdd = promptTask();
+    taskOrganizer.addTask(taskToAdd);
+  }
+
   public static void main(String[] args) {
     printGreetings();
 
@@ -72,24 +77,13 @@ public class TaskOrganizerFrontEnd {
     System.out.println("Enter 'quit' to exit the task organizer");
   }
 
-  public static void addTask() {
-    Task taskToAdd = promptTask();
-    taskOrganizer.addTask(taskToAdd);
-  }
-
-  public static void removeTask() {
-    Task taskToRemove = promptTask();
-    taskOrganizer.removeTask(taskToRemove);
-  }
-
-  public static void readTaskFile() {
-    String filename = promptFileName("Enter the filename of the task file to read from:");
-    taskOrganizer.readTaskFile("./" + filename);
-  }
-
-  public static void writeTaskFile() {
-    String filename = promptFileName("Enter the filename of the task file to write to:");
-    taskOrganizer.writeTaskFile("./" + filename);
+  /**
+   * Prompt the user to input a filename for reading and writing a task file. Requires a prompt to
+   * ask what the file is used for.
+   */
+  public static String promptFileName(String prompt) {
+    System.out.println(prompt);
+    return keyboardScanner.nextLine();
   }
 
   /**
@@ -107,12 +101,18 @@ public class TaskOrganizerFrontEnd {
     return new Task(taskPriority, taskAction);
   }
 
-  /**
-   * Prompt the user to input a filename for reading and writing a task file. Requires a prompt to
-   * ask what the file is used for.
-   */
-  public static String promptFileName(String prompt) {
-    System.out.println(prompt);
-    return keyboardScanner.nextLine();
+  public static void readTaskFile() {
+    String filename = promptFileName("Enter the filename of the task file to read from:");
+    taskOrganizer.readTaskFile("./" + filename);
+  }
+
+  public static void removeTask() {
+    Task taskToRemove = promptTask();
+    taskOrganizer.removeTask(taskToRemove);
+  }
+
+  public static void writeTaskFile() {
+    String filename = promptFileName("Enter the filename of the task file to write to:");
+    taskOrganizer.writeTaskFile("./" + filename);
   }
 }

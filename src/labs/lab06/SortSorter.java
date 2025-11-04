@@ -16,6 +16,20 @@ public class SortSorter {
   private static StringLinkedQueue stringsQueue = new StringLinkedQueue();
 
   /**
+   * Count the number of instance of "sort" in a string by getting the index of the first character
+   * of "sort" in the string using String.indexOf. If String.indexOf returns -1, meaning there is no
+   * "sort" in the string, return 0 for there are no "sort" in the string. Else recursively call
+   * itself with the front of the string including "sort" removed to count additional "sort" and
+   * return the result of the recursive call plus one.
+   */
+  public static int countSorts(String string) {
+    int indexOfSort = string.indexOf(SORT_STRING);
+
+    return indexOfSort == -1 ? 0
+        : countSorts(string.substring(indexOfSort + SORT_STRING.length())) + 1;
+  }
+
+  /**
    * Sort strings by "sort" by asking the user strings with "sort" and enqueue the strings for
    * sorting. Then count the number of stings in the queue and create a string array. Next dequeue
    * the strings into the array and sort the stings. Lastly print out the sorted strings and prompt
@@ -58,25 +72,6 @@ public class SortSorter {
     keyboardScanner.close();
   }
 
-  /** Method to quick sort an entire string array. */
-  public static void sortSortStrings(String[] array) {
-    quickSortStrings(array, 0, array.length - 1);
-  }
-
-  /**
-   * Method to recursively quick sort each upper and lower partition of a string by number of
-   * "sort".
-   */
-  public static void quickSortStrings(String[] array, int start, int end) {
-    if (start >= end) {
-      return;
-    }
-
-    int pivot = partition(array, start, end);
-    quickSortStrings(array, start, pivot - 1);
-    quickSortStrings(array, pivot + 1, end);
-  }
-
   /**
    * Sort strings by using quick sort which has an average time complexity of O(n log n). First
    * select the last string as the initial pivot and get the number of "sort" for all the other
@@ -102,20 +97,6 @@ public class SortSorter {
     return i;
   }
 
-  /**
-   * Count the number of instance of "sort" in a string by getting the index of the first character
-   * of "sort" in the string using String.indexOf. If String.indexOf returns -1, meaning there is no
-   * "sort" in the string, return 0 for there are no "sort" in the string. Else recursively call
-   * itself with the front of the string including "sort" removed to count additional "sort" and
-   * return the result of the recursive call plus one.
-   */
-  public static int countSorts(String string) {
-    int indexOfSort = string.indexOf(SORT_STRING);
-
-    return indexOfSort == -1 ? 0
-        : countSorts(string.substring(indexOfSort + SORT_STRING.length())) + 1;
-  }
-
   public static boolean promptToSortNewStrings() {
     while (true) {
       System.out.println("\nDo you want run sort more strings? Yes or No");
@@ -131,5 +112,24 @@ public class SortSorter {
 
       System.out.println("Error: Invalid input.");
     }
+  }
+
+  /**
+   * Method to recursively quick sort each upper and lower partition of a string by number of
+   * "sort".
+   */
+  public static void quickSortStrings(String[] array, int start, int end) {
+    if (start >= end) {
+      return;
+    }
+
+    int pivot = partition(array, start, end);
+    quickSortStrings(array, start, pivot - 1);
+    quickSortStrings(array, pivot + 1, end);
+  }
+
+  /** Method to quick sort an entire string array. */
+  public static void sortSortStrings(String[] array) {
+    quickSortStrings(array, 0, array.length - 1);
   }
 }

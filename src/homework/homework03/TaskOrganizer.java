@@ -6,26 +6,17 @@
 
 package homework.homework03;
 
-import homework.homework02.GenericLinkedList;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import homework.homework02.GenericLinkedList;
 
 public class TaskOrganizer {
   private GenericLinkedList<Task>[] organizedTasks;
 
   public TaskOrganizer() {
     init();
-  }
-
-  @SuppressWarnings("unchecked")
-  public void init() {
-    organizedTasks = new GenericLinkedList[Task.NUMBER_OF_PRIORITIES];
-
-    for (int priority = 0; priority < organizedTasks.length; priority++) {
-      organizedTasks[priority] = new GenericLinkedList<>();
-    }
   }
 
   /**
@@ -51,30 +42,12 @@ public class TaskOrganizer {
     organizedTasks[taskPriority].add(data);
   }
 
-  /**
-   * Removes a task by getting the task list based on the task's priority, then manually looping
-   * through the task list to remove the task. If the current task is equal to the task given,
-   * remove it and return. Else move to the next task until there are no task to check. If the task
-   * to remove is null, then do nothing.
-   */
-  public void removeTask(Task data) {
-    if (data == null) {
-      return;
-    }
+  @SuppressWarnings("unchecked")
+  public void init() {
+    organizedTasks = new GenericLinkedList[Task.NUMBER_OF_PRIORITIES];
 
-    int taskPriority = data.getPriority();
-
-    GenericLinkedList<Task> taskList = organizedTasks[taskPriority];
-
-    taskList.resetCurrent();
-
-    while (taskList.hasNext()) {
-      if (taskList.getCurrent().equals(data)) {
-        taskList.removeCurrent();
-        return;
-      }
-
-      taskList.next();
+    for (int priority = 0; priority < organizedTasks.length; priority++) {
+      organizedTasks[priority] = new GenericLinkedList<>();
     }
   }
 
@@ -121,11 +94,36 @@ public class TaskOrganizer {
     }
   }
 
+  /**
+   * Removes a task by getting the task list based on the task's priority, then manually looping
+   * through the task list to remove the task. If the current task is equal to the task given,
+   * remove it and return. Else move to the next task until there are no task to check. If the task
+   * to remove is null, then do nothing.
+   */
+  public void removeTask(Task data) {
+    if (data == null) {
+      return;
+    }
+
+    int taskPriority = data.getPriority();
+
+    GenericLinkedList<Task> taskList = organizedTasks[taskPriority];
+
+    taskList.resetCurrent();
+
+    while (taskList.hasNext()) {
+      if (taskList.getCurrent().equals(data)) {
+        taskList.removeCurrent();
+        return;
+      }
+
+      taskList.next();
+    }
+  }
+
   public void writeTaskFile(String filename) {
     try (PrintWriter fileWriter = new PrintWriter(new FileOutputStream(filename))) {
-      for (int priority = 0; priority < organizedTasks.length; priority++) {
-        GenericLinkedList<Task> taskList = organizedTasks[priority];
-
+      for (GenericLinkedList<Task> taskList : organizedTasks) {
         taskList.resetCurrent();
 
         while (taskList.hasNext()) {

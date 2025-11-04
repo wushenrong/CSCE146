@@ -17,6 +17,17 @@ public class FruitTreeTester {
   public static final LinkedBinarySearchTree<Fruit> fruitTree = new LinkedBinarySearchTree<>();
 
   /**
+   * Test if the remove function of the tree is working by removing an existing fruit and print the
+   * tree in order to see if the has been removed.
+   */
+  public static void deleteFruit() {
+    System.out
+        .println("Deleting: " + FRUIT_TYPE_TO_DELETE + Fruit.DELIMITER + FRUIT_WEIGHT_TO_DELETE);
+    fruitTree.remove(new Fruit(FRUIT_TYPE_TO_DELETE, FRUIT_WEIGHT_TO_DELETE));
+    printInOrder();
+  }
+
+  /**
    * Main function to test four subfunctions of the tree, adding, printing in order, pre order, and
    * post order, and removing a fruit.
    */
@@ -30,6 +41,24 @@ public class FruitTreeTester {
     deleteFruit();
 
     keyboardScanner.close();
+  }
+
+  public static void printInOrder() {
+    System.out.println("Printing the in-order traversal");
+    fruitTree.printInOrder();
+    System.out.println();
+  }
+
+  public static void printPostOrder() {
+    System.out.println("Printing the post-order traversal");
+    fruitTree.printPostOrder();
+    System.out.println();
+  }
+
+  public static void printPreOrder() {
+    System.out.println("Printing the pre-order traversal");
+    fruitTree.printPreOrder();
+    System.out.println();
   }
 
   /**
@@ -60,34 +89,5 @@ public class FruitTreeTester {
     } catch (Exception e) {
       e.printStackTrace();
     }
-  }
-
-  public static void printInOrder() {
-    System.out.println("Printing the in-order traversal");
-    fruitTree.printInOrder();
-    System.out.println();
-  }
-
-  public static void printPreOrder() {
-    System.out.println("Printing the pre-order traversal");
-    fruitTree.printPreOrder();
-    System.out.println();
-  }
-
-  public static void printPostOrder() {
-    System.out.println("Printing the post-order traversal");
-    fruitTree.printPostOrder();
-    System.out.println();
-  }
-
-  /**
-   * Test if the remove function of the tree is working by removing an existing fruit and print the
-   * tree in order to see if the has been removed.
-   */
-  public static void deleteFruit() {
-    System.out
-        .println("Deleting: " + FRUIT_TYPE_TO_DELETE + Fruit.DELIMITER + FRUIT_WEIGHT_TO_DELETE);
-    fruitTree.remove(new Fruit(FRUIT_TYPE_TO_DELETE, FRUIT_WEIGHT_TO_DELETE));
-    printInOrder();
   }
 }

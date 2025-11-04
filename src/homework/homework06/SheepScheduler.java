@@ -6,9 +6,9 @@
 
 package homework.homework06;
 
-import homework.homework04.GenericLinkedQueue;
 import java.io.File;
 import java.util.Scanner;
+import homework.homework04.GenericLinkedQueue;
 
 public class SheepScheduler {
   public static final Scanner keyboardScanner = new Scanner(System.in);
@@ -16,35 +16,6 @@ public class SheepScheduler {
   private static GenericLinkedQueue<Sheep> sheepToBeSorted;
   private static GenericLinkedQueue<Sheep> sheepSchedule;
   private static Sheep[] sheepToBeScheduled;
-
-  public static void main(String[] args) {
-    printGreetings();
-
-    boolean quit = false;
-
-    while (!quit) {
-      promptForSheep();
-      prepareSchedule();
-      createSchedule();
-      printSchedule();
-
-      quit = promptForNewSchedule();
-    }
-
-    System.out.println("Goodbye");
-
-    keyboardScanner.close();
-  }
-
-  public static void printGreetings() {
-    System.out.println("Welcome to the Sheep Shearing Scheduler!");
-  }
-
-  public static void printSchedule() {
-    if (sheepSchedule != null) {
-      sheepSchedule.print();
-    }
-  }
 
   /**
    * Create a shearing schedule by shearing each sheep via simulation and adding each sheep by their
@@ -84,6 +55,25 @@ public class SheepScheduler {
     }
   }
 
+  public static void main(String[] args) {
+    printGreetings();
+
+    boolean quit = false;
+
+    while (!quit) {
+      promptForSheep();
+      prepareSchedule();
+      createSchedule();
+      printSchedule();
+
+      quit = promptForNewSchedule();
+    }
+
+    System.out.println("Goodbye");
+
+    keyboardScanner.close();
+  }
+
   /**
    * Prepare the simulation of the schedule by creating an array and populating the array with sheep
    * from the file. Then quick sort the array by arrival time.
@@ -110,39 +100,14 @@ public class SheepScheduler {
     quickSortSheepByArrivalTime(0, sheepToBeScheduled.length - 1);
   }
 
-  private static void quickSortSheepByArrivalTime(int start, int end) {
-    if (start >= end) {
-      return;
-    }
-
-    int pivot = partition(start, end);
-    quickSortSheepByArrivalTime(start, pivot - 1);
-    quickSortSheepByArrivalTime(pivot + 1, end);
+  public static void printGreetings() {
+    System.out.println("Welcome to the Sheep Shearing Scheduler!");
   }
 
-  private static int partition(int start, int end) {
-    int pivot = sheepToBeScheduled[end].getArrivalTime();
-    int i = start;
-
-    for (int j = start; j <= end; j++) {
-      if (sheepToBeScheduled[j].getArrivalTime() < pivot) {
-        Sheep temp = sheepToBeScheduled[i];
-        sheepToBeScheduled[i] = sheepToBeScheduled[j];
-        sheepToBeScheduled[j] = temp;
-        i++;
-      }
+  public static void printSchedule() {
+    if (sheepSchedule != null) {
+      sheepSchedule.print();
     }
-
-    Sheep temp = sheepToBeScheduled[i];
-    sheepToBeScheduled[i] = sheepToBeScheduled[end];
-    sheepToBeScheduled[end] = temp;
-    return i;
-  }
-
-  public static void promptForSheep() {
-    System.out.println("Please enter the filename for the sheep file: ");
-    String filename = keyboardScanner.nextLine();
-    readSheepFile("./" + filename);
   }
 
   /**
@@ -164,6 +129,12 @@ public class SheepScheduler {
 
       System.out.println("Error: Invalid input.");
     }
+  }
+
+  public static void promptForSheep() {
+    System.out.println("Please enter the filename for the sheep file: ");
+    String filename = keyboardScanner.nextLine();
+    readSheepFile("./" + filename);
   }
 
   /**
@@ -193,5 +164,34 @@ public class SheepScheduler {
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  private static int partition(int start, int end) {
+    int pivot = sheepToBeScheduled[end].getArrivalTime();
+    int i = start;
+
+    for (int j = start; j <= end; j++) {
+      if (sheepToBeScheduled[j].getArrivalTime() < pivot) {
+        Sheep temp = sheepToBeScheduled[i];
+        sheepToBeScheduled[i] = sheepToBeScheduled[j];
+        sheepToBeScheduled[j] = temp;
+        i++;
+      }
+    }
+
+    Sheep temp = sheepToBeScheduled[i];
+    sheepToBeScheduled[i] = sheepToBeScheduled[end];
+    sheepToBeScheduled[end] = temp;
+    return i;
+  }
+
+  private static void quickSortSheepByArrivalTime(int start, int end) {
+    if (start >= end) {
+      return;
+    }
+
+    int pivot = partition(start, end);
+    quickSortSheepByArrivalTime(start, pivot - 1);
+    quickSortSheepByArrivalTime(pivot + 1, end);
   }
 }

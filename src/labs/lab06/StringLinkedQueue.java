@@ -7,12 +7,43 @@
 package labs.lab06;
 
 public class StringLinkedQueue {
+  private class StringNode {
+    String data;
+    StringNode link;
+
+    StringNode(String data, StringNode link) {
+      this.data = data;
+      this.link = link;
+    }
+  }
+
   private StringNode head;
+
   private StringNode tail;
 
   public StringLinkedQueue() {
     head = null;
     tail = null;
+  }
+
+  public int countStrings() {
+    int count = 0;
+
+    for (StringNode temp = head; temp != null; temp = temp.link) {
+      count++;
+    }
+
+    return count;
+  }
+
+  public String dequeue() {
+    if (head == null) {
+      return null;
+    }
+
+    String data = head.data;
+    head = head.link;
+    return data;
   }
 
   public void enqueue(String data) {
@@ -30,35 +61,5 @@ public class StringLinkedQueue {
 
     tail.link = temp;
     tail = tail.link;
-  }
-
-  public String dequeue() {
-    if (head == null) {
-      return null;
-    }
-
-    String data = head.data;
-    head = head.link;
-    return data;
-  }
-
-  public int countStrings() {
-    int count = 0;
-
-    for (StringNode temp = head; temp != null; temp = temp.link) {
-      count++;
-    }
-
-    return count;
-  }
-
-  private class StringNode {
-    String data;
-    StringNode link;
-
-    StringNode(String data, StringNode link) {
-      this.data = data;
-      this.link = link;
-    }
   }
 }

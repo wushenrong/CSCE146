@@ -29,45 +29,10 @@ public class Order implements Comparable<Order> {
     setCookingTimeLeft(cookingTime);
   }
 
-  public String getCustomer() {
-    return customer;
-  }
-
-  public void setCustomer(String customer) {
-    this.customer = customer != null ? customer : DEFAULT_VALUE;
-  }
-
-  public String getFoodOrder() {
-    return foodOrder;
-  }
-
-  public void setFoodOrder(String foodOrder) {
-    this.foodOrder = foodOrder != null ? foodOrder : DEFAULT_VALUE;
-  }
-
-  public int getCookingTime() {
-    return cookingTime;
-  }
-
-  public void setCookingTime(int cookingTime) {
-    this.cookingTime = cookingTime >= DEFAULT_COOKING_TIME ? cookingTime : DEFAULT_COOKING_TIME;
-  }
-
-  public int getArrivalTime() {
-    return arrivalTime;
-  }
-
-  public void setArrivalTime(int arrivalTime) {
-    this.arrivalTime = arrivalTime >= DEFAULT_ARRIVAL_TIME ? arrivalTime : DEFAULT_ARRIVAL_TIME;
-  }
-
-  public int getCookingTimeLeft() {
-    return cookingTimeLeft;
-  }
-
-  public void setCookingTimeLeft(int cookingTimeLeft) {
-    this.cookingTimeLeft =
-        cookingTimeLeft >= DEFAULT_COOKING_TIME ? cookingTimeLeft : DEFAULT_COOKING_TIME;
+  @Override
+  public int compareTo(Order other) {
+    return other == null || cookingTime < other.cookingTime ? -1
+        : cookingTime > other.cookingTime ? 1 : 0;
   }
 
   /// Decreases the cooking time by 1 minute.
@@ -75,19 +40,54 @@ public class Order implements Comparable<Order> {
     cookingTimeLeft--;
   }
 
+  public int getArrivalTime() {
+    return arrivalTime;
+  }
+
+  public int getCookingTime() {
+    return cookingTime;
+  }
+
+  public int getCookingTimeLeft() {
+    return cookingTimeLeft;
+  }
+
+  public String getCustomer() {
+    return customer;
+  }
+
+  public String getFoodOrder() {
+    return foodOrder;
+  }
+
   public boolean isDone() {
     return cookingTimeLeft == 0;
+  }
+
+  public void setArrivalTime(int arrivalTime) {
+    this.arrivalTime = arrivalTime >= DEFAULT_ARRIVAL_TIME ? arrivalTime : DEFAULT_ARRIVAL_TIME;
+  }
+
+  public void setCookingTime(int cookingTime) {
+    this.cookingTime = cookingTime >= DEFAULT_COOKING_TIME ? cookingTime : DEFAULT_COOKING_TIME;
+  }
+
+  public void setCookingTimeLeft(int cookingTimeLeft) {
+    this.cookingTimeLeft =
+        cookingTimeLeft >= DEFAULT_COOKING_TIME ? cookingTimeLeft : DEFAULT_COOKING_TIME;
+  }
+
+  public void setCustomer(String customer) {
+    this.customer = customer != null ? customer : DEFAULT_VALUE;
+  }
+
+  public void setFoodOrder(String foodOrder) {
+    this.foodOrder = foodOrder != null ? foodOrder : DEFAULT_VALUE;
   }
 
   @Override
   public String toString() {
     return "Customer: " + customer + ", Order: " + foodOrder + ", Cooking Time Left: "
         + cookingTimeLeft;
-  }
-
-  @Override
-  public int compareTo(Order other) {
-    return other == null || cookingTime < other.cookingTime ? -1
-        : cookingTime > other.cookingTime ? 1 : 0;
   }
 }

@@ -37,8 +37,31 @@ public class Prize {
     setPrice(price);
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+
+    if (!(obj instanceof Prize other)) {
+      return false;
+    }
+
+    return Objects.equals(name, other.name)
+        && Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
+  }
+
   public String getName() {
     return name;
+  }
+
+  public double getPrice() {
+    return price;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, price);
   }
 
   /// Sets the name of the Prize. If the name is `null`, set it to {@value #DEFAULT_NAME}.
@@ -46,10 +69,6 @@ public class Prize {
   /// @param name The name for the prize.
   public void setName(String name) {
     this.name = name != null ? name : DEFAULT_NAME;
-  }
-
-  public double getPrice() {
-    return price;
   }
 
   /// Sets the price of the Prize. If the price is negative, set it to {@value #DEFAULT_PRICE}.
@@ -62,26 +81,5 @@ public class Prize {
   @Override
   public String toString() {
     return "Prize: " + name + " Price: " + price;
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, price);
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-
-    if (!(obj instanceof Prize)) {
-      return false;
-    }
-
-    Prize other = (Prize) obj;
-
-    return Objects.equals(name, other.name)
-        && Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
   }
 }

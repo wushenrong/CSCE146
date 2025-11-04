@@ -20,7 +20,15 @@ public class Fruit implements Comparable<Fruit> {
 
   public static final double DEFAULT_WEIGHT = 1.0;
 
+  /** Check if the type of the fruit is either an apple, orange, banana, kiwi, or tomato. */
+  private static boolean isTypeValid(String fruitType) {
+    return fruitType.equals(TYPE_APPLE) || fruitType.equals(TYPE_ORANGE)
+        || fruitType.equals(TYPE_BANANA) || fruitType.equals(TYPE_KIWI)
+        || fruitType.equals(TYPE_TOMATO);
+  }
+
   private String type;
+
   private double weight;
 
   public Fruit() {
@@ -30,34 +38,6 @@ public class Fruit implements Comparable<Fruit> {
   public Fruit(String type, double weight) {
     setType(type);
     setWeight(weight);
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = isTypeValid(type) ? type : TYPE_APPLE;
-  }
-
-  public double getWeight() {
-    return weight;
-  }
-
-  public void setWeight(double weight) {
-    this.weight = weight > 0.0 ? weight : DEFAULT_WEIGHT;
-  }
-
-  /** Check if the type of the fruit is either an apple, orange, banana, kiwi, or tomato. */
-  private static boolean isTypeValid(String fruitType) {
-    return fruitType.equals(TYPE_APPLE) || fruitType.equals(TYPE_ORANGE)
-        || fruitType.equals(TYPE_BANANA) || fruitType.equals(TYPE_KIWI)
-        || fruitType.equals(TYPE_TOMATO);
-  }
-
-  @Override
-  public String toString() {
-    return "Type: " + type + DELIMITER + "Weight: " + weight;
   }
 
   /**
@@ -72,23 +52,42 @@ public class Fruit implements Comparable<Fruit> {
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(type, weight);
-  }
-
-  @Override
   public boolean equals(Object obj) {
     if (this == obj) {
       return true;
     }
 
-    if (!(obj instanceof Fruit)) {
+    if (!(obj instanceof Fruit other)) {
       return false;
     }
 
-    Fruit other = (Fruit) obj;
-
     return Objects.equals(type, other.type)
         && Double.doubleToLongBits(weight) == Double.doubleToLongBits(other.weight);
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public double getWeight() {
+    return weight;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(type, weight);
+  }
+
+  public void setType(String type) {
+    this.type = isTypeValid(type) ? type : TYPE_APPLE;
+  }
+
+  public void setWeight(double weight) {
+    this.weight = weight > 0.0 ? weight : DEFAULT_WEIGHT;
+  }
+
+  @Override
+  public String toString() {
+    return "Type: " + type + DELIMITER + "Weight: " + weight;
   }
 }

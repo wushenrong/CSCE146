@@ -21,11 +21,6 @@ public class OrderScheduler {
     totalWaitingTime = 0;
   }
 
-  /** Return the current order that we are preparing. */
-  public Order getCurrentOrder() {
-    return currentOrder;
-  }
-
   /**
    * Add an order by increment the number of orders we have added and if the current order is`
    * null`, make it as the current order to prepare. Else add the order to the orders heap that is
@@ -61,11 +56,6 @@ public class OrderScheduler {
     }
   }
 
-  /** Check if we are done cooking. */
-  public boolean isDone() {
-    return currentOrder == null;
-  }
-
   /**
    * Calculate the average time to prepare every order by dividing the total prepare time of all
    * orders by the number of orders given. Casting the total prepare time to do double division and
@@ -73,5 +63,15 @@ public class OrderScheduler {
    */
   public double getAverageWaitingTime() {
     return (double) totalWaitingTime / totalOrders;
+  }
+
+  /** Return the current order that we are preparing. */
+  public Order getCurrentOrder() {
+    return currentOrder;
+  }
+
+  /** Check if we are done cooking. */
+  public boolean isDone() {
+    return currentOrder == null;
   }
 }

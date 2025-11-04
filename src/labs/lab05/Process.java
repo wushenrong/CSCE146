@@ -22,21 +22,21 @@ public class Process {
     setCompletionTime(completionTime);
   }
 
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name != null ? name : DEFAULT_NAME;
-  }
-
   public double getCompletionTime() {
     return completionTime;
+  }
+
+  public String getName() {
+    return name;
   }
 
   public void setCompletionTime(double completionTime) {
     this.completionTime =
         completionTime >= DEFAULT_COMPLETION_TIME ? completionTime : DEFAULT_COMPLETION_TIME;
+  }
+
+  public void setName(String name) {
+    this.name = name != null ? name : DEFAULT_NAME;
   }
 
   @Override

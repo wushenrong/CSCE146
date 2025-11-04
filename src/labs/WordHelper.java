@@ -11,32 +11,6 @@ package labs;
 public class WordHelper {
   /**
    * Sorting a String array by length through first copying the original array and then sorting the
-   * copy by using bubble sort from Lab00 and comparing the number of vowels each string has using
-   * countVowels before returning the sorted copy.
-   */
-  public static String[] sortByVowels(String[] words) {
-    String[] sortedWords = words.clone();
-
-    boolean hasSwapped = true;
-
-    while (hasSwapped) {
-      hasSwapped = false;
-
-      for (int i = 0; i < sortedWords.length - 1; i++) {
-        if (countVowels(sortedWords[i]) > countVowels(sortedWords[i + 1])) {
-          String temp = sortedWords[i];
-          sortedWords[i] = sortedWords[i + 1];
-          sortedWords[i + 1] = temp;
-          hasSwapped = true;
-        }
-      }
-    }
-
-    return sortedWords;
-  }
-
-  /**
-   * Sorting a String array by length through first copying the original array and then sorting the
    * copy by using bubble sort from Lab00 and comparing the number of consonants each string has
    * using countConsonants before returning the sorted copy.
    */
@@ -88,19 +62,29 @@ public class WordHelper {
   }
 
   /**
-   * Count the number of consonants in a string by checking if a character is a vowel using
-   * isCharacterVowel.
+   * Sorting a String array by length through first copying the original array and then sorting the
+   * copy by using bubble sort from Lab00 and comparing the number of vowels each string has using
+   * countVowels before returning the sorted copy.
    */
-  private static int countVowels(String word) {
-    int count = 0;
+  public static String[] sortByVowels(String[] words) {
+    String[] sortedWords = words.clone();
 
-    for (int i = 0; i < word.length(); i++) {
-      if (isCharVowel(word.charAt(i))) {
-        count++;
+    boolean hasSwapped = true;
+
+    while (hasSwapped) {
+      hasSwapped = false;
+
+      for (int i = 0; i < sortedWords.length - 1; i++) {
+        if (countVowels(sortedWords[i]) > countVowels(sortedWords[i + 1])) {
+          String temp = sortedWords[i];
+          sortedWords[i] = sortedWords[i + 1];
+          sortedWords[i + 1] = temp;
+          hasSwapped = true;
+        }
       }
     }
 
-    return count;
+    return sortedWords;
   }
 
   /**
@@ -112,6 +96,22 @@ public class WordHelper {
 
     for (int i = 0; i < word.length(); i++) {
       if (!isCharVowel(word.charAt(i))) {
+        count++;
+      }
+    }
+
+    return count;
+  }
+
+  /**
+   * Count the number of consonants in a string by checking if a character is a vowel using
+   * isCharacterVowel.
+   */
+  private static int countVowels(String word) {
+    int count = 0;
+
+    for (int i = 0; i < word.length(); i++) {
+      if (isCharVowel(word.charAt(i))) {
         count++;
       }
     }

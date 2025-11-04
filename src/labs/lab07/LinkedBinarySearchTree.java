@@ -7,6 +7,16 @@
 package labs.lab07;
 
 public class LinkedBinarySearchTree<T extends Comparable<T>> {
+  private class Node {
+    T data;
+    Node leftChild;
+    Node rightChild;
+
+    Node(T data) {
+      this.data = data;
+    }
+  }
+
   private Node root;
 
   public void add(T data) {
@@ -15,6 +25,30 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> {
     }
 
     root = add(root, data);
+  }
+
+  public void printInOrder() {
+    printInOrder(root);
+  }
+
+  public void printPostOrder() {
+    printPostOrder(root);
+  }
+
+  public void printPreOrder() {
+    printPreOrder(root);
+  }
+
+  public void remove(T data) {
+    if (data == null) {
+      return;
+    }
+
+    root = remove(root, data);
+  }
+
+  public boolean search(T data) {
+    return data != null && search(root, data);
   }
 
   private Node add(Node node, T data) {
@@ -29,12 +63,38 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> {
     return node;
   }
 
-  public void remove(T data) {
-    if (data == null) {
+  private Node findMinNode(Node node) {
+    return node == null ? null : node.leftChild == null ? node : findMinNode(node.leftChild);
+  }
+
+  private void printInOrder(Node node) {
+    if (node == null) {
       return;
     }
 
-    root = remove(root, data);
+    printInOrder(node.leftChild);
+    System.out.println(node.data);
+    printInOrder(node.rightChild);
+  }
+
+  private void printPostOrder(Node node) {
+    if (node == null) {
+      return;
+    }
+
+    printPostOrder(node.leftChild);
+    printPostOrder(node.rightChild);
+    System.out.println(node.data);
+  }
+
+  private void printPreOrder(Node node) {
+    if (node == null) {
+      return;
+    }
+
+    System.out.println(node.data);
+    printPreOrder(node.leftChild);
+    printPreOrder(node.rightChild);
   }
 
   private Node remove(Node node, T data) {
@@ -67,68 +127,8 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> {
     return node;
   }
 
-  private Node findMinNode(Node node) {
-    return node == null ? null : node.leftChild == null ? node : findMinNode(node.leftChild);
-  }
-
-  public boolean search(T data) {
-    return data != null && search(root, data);
-  }
-
   private boolean search(Node node, T data) {
     return node != null && (data.compareTo(node.data) > 0 ? search(node.rightChild, data)
         : data.compareTo(node.data) >= 0 || search(node.leftChild, data));
-  }
-
-  public void printPreOrder() {
-    printPreOrder(root);
-  }
-
-  private void printPreOrder(Node node) {
-    if (node == null) {
-      return;
-    }
-
-    System.out.println(node.data);
-    printPreOrder(node.leftChild);
-    printPreOrder(node.rightChild);
-  }
-
-  public void printInOrder() {
-    printInOrder(root);
-  }
-
-  private void printInOrder(Node node) {
-    if (node == null) {
-      return;
-    }
-
-    printInOrder(node.leftChild);
-    System.out.println(node.data);
-    printInOrder(node.rightChild);
-  }
-
-  public void printPostOrder() {
-    printPostOrder(root);
-  }
-
-  private void printPostOrder(Node node) {
-    if (node == null) {
-      return;
-    }
-
-    printPostOrder(node.leftChild);
-    printPostOrder(node.rightChild);
-    System.out.println(node.data);
-  }
-
-  private class Node {
-    T data;
-    Node leftChild;
-    Node rightChild;
-
-    Node(T data) {
-      this.data = data;
-    }
   }
 }

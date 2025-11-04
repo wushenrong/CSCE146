@@ -14,6 +14,68 @@ import java.util.Scanner;
 public class Vector {
   public static final Scanner keyboardScanner = new Scanner(System.in);
 
+  /// Adds the vectors by each of its component and returns a new vector for the result.
+  ///
+  /// @param vector1 First vector to add.
+  /// @param vector2 Second vector to add.
+  /// @return A vector with the sum of the two vectors.
+  public static double[] addVectors(double[] vector1, double[] vector2) {
+    double[] output = new double[vector1.length];
+
+    for (int i = 0; i < output.length; i++) {
+      output[i] = vector1[i] + vector2[i];
+    }
+
+    return output;
+  }
+
+  /// Create a vector using an array and get vector values from the user.
+  ///
+  /// @param vectorSize The size of the vector, usually user requested.
+  /// @return A vector with user requested values.
+  public static double[] createVector(int vectorSize) {
+    double[] vector = new double[vectorSize];
+
+    for (int i = 0; i < vector.length; i++) {
+      vector[i] = keyboardScanner.nextDouble();
+      keyboardScanner.nextLine();
+    }
+
+    return vector;
+  }
+
+  /// Finding the magnitude of a vector by adding the squares of each component and then square
+  /// rooting the result using [Math].
+  ///
+  /// @param vector The vector which we get the magnitude of.
+  /// @return The magnitude of the vector.
+  public static double findVectorMagnitude(double[] vector) {
+    double magnitude = 0.0;
+
+    for (double component : vector) {
+      magnitude += Math.pow(component, 2);
+    }
+
+    return Math.sqrt(magnitude);
+  }
+
+  /// Get the size of the vector from the user. If the size is invalid, then ask the user to input a
+  /// valid size.
+  ///
+  /// @return The size of the user requested vector.
+  public static int getVectorSize() {
+    int vectorSize = keyboardScanner.nextInt();
+    keyboardScanner.nextLine();
+
+    while (vectorSize <= 0) {
+      System.out.println("Error: Invalid size. Please try again");
+      vectorSize = keyboardScanner.nextInt();
+      keyboardScanner.nextLine();
+    }
+
+    return vectorSize;
+  }
+
   /// A main method to demonstrate the vector operations functions.
   public static void main(String[] args) throws Exception {
     System.out.println("Vector Operations Program");
@@ -85,53 +147,6 @@ public class Vector {
     keyboardScanner.close();
   }
 
-  /// Get the size of the vector from the user. If the size is invalid, then ask the user to input a
-  /// valid size.
-  ///
-  /// @return The size of the user requested vector.
-  public static int getVectorSize() {
-    int vectorSize = keyboardScanner.nextInt();
-    keyboardScanner.nextLine();
-
-    while (vectorSize <= 0) {
-      System.out.println("Error: Invalid size. Please try again");
-      vectorSize = keyboardScanner.nextInt();
-      keyboardScanner.nextLine();
-    }
-
-    return vectorSize;
-  }
-
-  /// Create a vector using an array and get vector values from the user.
-  ///
-  /// @param vectorSize The size of the vector, usually user requested.
-  /// @return A vector with user requested values.
-  public static double[] createVector(int vectorSize) {
-    double[] vector = new double[vectorSize];
-
-    for (int i = 0; i < vector.length; i++) {
-      vector[i] = keyboardScanner.nextDouble();
-      keyboardScanner.nextLine();
-    }
-
-    return vector;
-  }
-
-  /// Adds the vectors by each of its component and returns a new vector for the result.
-  ///
-  /// @param vector1 First vector to add.
-  /// @param vector2 Second vector to add.
-  /// @return A vector with the sum of the two vectors.
-  public static double[] addVectors(double[] vector1, double[] vector2) {
-    double[] output = new double[vector1.length];
-
-    for (int i = 0; i < output.length; i++) {
-      output[i] = vector1[i] + vector2[i];
-    }
-
-    return output;
-  }
-
   /// Subtracts the vectors by each of its component and returns a new vector for the result.
   ///
   /// @param vector1 The vector to subtract from.
@@ -147,26 +162,11 @@ public class Vector {
     return outputVector;
   }
 
-  /// Finding the magnitude of a vector by adding the squares of each component and then square
-  /// rooting the result using [Math].
-  ///
-  /// @param vector The vector which we get the magnitude of.
-  /// @return The magnitude of the vector.
-  public static double findVectorMagnitude(double[] vector) {
-    double magnitude = 0.0;
-
-    for (double component : vector) {
-      magnitude += Math.pow(component, 2);
-    }
-
-    return Math.sqrt(magnitude);
-  }
-
   /// Returns a clean string representation with angle brackets. Example: "<1.0, 2.0, 3.0>"
   ///
   /// @param vector The vector to turn into a string representation.
   public static String vectorToString(double[] vector) {
-    StringBuffer output = new StringBuffer("<");
+    StringBuilder output = new StringBuilder("<");
 
     for (int i = 0; i < vector.length; i++) {
       output.append(vector[i]);

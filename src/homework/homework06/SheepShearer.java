@@ -33,6 +33,10 @@ public class SheepShearer {
     sheep.add(data);
   }
 
+  public boolean isDone() {
+    return currentSheep == null;
+  }
+
   /**
    * Shear a sheep by decreasing the time left to shear the sheep. If the sheep is done shearing,
    * return the sheep after a new sheep is ready to be sheared. Else return `null`.
@@ -52,9 +56,5 @@ public class SheepShearer {
     }
 
     return null;
-  }
-
-  public boolean isDone() {
-    return currentSheep == null;
   }
 }

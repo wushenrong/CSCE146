@@ -7,9 +7,9 @@
 package labs.lab05;
 
 public interface IQueue<T> {
-  void enqueue(T data);
-
   T dequeue();
+
+  void enqueue(T data);
 
   T peek();
 

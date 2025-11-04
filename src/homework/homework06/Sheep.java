@@ -28,16 +28,30 @@ public class Sheep implements Comparable<Sheep> {
     setArrivalTime(arrivalTime);
   }
 
+  @Override
+  public int compareTo(Sheep other) {
+    return other == null || shearingTime < other.shearingTime ? -1
+        : shearingTime > other.shearingTime ? 1 : name.compareTo(other.name);
+  }
+
+  public int getArrivalTime() {
+    return arrivalTime;
+  }
+
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name != null ? name : DEFAULT_NAME;
-  }
-
   public int getShearingTime() {
     return shearingTime;
+  }
+
+  public void setArrivalTime(int arrivalTime) {
+    this.arrivalTime = arrivalTime >= DEFAULT_ARRIVAL_TIME ? arrivalTime : DEFAULT_ARRIVAL_TIME;
+  }
+
+  public void setName(String name) {
+    this.name = name != null ? name : DEFAULT_NAME;
   }
 
   public void setShearingTime(int shearingTime) {
@@ -45,22 +59,8 @@ public class Sheep implements Comparable<Sheep> {
         shearingTime >= DEFAULT_SHEARING_TIME ? shearingTime : DEFAULT_SHEARING_TIME;
   }
 
-  public int getArrivalTime() {
-    return arrivalTime;
-  }
-
-  public void setArrivalTime(int arrivalTime) {
-    this.arrivalTime = arrivalTime >= DEFAULT_ARRIVAL_TIME ? arrivalTime : DEFAULT_ARRIVAL_TIME;
-  }
-
   @Override
   public String toString() {
     return "Name: " + name + ", Shear Time: " + shearingTime + ", Arrival Time: " + arrivalTime;
-  }
-
-  @Override
-  public int compareTo(Sheep other) {
-    return other == null || shearingTime < other.shearingTime ? -1
-        : shearingTime > other.shearingTime ? 1 : name.compareTo(other.name);
   }
 }

@@ -50,10 +50,6 @@ public class VideoGamesDatabaseManager {
     System.out.println("Goodbye!");
   }
 
-  public static void printGreetings() {
-    System.out.println("Welcome to the Video Games Database Manager!");
-  }
-
   public static void printChoices() {
     System.out.println();
     System.out.println("Enter 'load' to load a video games database.");
@@ -62,27 +58,8 @@ public class VideoGamesDatabaseManager {
     System.out.println("Enter 'quit' to quit the database.");
   }
 
-  /**
-   * Prompt the user the name of the game and console for searching games, or enter '*' to search
-   * all games or console. Then perform the search and checking if the search was successful. If the
-   * search was not successful, then prompt the user and return to the main menu to load a video
-   * games collection file. Else print the search results.
-   */
-  public static void searchVideoGamesDatabase() {
-    System.out.println();
-    System.out.println("Enter the name of the game or '*' for all games:");
-    String gameQuery = keyboardScanner.nextLine();
-
-    System.out.println("Enter the name of the console or '*' for all consoles:");
-    String consoleQuery = keyboardScanner.nextLine();
-
-    if (!database.searchVideoGames(gameQuery, consoleQuery)) {
-      System.out.println("Error: Something has gone wrong with the search function.");
-      System.out.println("Have you load a video game database yet?");
-      return;
-    }
-
-    printVideoGamesResult();
+  public static void printGreetings() {
+    System.out.println("Welcome to the Video Games Database Manager!");
   }
 
   /**
@@ -124,6 +101,29 @@ public class VideoGamesDatabaseManager {
     System.out.println("Enter the file name of the video games database:");
     String filename = keyboardScanner.nextLine();
     database.readVideoGameCollectionFile("./" + filename);
+  }
+
+  /**
+   * Prompt the user the name of the game and console for searching games, or enter '*' to search
+   * all games or console. Then perform the search and checking if the search was successful. If the
+   * search was not successful, then prompt the user and return to the main menu to load a video
+   * games collection file. Else print the search results.
+   */
+  public static void searchVideoGamesDatabase() {
+    System.out.println();
+    System.out.println("Enter the name of the game or '*' for all games:");
+    String gameQuery = keyboardScanner.nextLine();
+
+    System.out.println("Enter the name of the console or '*' for all consoles:");
+    String consoleQuery = keyboardScanner.nextLine();
+
+    if (!database.searchVideoGames(gameQuery, consoleQuery)) {
+      System.out.println("Error: Something has gone wrong with the search function.");
+      System.out.println("Have you load a video game database yet?");
+      return;
+    }
+
+    printVideoGamesResult();
   }
 
   /**

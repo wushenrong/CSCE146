@@ -13,6 +13,18 @@ public class RobotSimulatorFrontEnd {
 
   private static RobotSimulator simulator;
 
+  public static void createNewSimulation() {
+    simulator = new RobotSimulator();
+
+    System.out.println("Enter file name for the Board:");
+    String boardFile = keyboardScanner.nextLine();
+    simulator.readBoardFile(boardFile);
+
+    System.out.println("Enter file name for the Commands:");
+    String commandsFile = keyboardScanner.nextLine();
+    simulator.readCommandFile(commandsFile);
+  }
+
   public static void main(String[] args) {
     printGreetings();
 
@@ -82,18 +94,6 @@ public class RobotSimulatorFrontEnd {
 
   public static void printGreetings() {
     System.out.println("Welcome to the Robot Simulator");
-  }
-
-  public static void createNewSimulation() {
-    simulator = new RobotSimulator();
-
-    System.out.println("Enter file name for the Board:");
-    String boardFile = keyboardScanner.nextLine();
-    simulator.readBoardFile(boardFile);
-
-    System.out.println("Enter file name for the Commands:");
-    String commandsFile = keyboardScanner.nextLine();
-    simulator.readCommandFile(commandsFile);
   }
 
   /**

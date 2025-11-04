@@ -7,36 +7,30 @@
 package labs.lab03;
 
 public class GroceryList {
+  private class ListNode {
+    GroceryItem data;
+    ListNode link;
+
+    ListNode() {
+      data = null;
+      link = null;
+    }
+
+    ListNode(GroceryItem data, ListNode link) {
+      this.data = data;
+      this.link = link;
+    }
+  }
+
   private ListNode head;
   private ListNode current;
+
   private ListNode previous;
 
   public GroceryList() {
     head = new ListNode();
     current = head;
     previous = null;
-  }
-
-  /**
-   * Go to the next node by checking if the current reference to a node is a node, if there is a
-   * node then set the reference of the previous node to the current node and set the reference of
-   * the current node to the next node, else do nothing.
-   */
-  public void gotoNext() {
-    if (current != null) {
-      previous = current;
-      current = current.link;
-    }
-  }
-
-  public GroceryItem getCurrent() {
-    return current != null ? current.data : null;
-  }
-
-  public void setCurrent(GroceryItem data) {
-    if (current != null && data != null) {
-      current.data = data;
-    }
   }
 
   /**
@@ -83,6 +77,39 @@ public class GroceryList {
   }
 
   /**
+   * Checks if a grocery item is in the linked list by looping over the nodes from the head of the
+   * list if the nodes exist. Then checking if the contents of grocery item stored in the node
+   * equals the grocery item given, if true return true else keep going to the next node in the list
+   * until the grocery item is found, or iterated to the end of the list and return false for the
+   * item not being found.
+   */
+  public boolean contains(GroceryItem data) {
+    for (ListNode temp = head; temp != null; temp = temp.link) {
+      if (temp.data != null && temp.data.equals(data)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  public GroceryItem getCurrent() {
+    return current != null ? current.data : null;
+  }
+
+  /**
+   * Go to the next node by checking if the current reference to a node is a node, if there is a
+   * node then set the reference of the previous node to the current node and set the reference of
+   * the current node to the next node, else do nothing.
+   */
+  public void gotoNext() {
+    if (current != null) {
+      previous = current;
+      current = current.link;
+    }
+  }
+
+  /**
    * Removing the current node from the linked list by changing the link of the previous node to
    * reference the next node. Then set the reference of the current node to the next node by using
    * the previous node's link. If the current node is a reference to the head of the node, change
@@ -107,27 +134,16 @@ public class GroceryList {
     current = current.link;
   }
 
+  public void setCurrent(GroceryItem data) {
+    if (current != null && data != null) {
+      current.data = data;
+    }
+  }
+
   public void showList() {
     for (ListNode temp = head; temp != null; temp = temp.link) {
       System.out.println(temp.data);
     }
-  }
-
-  /**
-   * Checks if a grocery item is in the linked list by looping over the nodes from the head of the
-   * list if the nodes exist. Then checking if the contents of grocery item stored in the node
-   * equals the grocery item given, if true return true else keep going to the next node in the list
-   * until the grocery item is found, or iterated to the end of the list and return false for the
-   * item not being found.
-   */
-  public boolean contains(GroceryItem data) {
-    for (ListNode temp = head; temp != null; temp = temp.link) {
-      if (temp.data != null && temp.data.equals(data)) {
-        return true;
-      }
-    }
-
-    return false;
   }
 
   public double totalCost() {
@@ -140,20 +156,5 @@ public class GroceryList {
     }
 
     return totalCost;
-  }
-
-  private class ListNode {
-    GroceryItem data;
-    ListNode link;
-
-    ListNode() {
-      data = null;
-      link = null;
-    }
-
-    ListNode(GroceryItem data, ListNode link) {
-      this.data = data;
-      this.link = link;
-    }
   }
 }

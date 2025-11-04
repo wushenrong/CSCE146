@@ -29,25 +29,25 @@ public class Task {
     setAction(action);
   }
 
-  public int getPriority() {
-    return priority;
-  }
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
 
-  public void setPriority(int priority) {
-    this.priority = priority >= 0 && priority < NUMBER_OF_PRIORITIES ? priority : DEFAULT_PRIORITY;
+    if (!(obj instanceof Task other)) {
+      return false;
+    }
+
+    return priority == other.priority && Objects.equals(action, other.action);
   }
 
   public String getAction() {
     return action;
   }
 
-  public void setAction(String action) {
-    this.action = action != null ? action : DEFAULT_ACTION;
-  }
-
-  @Override
-  public String toString() {
-    return priority + DELIMITER + action;
+  public int getPriority() {
+    return priority;
   }
 
   @Override
@@ -55,17 +55,16 @@ public class Task {
     return Objects.hash(priority, action);
   }
 
+  public void setAction(String action) {
+    this.action = action != null ? action : DEFAULT_ACTION;
+  }
+
+  public void setPriority(int priority) {
+    this.priority = priority >= 0 && priority < NUMBER_OF_PRIORITIES ? priority : DEFAULT_PRIORITY;
+  }
+
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-
-    if (!(obj instanceof Task)) {
-      return false;
-    }
-
-    Task other = (Task) obj;
-    return priority == other.priority && Objects.equals(action, other.action);
+  public String toString() {
+    return priority + DELIMITER + action;
   }
 }

@@ -29,10 +29,6 @@ public class PrizeGameManager {
     init(prizeSize);
   }
 
-  public void init(int prizeSize) {
-    prizes = prizeSize >= 1 ? new Prize[prizeSize] : new Prize[DEFAULT_PRIZE_SIZE];
-  }
-
   public void addPrize(Prize prize) {
     if (prize == null) {
       return;
@@ -44,6 +40,33 @@ public class PrizeGameManager {
         break;
       }
     }
+  }
+
+  /**
+   * Check if a price guess is between the total price of game prizes minus the price tolerance for
+   * the game and the total prize of game prizes. If the guess is between the total price of game
+   * prizes minus the price tolerance and the total price of game prizes inclusive, return true.
+   * Else return false.
+   */
+  public boolean checkPriceGuess(double guess) {
+    double totalPrizePrice = getTotalPrizePrice();
+
+    return guess >= totalPrizePrice - PRICE_TOLERANCE && guess <= totalPrizePrice;
+  }
+
+  /// Returns the total price of prizes for the current game
+  public double getTotalPrizePrice() {
+    double totalPrizePrice = 0.0;
+
+    for (Prize prize : gamePrizes) {
+      totalPrizePrice += prize.getPrice();
+    }
+
+    return totalPrizePrice;
+  }
+
+  public void init(int prizeSize) {
+    prizes = prizeSize >= 1 ? new Prize[prizeSize] : new Prize[DEFAULT_PRIZE_SIZE];
   }
 
   /// Creates a new prize game by randomizing the prizes for the game from the prize list. First the
@@ -65,29 +88,6 @@ public class PrizeGameManager {
       gamePrizes[i] = prizes[gamePrize];
       i++;
     }
-  }
-
-  /// Returns the total price of prizes for the current game
-  public double getTotalPrizePrice() {
-    double totalPrizePrice = 0.0;
-
-    for (Prize prize : gamePrizes) {
-      totalPrizePrice += prize.getPrice();
-    }
-
-    return totalPrizePrice;
-  }
-
-  /**
-   * Check if a price guess is between the total price of game prizes minus the price tolerance for
-   * the game and the total prize of game prizes. If the guess is between the total price of game
-   * prizes minus the price tolerance and the total price of game prizes inclusive, return true.
-   * Else return false.
-   */
-  public boolean checkPriceGuess(double guess) {
-    double totalPrizePrice = getTotalPrizePrice();
-
-    return guess >= totalPrizePrice - PRICE_TOLERANCE && guess <= totalPrizePrice;
   }
 
   public void printGamePrizes() {
