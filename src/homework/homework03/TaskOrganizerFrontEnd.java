@@ -28,34 +28,14 @@ public class TaskOrganizerFrontEnd {
       String option = keyboardScanner.nextLine().toLowerCase();
 
       switch (option) {
-        case "add":
-          addTask();
-          break;
-
-        case "remove":
-          removeTask();
-          break;
-
-        case "print":
-          taskOrganizer.printTasks();
-          break;
-
-        case "read":
-          readTaskFile();
-          break;
-
-        case "write":
-          writeTaskFile();
-          break;
-
-        case "quit":
-          quit = true;
-          break;
-
-        default:
-          System.out.println("Sorry that is not a valid option, please try again:");
-          break;
-      }
+        case "add" -> addTask();
+        case "remove" -> removeTask();
+        case "print" -> taskOrganizer.printTasks();
+        case "read" -> readTaskFile();
+        case "write" -> writeTaskFile();
+        case "quit" -> quit = true;
+        default -> System.out.println("Sorry that is not a valid option, please try again:");
+      };
     }
 
     System.out.println("Goodbye!");

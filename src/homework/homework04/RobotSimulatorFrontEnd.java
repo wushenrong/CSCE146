@@ -42,45 +42,34 @@ public class RobotSimulatorFrontEnd {
 
       int status = simulator.startSimulation();
 
-      switch (status) {
-        case -1:
+      simulationEnded = switch (status) {
+        case -1 -> {
           System.out.println("Error: The Board is not initialized");
           simulationEnded = true;
-          break;
-
-        case 1:
+        }
+        case 1 -> {
           System.out.println("Error: The Robot cannot be placed down on an Obstacle");
           simulationEnded = true;
           simulator.printBoard();
-          break;
-
-        default:
-          simulator.printBoard();
-          break;
-      }
+        }
+        default -> simulator.printBoard();
+      };
 
       while (!simulationEnded) {
         status = simulator.runNextCommand();
 
-        switch (status) {
-          case -1:
+        simulationEnded = switch (status) {
+          case -1 -> {
             System.out.println("Error: Board is not initialized or no Commands received");
             simulationEnded = true;
-            break;
-
-          case 1:
+          }
+          case 1 -> {
             System.out.println("Error: The Robot crashed into an obstacle");
             simulationEnded = true;
-            break;
-
-          case 2:
-            simulationEnded = true;
-            break;
-
-          default:
-            simulator.printBoard();
-            break;
-        }
+          }
+          case 2 -> simulationEnded = true;
+          default -> simulator.printBoard();
+        };
       }
 
       System.out.println("Simulation End");

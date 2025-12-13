@@ -36,18 +36,10 @@ public class PrizeGameFrontEnd {
       keyboardScanner.nextLine();
 
       switch (choice) {
-        case 1:
-          newGame();
-          break;
-
-        case 2:
-          quit = true;
-          break;
-
-        default:
-          System.out.println("Sorry that is not a valid choice.");
-          break;
-      }
+        case 1 -> newGame();
+        case 2 -> quit = true;
+        default -> System.out.println("Sorry that is not a valid choice.");
+      };
     }
 
     System.out.println("Goodbye!");
