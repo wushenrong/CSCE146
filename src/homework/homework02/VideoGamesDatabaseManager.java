@@ -22,13 +22,13 @@ public class VideoGamesDatabaseManager {
 
       String choice = keyboardScanner.nextLine().toLowerCase();
 
-      quit = switch (choice) {
+      switch (choice) {
         case "quit" -> quit = true;
         case "load" -> readVideoGamesCollectionFile();
         case "search" -> searchVideoGamesDatabase();
         case "print" -> printVideoGamesResult();
         default -> System.out.println("Sorry that is not a valid option, please try again:");
-      };
+      }
     }
 
     keyboardScanner.close();

@@ -38,11 +38,11 @@ public class RobotSimulatorFrontEnd {
         break;
       }
 
-      boolean simulationEnded = false;
-
       int status = simulator.startSimulation();
 
-      simulationEnded = switch (status) {
+      boolean simulationEnded = false;
+
+      switch (status) {
         case -1 -> {
           System.out.println("Error: The Board is not initialized");
           simulationEnded = true;
@@ -53,14 +53,14 @@ public class RobotSimulatorFrontEnd {
           simulator.printBoard();
         }
         default -> simulator.printBoard();
-      };
+      }
 
       while (!simulationEnded) {
         status = simulator.runNextCommand();
 
-        simulationEnded = switch (status) {
+        switch (status) {
           case -1 -> {
-            System.out.println("Error: Board is not initialized or no Commands received");
+            System.out.println("Error: No Commands received");
             simulationEnded = true;
           }
           case 1 -> {
@@ -69,7 +69,7 @@ public class RobotSimulatorFrontEnd {
           }
           case 2 -> simulationEnded = true;
           default -> simulator.printBoard();
-        };
+        }
       }
 
       System.out.println("Simulation End");
