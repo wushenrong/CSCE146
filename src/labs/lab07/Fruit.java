@@ -47,8 +47,19 @@ public class Fruit implements Comparable<Fruit> {
    */
   @Override
   public int compareTo(Fruit other) {
-    return other == null || weight < other.weight ? -1
-        : weight > other.weight ? 1 : type.compareTo(other.type);
+    if (other == null) {
+      return -1;
+    }
+
+    if (weight < other.weight) {
+      return -1;
+    }
+
+    if (weight > other.weight) {
+      return 1;
+    }
+
+    return type.compareTo(other.type);
   }
 
   @Override

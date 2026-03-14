@@ -64,7 +64,11 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> {
   }
 
   private Node findMinNode(Node node) {
-    return node == null ? null : node.leftChild == null ? node : findMinNode(node.leftChild);
+    if (node == null) {
+      return null;
+    }
+
+    return node.leftChild == null ? node : findMinNode(node.leftChild);
   }
 
   private void printInOrder(Node node) {
@@ -128,7 +132,18 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> {
   }
 
   private boolean search(Node node, T data) {
-    return node != null && (data.compareTo(node.data) > 0 ? search(node.rightChild, data)
-        : data.compareTo(node.data) >= 0 || search(node.leftChild, data));
+    if (node == null) {
+      return false;
+    }
+
+    if (data.compareTo(node.data) > 0) {
+      return search(node.rightChild, data);
+    }
+
+    if (data.compareTo(node.data) < 0) {
+      return search(node.leftChild, data);
+    }
+
+    return true;
   }
 }
