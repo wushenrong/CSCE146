@@ -17,16 +17,19 @@ public class SortSorter {
 
   /**
    * Count the number of instance of "sort" in a string by getting the index of the first character
-   * of "sort" in the string using String.indexOf. If String.indexOf returns -1, meaning there is no
-   * "sort" in the string, return 0 for there are no "sort" in the string. Else recursively call
-   * itself with the front of the string including "sort" removed to count additional "sort" and
-   * return the result of the recursive call plus one.
+   * of "sort" in the string using String.indexOf. Keep finding "sort" and add to the counter until
+   * String.indexOf returns -1.
    */
   public static int countSorts(String string) {
+    int numberOfSorts = 0;
     int indexOfSort = string.indexOf(SORT_STRING);
 
-    return indexOfSort == -1 ? 0
-        : countSorts(string.substring(indexOfSort + SORT_STRING.length())) + 1;
+    while (indexOfSort != -1) {
+      numberOfSorts++;
+      indexOfSort = string.indexOf(SORT_STRING, indexOfSort + SORT_STRING.length());
+    }
+
+    return numberOfSorts;
   }
 
   /**

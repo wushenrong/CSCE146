@@ -87,6 +87,7 @@ public class MinHeap<T extends Comparable<T>> {
       if (heap[index].compareTo(heap[smallestIndex]) <= 0) {
         break;
       }
+
       T temp = heap[index];
       heap[index] = heap[smallestIndex];
       heap[smallestIndex] = temp;
